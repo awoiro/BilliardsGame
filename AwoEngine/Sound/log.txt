@@ -1,0 +1,51 @@
+General
+Project	Build Platform	Timestamp	Content Version
+C:\Git\AwoEngine\AwoEngine\Sound\SoundProject.xap	Windows	Thu Nov 10 17:22:01 2016	46
+
+Referenced Variables (0)
+Name	Type	Min Value	Max Value	Default Value
+
+Referenced Categories (2)
+Name	Parent	Instance Limit	Instance Limit Behavior
+Global	<none>	<none>	<none>
+Default	Global	<none>	<none>
+
+Valid Cues (3)
+Sound Bank	Name	Interactive	Looping	Instance Limit	Instance Limit Behavior	Dependant Wave Banks	Cue Instance Variables	Global Variables	Notes
+Sound Bank01	bgm1	Non-Interactive	Looping	<none>	<none>	Wave Bank01	<none>	<none>	<none>
+Sound Bank01	bgm2	Non-Interactive	Non-Looping	<none>	<none>	Wave Bank01	<none>	<none>	<none>
+Sound Bank01	bgm3	Non-Interactive	Non-Looping	<none>	<none>	Wave Bank01	<none>	<none>	<none>
+
+Referenced Wave Banks (1)
+Name	Type	Wave Names	Num Waves	Dependant Sound Banks
+Wave Bank01	In-Memory	Omitted	3	Sound Bank01
+
+Sound Banks (1)
+Name	Cue Names	Dependant Wave Banks
+Sound Bank01	Included	Wave Bank01
+
+Unreferenced Waves (0)
+
+Unreferenced Sounds (0)
+
+Unreferenced Wave Banks (0)
+
+Unreferenced Variables (4)
+Name
+OrientationAngle
+DopplerPitchScalar
+SpeedOfSound
+Distance
+
+Unreferenced Categories (1)
+Name
+Music
+
+Unreferenced RPC Presets (0)
+
+Unreferenced DSP Presets (0)
+
+Invalid Cues (0)
+
+Invalid Sounds (0)
+

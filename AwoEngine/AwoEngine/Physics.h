@@ -29,6 +29,11 @@ public:
 		Shutdown();
 	};
 
+	void StepPhysics();
+
+	PxRigidDynamic* createDynamic(const PxTransform & t, const PxGeometry & geometry, const PxVec3 & velocity);
+
+	void UpdatePVDCamera();
 private:
 
 	HRESULT Init();
@@ -84,4 +89,4 @@ private:
 
 #pragma endregion
 
-Physics* g_pPhysics = new Physics();
+//Physics* g_pPhysics = new Physics();

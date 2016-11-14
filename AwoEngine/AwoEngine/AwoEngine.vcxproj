@@ -161,16 +161,19 @@
     <ClInclude Include="Camera.h" />
     <ClInclude Include="DeviceManager.h" />
     <ClInclude Include="ErrorManager.h" />
+    <ClInclude Include="GameObject.h" />
     <ClInclude Include="Input.h" />
     <ClInclude Include="MeshData.h" />
     <ClInclude Include="Physics.h" />
     <ClInclude Include="Text.h" />
+    <ClInclude Include="Transform.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Application.cpp" />
     <ClCompile Include="Audio.cpp" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="DeviceManager.cpp" />
+    <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="Input.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MeshData.cpp" />

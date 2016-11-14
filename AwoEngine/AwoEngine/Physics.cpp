@@ -1,5 +1,11 @@
 #include "Physics.h"
 
+void Physics::StepPhysics()
+{
+	m_pScene->simulate(1.0f / 60.0f);
+	m_pScene->fetchResults(true);
+}
+
 HRESULT Physics::Init()
 {
 	HRESULT hr = E_FAIL;
@@ -14,9 +20,10 @@ HRESULT Physics::Init()
 		m_pPhysics->getVisualDebugger()->setVisualizeConstraints(true);
 		m_pPhysics->getVisualDebugger()->setVisualDebuggerFlag(PxVisualDebuggerFlag::eTRANSMIT_CONSTRAINTS, true);
 		m_pPhysics->getVisualDebugger()->setVisualDebuggerFlag(PxVisualDebuggerFlag::eTRANSMIT_SCENEQUERIES, true);
+		//m_pPhysics->getVisualDebugger()->updateCamera("camera", PxVec3(0, 0, 0), PxVec3(0, 0, 0), PxVec3(0, 1, 0));
 		m_pConnection = PxVisualDebuggerExt::createConnection(m_pPhysics->getPvdConnectionManager(), "127.0.0.1", 5425, 10);
 	}
-
+	
 	// シーンの作成
 	PxSceneDesc sceneDesc(m_pPhysics->getTolerancesScale());
 	sceneDesc.gravity = PxVec3(0.0f, -9.8f, 0.0f);
@@ -33,6 +40,11 @@ HRESULT Physics::Init()
 	PxRigidStatic* pGroundPlane = PxCreatePlane(*m_pPhysics, PxPlane(0, 1, 0, 0), *m_pMaterial);
 	m_pScene->addActor(*pGroundPlane);
 
+	// ボールの作成
+	//PxRigidDynamic* pRigid = createDynamic(PxTransform(PxVec3(10, 10, -100)), PxSphereGeometry(10), PxVec3(0, 0, 0));
+	//createDynamic(PxTransform(PxVec3(30, 30, -100)), PxSphereGeometry(10), PxVec3(0, 0, 0));
+	//createDynamic(PxTransform(PxVec3(50, 50, -100)), PxSphereGeometry(10), PxVec3(0, 0, 0));
+
 	return S_OK;
 }
 
@@ -46,4 +58,24 @@ void Physics::Shutdown()
 	m_pPhysics->release();
 	profileZoneManager->release();
 	m_pFoundation->release();
+}
+
+PxRigidDynamic * Physics::createDynamic(const PxTransform & t, const PxGeometry & geometry, const PxVec3 & velocity)
+{
+	PxRigidDynamic* dynamic = PxCreateDynamic(*m_pPhysics, t, geometry, *m_pMaterial, 10.0f);
+	dynamic->setAngularDamping(0.5f);
+	dynamic->setLinearVelocity(velocity);
+	m_pScene->addActor(*dynamic);
+	return dynamic;
+}
+
+void Physics::UpdatePVDCamera()
+{
+#if false
+	if (m_pPhysics->getPvdConnectionManager())
+	{
+		// name orizin up target
+		m_pPhysics->getVisualDebugger()->updateCamera("camera", PxVec3(0,0,-3500), PxVec3(0,0,0), PxVec3(0,1,0));
+	}
+#endif
 }

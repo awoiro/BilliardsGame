@@ -6,6 +6,8 @@
 #include "MeshData.h"
 #include "Audio.h"
 #include "Input.h"
+#include "Physics.h"
+#include "GameObject.h"
 
 class Application
 {
@@ -21,21 +23,24 @@ public:
 	{
 		pFBXFileName = strdup("ball_s.fbx");
 
-
 		m_pAudio = new Audio();
 		m_pAudio->Init();
 		m_pAudio->PlayCue(BGM1);
 		
 		m_pInput = new Input();
+		m_pPhysics = new Physics();
 	};
 	~Application()
 	{
 		TwTerminate();
 
-		m_pAudio->StopCue(BGM1);
-		
+		m_pGameObjList.clear();
+
+		delete m_pPhysics;
+
 		delete m_pInput;
 		
+		m_pAudio->StopCue(BGM1);
 		delete m_pAudio;
 
 		delete pFBXFileName;
@@ -56,7 +61,7 @@ public:
 	// mesh data
 	MeshImporter* m_pMeshManager;
 	char* pFBXFileName;
-	std::vector<MeshData*> meshDataList = std::vector<MeshData*>();
+	//std::vector<MeshData*> meshDataList = std::vector<MeshData*>();
 	
 	// antWeenBar
 	TwBar* m_pBar;
@@ -73,4 +78,10 @@ public:
 
 	// input
 	Input* m_pInput = nullptr;
+
+	// PhysX
+	Physics* m_pPhysics = nullptr;
+
+	// GameObjects
+	std::vector<GameObject*> m_pGameObjList = std::vector<GameObject*>();
 };

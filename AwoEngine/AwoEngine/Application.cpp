@@ -35,6 +35,7 @@ void Application::Init(HWND hWnd, SIZE windowSize)
 	m_pDeviceManager->InitD3D(hWnd, windowSize);
 
 	TwInit(TW_DIRECT3D11, m_pDeviceManager->m_pDevice);
+#if false
 	TwWindowSize(windowSize.cy, windowSize.cx);
 	m_pBar = TwNewBar("ModelDetail");
 	TwAddVarRW(m_pBar, "Position", TW_TYPE_DIR3F, &m_position, "");
@@ -42,16 +43,48 @@ void Application::Init(HWND hWnd, SIZE windowSize)
 	TwAddVarRW(m_pBar, "AutoRotation", TW_TYPE_BOOLCPP, &m_isAutoRotation, "");
 	TwAddVarRW(m_pBar, "AutoRotationSpeed", TW_TYPE_FLOAT, &m_autoRotationSpeed, "");
 	TwAddVarRW(m_pBar, "Scale", TW_TYPE_DIR3F, &m_scale, "");
+#endif
 
+	// 
 	m_pMeshManager = new MeshImporter();
 	m_pMeshManager->m_pDevice = m_pDeviceManager->m_pDevice;
 	m_pMeshManager->m_pDeviceContext = m_pDeviceManager->m_pDeviceContext;
 	m_pMeshManager->m_pSampleLinear = m_pDeviceManager->m_pSampleLinear;
 	m_pMeshManager->m_pConstantBuffer = m_pDeviceManager->m_pConstantBuffer1;
+
+	MeshData* pMeshData	= m_pMeshManager->CreateMeshData("ball_low.fbx");
+	
+	// 
+	Transform* pTransform = new Transform();
+	pTransform->m_position = D3DXVECTOR3(0, 5, 0);
+	pTransform->m_angle = D3DXQUATERNION(0,0,0,1);
+	pTransform->m_scale = D3DXVECTOR3(1, 1, 1);
+
+	GameObject* pBall = new GameObject(pTransform, pMeshData, m_pPhysics);
+	m_pGameObjList.push_back(pBall);
+	
+	//
+	Transform* pTransform2 = new Transform();
+	pTransform2->m_position = D3DXVECTOR3(1000, 5, 0);
+	pTransform2->m_angle = D3DXQUATERNION(0, 0, 0, 1);
+	pTransform2->m_scale = D3DXVECTOR3(1, 1, 1);
+
+	GameObject* pBall2 = new GameObject(pTransform2, pMeshData, m_pPhysics);
+	m_pGameObjList.push_back(pBall2);
 }
 
 void Application::Update(HWND hwnd, SIZE windowSize)
 {
+	for (int i = 0; i < m_pGameObjList.size(); i++)
+	{
+		m_pGameObjList[i]->Update();
+	}
+
+	if (m_pInput->GetKeyDown(DIK_R))
+	{
+		//m_pGameObjList[0]->m_pRigidBody->addForce(PxVec3(10000, 10000, 0));
+		m_pGameObjList[0]->m_pRigidBody->setLinearVelocity(PxVec3(200, 0, 0));
+	}
 
 }
 
@@ -61,6 +94,7 @@ void Application::RenderSetUp(HWND hwnd, SIZE windowSize)
 
 	if (m_pMeshManager)
 	{
+#if false
 		m_pMeshManager->m_view = m_pDeviceManager->m_view;
 		m_pMeshManager->m_proj = m_pDeviceManager->m_projection;
 
@@ -86,12 +120,22 @@ void Application::RenderSetUp(HWND hwnd, SIZE windowSize)
 		{
 			m_pMeshManager->RenderMesh(&mWorld, meshDataList[i]);
 		}
+#else
+		m_pMeshManager->m_view = m_pDeviceManager->m_view;
+		m_pMeshManager->m_proj = m_pDeviceManager->m_projection;
+		for (int i = 0; i < m_pGameObjList.size(); i++)
+		{
+			D3DXMATRIX world = m_pGameObjList[i]->m_pTransform->GetWorld();
+			MeshData* pMeshData = m_pGameObjList[i]->m_pRootMesh;
+			m_pMeshManager->RenderMesh(&world, pMeshData);
+		}
+#endif
 	}
 
 	RenderTwText(50, 50, "messageA");
 	RenderTwText(50, 62, "messageB");
 
-#if true // インプットテスト
+#if false // インプットテスト
 
 	// キーボードのインプット
 	if (m_pInput->GetKeyDown(DIK_T)) { RenderTwText(10, 10, "KeyDownT"); };
@@ -115,6 +159,17 @@ void Application::RenderSetUp(HWND hwnd, SIZE windowSize)
 
 	TwDraw();
 
+	// PhysX
+	m_pPhysics->StepPhysics();
+
+	// PhysX 移動
+	for (int i = 0; i < m_pGameObjList.size(); i++)
+	{
+		m_pGameObjList[i]->UpdatePos();
+	}
+
+
+	// 画面更新
 	m_pDeviceManager->UpdateScreen();
 }
 
@@ -145,5 +200,5 @@ void Application::MeshInitEvent()
 	//m_pMeshManager->m_pConstantBuffer = m_pDeviceManager->m_pConstantBuffer1;
 	//m_pMeshManager->CreateFromFBX(pFBXFileName);
 
-	meshDataList.push_back(m_pMeshManager->CreateMeshData(pFBXFileName));
+	//_ meshDataList.push_back(m_pMeshManager->CreateMeshData(pFBXFileName));
 }

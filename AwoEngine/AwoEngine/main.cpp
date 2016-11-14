@@ -65,12 +65,14 @@ INT WINAPI WinMain(HINSTANCE hInst, HINSTANCE hPrevInst, LPSTR szStr, INT iCmdSh
 	g_pApp = new Application;
 	g_pApp->Init(g_hWnd, windowSize);
 
+#if false
 	TwBar* pBar = TwNewBar("FBXFileImport");
 
 	TwCopyCDStringToClientFunc(CopyCDStringToClient);
 	TwAddVarRW(pBar, "FBXFileName", TW_TYPE_CDSTRING, &g_pApp->pFBXFileName, "");
 
 	TwAddButton(pBar, "ImportFBX", ImportFBXButtonClick, nullptr, "");
+#endif
 
 	// メッセージループ
 	MSG msg;

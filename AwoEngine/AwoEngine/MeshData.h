@@ -98,6 +98,11 @@ struct MeshData
 	int m_uvCount;
 	int m_polygonCount;
 
+	// meshCollider—p
+	D3DXVECTOR3* pVertexDataToCollider;
+	int *pIndexToCliider;
+	int vertexCountToCollider;
+
 };
 
 class MeshImporter

@@ -1,4 +1,359 @@
 ﻿C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppBuild.targets(392,5): warning MSB8028: The intermediate directory (..\temp\Win32\\) contains files shared from another project (AnimationEditor.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+  main.cpp
+c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(12): warning C4005: 'DXGI_STATUS_OCCLUDED': マクロが再定義されました。
+  c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50092): note: 'DXGI_STATUS_OCCLUDED' の以前の定義を確認してください
+c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(13): warning C4005: 'DXGI_STATUS_CLIPPED': マクロが再定義されました。
+  c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50101): note: 'DXGI_STATUS_CLIPPED' の以前の定義を確認してください
+c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(14): warning C4005: 'DXGI_STATUS_NO_REDIRECTION': マクロが再定義されました。
+  c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50110): note: 'DXGI_STATUS_NO_REDIRECTION' の以前の定義を確認してください
+c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(15): warning C4005: 'DXGI_STATUS_NO_DESKTOP_ACCESS': マクロが再定義されました。
+  c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50119): note: 'DXGI_STATUS_NO_DESKTOP_ACCESS' の以前の定義を確認してください
+c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(16): warning C4005: 'DXGI_STATUS_GRAPHICS_VIDPN_SOURCE_IN_USE': マクロが再定義されました。
+  c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50128): note: 'DXGI_STATUS_GRAPHICS_VIDPN_SOURCE_IN_USE' の以前の定義を確認してください
+c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(17): warning C4005: 'DXGI_STATUS_MODE_CHANGED': マクロが再定義されました。
+  c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50137): note: 'DXGI_STATUS_MODE_CHANGED' の以前の定義を確認してください
+c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(18): warning C4005: 'DXGI_STATUS_MODE_CHANGE_IN_PROGRESS': マクロが再定義されました。
+  c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50146): note: 'DXGI_STATUS_MODE_CHANGE_IN_PROGRESS' の以前の定義を確認してください
+c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(21): warning C4005: 'DXGI_ERROR_INVALID_CALL': マクロが再定義されました。
+  c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50161): note: 'DXGI_ERROR_INVALID_CALL' の以前の定義を確認してください
+c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(22): warning C4005: 'DXGI_ERROR_NOT_FOUND': マクロが再定義されました。
+  c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50170): note: 'DXGI_ERROR_NOT_FOUND' の以前の定義を確認してください
+c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(23): warning C4005: 'DXGI_ERROR_MORE_DATA': マクロが再定義されました。
+  c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50179): note: 'DXGI_ERROR_MORE_DATA' の以前の定義を確認してください
+c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(24): warning C4005: 'DXGI_ERROR_UNSUPPORTED': マクロが再定義されました。
+  c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50188): note: 'DXGI_ERROR_UNSUPPORTED' の以前の定義を確認してください
+c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(25): warning C4005: 'DXGI_ERROR_DEVICE_REMOVED': マクロが再定義されました。
+  c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50197): note: 'DXGI_ERROR_DEVICE_REMOVED' の以前の定義を確認してください
+c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(26): warning C4005: 'DXGI_ERROR_DEVICE_HUNG': マクロが再定義されました。
+  c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50206): note: 'DXGI_ERROR_DEVICE_HUNG' の以前の定義を確認してください
+c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(27): warning C4005: 'DXGI_ERROR_DEVICE_RESET': マクロが再定義されました。
+  c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50216): note: 'DXGI_ERROR_DEVICE_RESET' の以前の定義を確認してください
+c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(28): warning C4005: 'DXGI_ERROR_WAS_STILL_DRAWING': マクロが再定義されました。
+  c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50225): note: 'DXGI_ERROR_WAS_STILL_DRAWING' の以前の定義を確認してください
+c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(29): warning C4005: 'DXGI_ERROR_FRAME_STATISTICS_DISJOINT': マクロが再定義されました。
+  c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50235): note: 'DXGI_ERROR_FRAME_STATISTICS_DISJOINT' の以前の定義を確認してください
+c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(30): warning C4005: 'DXGI_ERROR_GRAPHICS_VIDPN_SOURCE_IN_USE': マクロが再定義されました。
+  c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50244): note: 'DXGI_ERROR_GRAPHICS_VIDPN_SOURCE_IN_USE' の以前の定義を確認してください
+c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(31): warning C4005: 'DXGI_ERROR_DRIVER_INTERNAL_ERROR': マクロが再定義されました。
+  c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50254): note: 'DXGI_ERROR_DRIVER_INTERNAL_ERROR' の以前の定義を確認してください
+c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(32): warning C4005: 'DXGI_ERROR_NONEXCLUSIVE': マクロが再定義されました。
+  c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50263): note: 'DXGI_ERROR_NONEXCLUSIVE' の以前の定義を確認してください
+c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(33): warning C4005: 'DXGI_ERROR_NOT_CURRENTLY_AVAILABLE': マクロが再定義されました。
+  c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50272): note: 'DXGI_ERROR_NOT_CURRENTLY_AVAILABLE' の以前の定義を確認してください
+c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(34): warning C4005: 'DXGI_ERROR_REMOTE_CLIENT_DISCONNECTED': マクロが再定義されました。
+  c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50282): note: 'DXGI_ERROR_REMOTE_CLIENT_DISCONNECTED' の以前の定義を確認してください
+c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(35): warning C4005: 'DXGI_ERROR_REMOTE_OUTOFMEMORY': マクロが再定義されました。
+  c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50291): note: 'DXGI_ERROR_REMOTE_OUTOFMEMORY' の以前の定義を確認してください
+c:\program files (x86)\microsoft directx sdk (june 2010)\include\d3d11.h(917): warning C4005: 'D3D11_ERROR_TOO_MANY_UNIQUE_STATE_OBJECTS': マクロが再定義されました。
+  c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50469): note: 'D3D11_ERROR_TOO_MANY_UNIQUE_STATE_OBJECTS' の以前の定義を確認してください
+c:\program files (x86)\microsoft directx sdk (june 2010)\include\d3d11.h(918): warning C4005: 'D3D11_ERROR_FILE_NOT_FOUND': マクロが再定義されました。
+  c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50478): note: 'D3D11_ERROR_FILE_NOT_FOUND' の以前の定義を確認してください
+c:\program files (x86)\microsoft directx sdk (june 2010)\include\d3d11.h(919): warning C4005: 'D3D11_ERROR_TOO_MANY_UNIQUE_VIEW_OBJECTS': マクロが再定義されました。
+  c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50488): note: 'D3D11_ERROR_TOO_MANY_UNIQUE_VIEW_OBJECTS' の以前の定義を確認してください
+c:\program files (x86)\microsoft directx sdk (june 2010)\include\d3d11.h(920): warning C4005: 'D3D11_ERROR_DEFERRED_CONTEXT_MAP_WITHOUT_INITIAL_DISCARD': マクロが再定義されました。
+  c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50497): note: 'D3D11_ERROR_DEFERRED_CONTEXT_MAP_WITHOUT_INITIAL_DISCARD' の以前の定義を確認してください
+c:\program files (x86)\microsoft directx sdk (june 2010)\include\d3d10.h(608): warning C4005: 'D3D10_ERROR_TOO_MANY_UNIQUE_STATE_OBJECTS': マクロが再定義されました。
+  c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50445): note: 'D3D10_ERROR_TOO_MANY_UNIQUE_STATE_OBJECTS' の以前の定義を確認してください
+c:\program files (x86)\microsoft directx sdk (june 2010)\include\d3d10.h(609): warning C4005: 'D3D10_ERROR_FILE_NOT_FOUND': マクロが再定義されました。
+  c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50454): note: 'D3D10_ERROR_FILE_NOT_FOUND' の以前の定義を確認してください
+  c:\program files (x86)\microsoft directx sdk (june 2010)\include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+c:\git\billiardsgame\awoengine\awoengine\input.h(10): warning C4005: 'SAFE_RELEASE': マクロが再定義されました。
+  c:\git\billiardsgame\awoengine\awoengine\meshdata.h(12): note: 'SAFE_RELEASE' の以前の定義を確認してください
+c:\git\billiardsgame\awoengine\awoengine\physics.h(37): error C2259: 'physx::PxTriangleMesh': 抽象クラスをインスタンス化できません。
+  c:\git\billiardsgame\awoengine\awoengine\physics.h(37): note: 次のメンバーが原因です:
+  c:\git\billiardsgame\awoengine\awoengine\physics.h(37): note: 'void physx::PxTriangleMesh::release(void)': は抽象型です
+  c:\git\billiardsgame\awoengine\thirdparty\physxsdk3.3.4\include\geometry\pxtrianglemesh.h(153): note: 'physx::PxTriangleMesh::release' の宣言を確認してください
+  c:\git\billiardsgame\awoengine\awoengine\physics.h(37): note: 'physx::PxU32 physx::PxTriangleMesh::getNbVertices(void) const': は抽象型です
+  c:\git\billiardsgame\awoengine\thirdparty\physxsdk3.3.4\include\geometry\pxtrianglemesh.h(91): note: 'physx::PxTriangleMesh::getNbVertices' の宣言を確認してください
+  c:\git\billiardsgame\awoengine\awoengine\physics.h(37): note: 'const physx::PxVec3 *physx::PxTriangleMesh::getVertices(void) const': は抽象型です
+  c:\git\billiardsgame\awoengine\thirdparty\physxsdk3.3.4\include\geometry\pxtrianglemesh.h(98): note: 'physx::PxTriangleMesh::getVertices' の宣言を確認してください
+  c:\git\billiardsgame\awoengine\awoengine\physics.h(37): note: 'physx::PxU32 physx::PxTriangleMesh::getNbTriangles(void) const': は抽象型です
+  c:\git\billiardsgame\awoengine\thirdparty\physxsdk3.3.4\include\geometry\pxtrianglemesh.h(105): note: 'physx::PxTriangleMesh::getNbTriangles' の宣言を確認してください
+  c:\git\billiardsgame\awoengine\awoengine\physics.h(37): note: 'const void *physx::PxTriangleMesh::getTriangles(void) const': は抽象型です
+  c:\git\billiardsgame\awoengine\thirdparty\physxsdk3.3.4\include\geometry\pxtrianglemesh.h(118): note: 'physx::PxTriangleMesh::getTriangles' の宣言を確認してください
+  c:\git\billiardsgame\awoengine\awoengine\physics.h(37): note: 'physx::PxTriangleMeshFlags physx::PxTriangleMesh::getTriangleMeshFlags(void) const': は抽象型です
+  c:\git\billiardsgame\awoengine\thirdparty\physxsdk3.3.4\include\geometry\pxtrianglemesh.h(129): note: 'physx::PxTriangleMesh::getTriangleMeshFlags' の宣言を確認してください
+  c:\git\billiardsgame\awoengine\awoengine\physics.h(37): note: 'const physx::PxU32 *physx::PxTriangleMesh::getTrianglesRemap(void) const': は抽象型です
+  c:\git\billiardsgame\awoengine\thirdparty\physxsdk3.3.4\include\geometry\pxtrianglemesh.h(143): note: 'physx::PxTriangleMesh::getTrianglesRemap' の宣言を確認してください
+  c:\git\billiardsgame\awoengine\awoengine\physics.h(37): note: 'physx::PxMaterialTableIndex physx::PxTriangleMesh::getTriangleMaterialIndex(physx::PxTriangleID) const': は抽象型です
+  c:\git\billiardsgame\awoengine\thirdparty\physxsdk3.3.4\include\geometry\pxtrianglemesh.h(163): note: 'physx::PxTriangleMesh::getTriangleMaterialIndex' の宣言を確認してください
+  c:\git\billiardsgame\awoengine\awoengine\physics.h(37): note: 'physx::PxBounds3 physx::PxTriangleMesh::getLocalBounds(void) const': は抽象型です
+  c:\git\billiardsgame\awoengine\thirdparty\physxsdk3.3.4\include\geometry\pxtrianglemesh.h(170): note: 'physx::PxTriangleMesh::getLocalBounds' の宣言を確認してください
+  c:\git\billiardsgame\awoengine\awoengine\physics.h(37): note: 'physx::PxU32 physx::PxTriangleMesh::getReferenceCount(void) const': は抽象型です
+  c:\git\billiardsgame\awoengine\thirdparty\physxsdk3.3.4\include\geometry\pxtrianglemesh.h(180): note: 'physx::PxTriangleMesh::getReferenceCount' の宣言を確認してください
+c:\git\billiardsgame\awoengine\awoengine\gameobject.h(14): warning C4305: '引数': 'double' から 'physx::PxReal' へ切り詰めます。
+c:\git\billiardsgame\awoengine\awoengine\application.h(24): warning C4996: 'strdup': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _strdup. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\string.h(552): note: 'strdup' の宣言を確認してください
+c:\git\billiardsgame\awoengine\awoengine\main.cpp(33): warning C4996: 'strncpy': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\string.h(346): note: 'strncpy' の宣言を確認してください
+  Physics.cpp
+c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(12): warning C4005: 'DXGI_STATUS_OCCLUDED': マクロが再定義されました。
+  c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50092): note: 'DXGI_STATUS_OCCLUDED' の以前の定義を確認してください
+c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(13): warning C4005: 'DXGI_STATUS_CLIPPED': マクロが再定義されました。
+  c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50101): note: 'DXGI_STATUS_CLIPPED' の以前の定義を確認してください
+c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(14): warning C4005: 'DXGI_STATUS_NO_REDIRECTION': マクロが再定義されました。
+  c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50110): note: 'DXGI_STATUS_NO_REDIRECTION' の以前の定義を確認してください
+c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(15): warning C4005: 'DXGI_STATUS_NO_DESKTOP_ACCESS': マクロが再定義されました。
+  c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50119): note: 'DXGI_STATUS_NO_DESKTOP_ACCESS' の以前の定義を確認してください
+c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(16): warning C4005: 'DXGI_STATUS_GRAPHICS_VIDPN_SOURCE_IN_USE': マクロが再定義されました。
+  c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50128): note: 'DXGI_STATUS_GRAPHICS_VIDPN_SOURCE_IN_USE' の以前の定義を確認してください
+c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(17): warning C4005: 'DXGI_STATUS_MODE_CHANGED': マクロが再定義されました。
+  c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50137): note: 'DXGI_STATUS_MODE_CHANGED' の以前の定義を確認してください
+c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(18): warning C4005: 'DXGI_STATUS_MODE_CHANGE_IN_PROGRESS': マクロが再定義されました。
+  c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50146): note: 'DXGI_STATUS_MODE_CHANGE_IN_PROGRESS' の以前の定義を確認してください
+c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(21): warning C4005: 'DXGI_ERROR_INVALID_CALL': マクロが再定義されました。
+  c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50161): note: 'DXGI_ERROR_INVALID_CALL' の以前の定義を確認してください
+c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(22): warning C4005: 'DXGI_ERROR_NOT_FOUND': マクロが再定義されました。
+  c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50170): note: 'DXGI_ERROR_NOT_FOUND' の以前の定義を確認してください
+c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(23): warning C4005: 'DXGI_ERROR_MORE_DATA': マクロが再定義されました。
+  c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50179): note: 'DXGI_ERROR_MORE_DATA' の以前の定義を確認してください
+c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(24): warning C4005: 'DXGI_ERROR_UNSUPPORTED': マクロが再定義されました。
+  c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50188): note: 'DXGI_ERROR_UNSUPPORTED' の以前の定義を確認してください
+c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(25): warning C4005: 'DXGI_ERROR_DEVICE_REMOVED': マクロが再定義されました。
+  c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50197): note: 'DXGI_ERROR_DEVICE_REMOVED' の以前の定義を確認してください
+c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(26): warning C4005: 'DXGI_ERROR_DEVICE_HUNG': マクロが再定義されました。
+  c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50206): note: 'DXGI_ERROR_DEVICE_HUNG' の以前の定義を確認してください
+c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(27): warning C4005: 'DXGI_ERROR_DEVICE_RESET': マクロが再定義されました。
+  c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50216): note: 'DXGI_ERROR_DEVICE_RESET' の以前の定義を確認してください
+c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(28): warning C4005: 'DXGI_ERROR_WAS_STILL_DRAWING': マクロが再定義されました。
+  c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50225): note: 'DXGI_ERROR_WAS_STILL_DRAWING' の以前の定義を確認してください
+c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(29): warning C4005: 'DXGI_ERROR_FRAME_STATISTICS_DISJOINT': マクロが再定義されました。
+  c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50235): note: 'DXGI_ERROR_FRAME_STATISTICS_DISJOINT' の以前の定義を確認してください
+c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(30): warning C4005: 'DXGI_ERROR_GRAPHICS_VIDPN_SOURCE_IN_USE': マクロが再定義されました。
+  c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50244): note: 'DXGI_ERROR_GRAPHICS_VIDPN_SOURCE_IN_USE' の以前の定義を確認してください
+c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(31): warning C4005: 'DXGI_ERROR_DRIVER_INTERNAL_ERROR': マクロが再定義されました。
+  c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50254): note: 'DXGI_ERROR_DRIVER_INTERNAL_ERROR' の以前の定義を確認してください
+c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(32): warning C4005: 'DXGI_ERROR_NONEXCLUSIVE': マクロが再定義されました。
+  c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50263): note: 'DXGI_ERROR_NONEXCLUSIVE' の以前の定義を確認してください
+c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(33): warning C4005: 'DXGI_ERROR_NOT_CURRENTLY_AVAILABLE': マクロが再定義されました。
+  c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50272): note: 'DXGI_ERROR_NOT_CURRENTLY_AVAILABLE' の以前の定義を確認してください
+c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(34): warning C4005: 'DXGI_ERROR_REMOTE_CLIENT_DISCONNECTED': マクロが再定義されました。
+  c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50282): note: 'DXGI_ERROR_REMOTE_CLIENT_DISCONNECTED' の以前の定義を確認してください
+c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(35): warning C4005: 'DXGI_ERROR_REMOTE_OUTOFMEMORY': マクロが再定義されました。
+  c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50291): note: 'DXGI_ERROR_REMOTE_OUTOFMEMORY' の以前の定義を確認してください
+c:\program files (x86)\microsoft directx sdk (june 2010)\include\d3d11.h(917): warning C4005: 'D3D11_ERROR_TOO_MANY_UNIQUE_STATE_OBJECTS': マクロが再定義されました。
+  c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50469): note: 'D3D11_ERROR_TOO_MANY_UNIQUE_STATE_OBJECTS' の以前の定義を確認してください
+c:\program files (x86)\microsoft directx sdk (june 2010)\include\d3d11.h(918): warning C4005: 'D3D11_ERROR_FILE_NOT_FOUND': マクロが再定義されました。
+  c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50478): note: 'D3D11_ERROR_FILE_NOT_FOUND' の以前の定義を確認してください
+c:\program files (x86)\microsoft directx sdk (june 2010)\include\d3d11.h(919): warning C4005: 'D3D11_ERROR_TOO_MANY_UNIQUE_VIEW_OBJECTS': マクロが再定義されました。
+  c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50488): note: 'D3D11_ERROR_TOO_MANY_UNIQUE_VIEW_OBJECTS' の以前の定義を確認してください
+c:\program files (x86)\microsoft directx sdk (june 2010)\include\d3d11.h(920): warning C4005: 'D3D11_ERROR_DEFERRED_CONTEXT_MAP_WITHOUT_INITIAL_DISCARD': マクロが再定義されました。
+  c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50497): note: 'D3D11_ERROR_DEFERRED_CONTEXT_MAP_WITHOUT_INITIAL_DISCARD' の以前の定義を確認してください
+c:\program files (x86)\microsoft directx sdk (june 2010)\include\d3d10.h(608): warning C4005: 'D3D10_ERROR_TOO_MANY_UNIQUE_STATE_OBJECTS': マクロが再定義されました。
+  c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50445): note: 'D3D10_ERROR_TOO_MANY_UNIQUE_STATE_OBJECTS' の以前の定義を確認してください
+c:\program files (x86)\microsoft directx sdk (june 2010)\include\d3d10.h(609): warning C4005: 'D3D10_ERROR_FILE_NOT_FOUND': マクロが再定義されました。
+  c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50454): note: 'D3D10_ERROR_FILE_NOT_FOUND' の以前の定義を確認してください
+c:\git\billiardsgame\awoengine\awoengine\physics.h(37): error C2259: 'physx::PxTriangleMesh': 抽象クラスをインスタンス化できません。
+  c:\git\billiardsgame\awoengine\awoengine\physics.h(37): note: 次のメンバーが原因です:
+  c:\git\billiardsgame\awoengine\awoengine\physics.h(37): note: 'void physx::PxTriangleMesh::release(void)': は抽象型です
+  c:\git\billiardsgame\awoengine\thirdparty\physxsdk3.3.4\include\geometry\pxtrianglemesh.h(153): note: 'physx::PxTriangleMesh::release' の宣言を確認してください
+  c:\git\billiardsgame\awoengine\awoengine\physics.h(37): note: 'physx::PxU32 physx::PxTriangleMesh::getNbVertices(void) const': は抽象型です
+  c:\git\billiardsgame\awoengine\thirdparty\physxsdk3.3.4\include\geometry\pxtrianglemesh.h(91): note: 'physx::PxTriangleMesh::getNbVertices' の宣言を確認してください
+  c:\git\billiardsgame\awoengine\awoengine\physics.h(37): note: 'const physx::PxVec3 *physx::PxTriangleMesh::getVertices(void) const': は抽象型です
+  c:\git\billiardsgame\awoengine\thirdparty\physxsdk3.3.4\include\geometry\pxtrianglemesh.h(98): note: 'physx::PxTriangleMesh::getVertices' の宣言を確認してください
+  c:\git\billiardsgame\awoengine\awoengine\physics.h(37): note: 'physx::PxU32 physx::PxTriangleMesh::getNbTriangles(void) const': は抽象型です
+  c:\git\billiardsgame\awoengine\thirdparty\physxsdk3.3.4\include\geometry\pxtrianglemesh.h(105): note: 'physx::PxTriangleMesh::getNbTriangles' の宣言を確認してください
+  c:\git\billiardsgame\awoengine\awoengine\physics.h(37): note: 'const void *physx::PxTriangleMesh::getTriangles(void) const': は抽象型です
+  c:\git\billiardsgame\awoengine\thirdparty\physxsdk3.3.4\include\geometry\pxtrianglemesh.h(118): note: 'physx::PxTriangleMesh::getTriangles' の宣言を確認してください
+  c:\git\billiardsgame\awoengine\awoengine\physics.h(37): note: 'physx::PxTriangleMeshFlags physx::PxTriangleMesh::getTriangleMeshFlags(void) const': は抽象型です
+  c:\git\billiardsgame\awoengine\thirdparty\physxsdk3.3.4\include\geometry\pxtrianglemesh.h(129): note: 'physx::PxTriangleMesh::getTriangleMeshFlags' の宣言を確認してください
+  c:\git\billiardsgame\awoengine\awoengine\physics.h(37): note: 'const physx::PxU32 *physx::PxTriangleMesh::getTrianglesRemap(void) const': は抽象型です
+  c:\git\billiardsgame\awoengine\thirdparty\physxsdk3.3.4\include\geometry\pxtrianglemesh.h(143): note: 'physx::PxTriangleMesh::getTrianglesRemap' の宣言を確認してください
+  c:\git\billiardsgame\awoengine\awoengine\physics.h(37): note: 'physx::PxMaterialTableIndex physx::PxTriangleMesh::getTriangleMaterialIndex(physx::PxTriangleID) const': は抽象型です
+  c:\git\billiardsgame\awoengine\thirdparty\physxsdk3.3.4\include\geometry\pxtrianglemesh.h(163): note: 'physx::PxTriangleMesh::getTriangleMaterialIndex' の宣言を確認してください
+  c:\git\billiardsgame\awoengine\awoengine\physics.h(37): note: 'physx::PxBounds3 physx::PxTriangleMesh::getLocalBounds(void) const': は抽象型です
+  c:\git\billiardsgame\awoengine\thirdparty\physxsdk3.3.4\include\geometry\pxtrianglemesh.h(170): note: 'physx::PxTriangleMesh::getLocalBounds' の宣言を確認してください
+  c:\git\billiardsgame\awoengine\awoengine\physics.h(37): note: 'physx::PxU32 physx::PxTriangleMesh::getReferenceCount(void) const': は抽象型です
+  c:\git\billiardsgame\awoengine\thirdparty\physxsdk3.3.4\include\geometry\pxtrianglemesh.h(180): note: 'physx::PxTriangleMesh::getReferenceCount' の宣言を確認してください
+c:\git\billiardsgame\awoengine\awoengine\physics.cpp(73): error C2259: 'physx::PxTriangleMesh': 抽象クラスをインスタンス化できません。
+  c:\git\billiardsgame\awoengine\awoengine\physics.cpp(73): note: 次のメンバーが原因です:
+  c:\git\billiardsgame\awoengine\awoengine\physics.cpp(73): note: 'void physx::PxTriangleMesh::release(void)': は抽象型です
+  c:\git\billiardsgame\awoengine\thirdparty\physxsdk3.3.4\include\geometry\pxtrianglemesh.h(153): note: 'physx::PxTriangleMesh::release' の宣言を確認してください
+  c:\git\billiardsgame\awoengine\awoengine\physics.cpp(73): note: 'physx::PxU32 physx::PxTriangleMesh::getNbVertices(void) const': は抽象型です
+  c:\git\billiardsgame\awoengine\thirdparty\physxsdk3.3.4\include\geometry\pxtrianglemesh.h(91): note: 'physx::PxTriangleMesh::getNbVertices' の宣言を確認してください
+  c:\git\billiardsgame\awoengine\awoengine\physics.cpp(73): note: 'const physx::PxVec3 *physx::PxTriangleMesh::getVertices(void) const': は抽象型です
+  c:\git\billiardsgame\awoengine\thirdparty\physxsdk3.3.4\include\geometry\pxtrianglemesh.h(98): note: 'physx::PxTriangleMesh::getVertices' の宣言を確認してください
+  c:\git\billiardsgame\awoengine\awoengine\physics.cpp(73): note: 'physx::PxU32 physx::PxTriangleMesh::getNbTriangles(void) const': は抽象型です
+  c:\git\billiardsgame\awoengine\thirdparty\physxsdk3.3.4\include\geometry\pxtrianglemesh.h(105): note: 'physx::PxTriangleMesh::getNbTriangles' の宣言を確認してください
+  c:\git\billiardsgame\awoengine\awoengine\physics.cpp(73): note: 'const void *physx::PxTriangleMesh::getTriangles(void) const': は抽象型です
+  c:\git\billiardsgame\awoengine\thirdparty\physxsdk3.3.4\include\geometry\pxtrianglemesh.h(118): note: 'physx::PxTriangleMesh::getTriangles' の宣言を確認してください
+  c:\git\billiardsgame\awoengine\awoengine\physics.cpp(73): note: 'physx::PxTriangleMeshFlags physx::PxTriangleMesh::getTriangleMeshFlags(void) const': は抽象型です
+  c:\git\billiardsgame\awoengine\thirdparty\physxsdk3.3.4\include\geometry\pxtrianglemesh.h(129): note: 'physx::PxTriangleMesh::getTriangleMeshFlags' の宣言を確認してください
+  c:\git\billiardsgame\awoengine\awoengine\physics.cpp(73): note: 'const physx::PxU32 *physx::PxTriangleMesh::getTrianglesRemap(void) const': は抽象型です
+  c:\git\billiardsgame\awoengine\thirdparty\physxsdk3.3.4\include\geometry\pxtrianglemesh.h(143): note: 'physx::PxTriangleMesh::getTrianglesRemap' の宣言を確認してください
+  c:\git\billiardsgame\awoengine\awoengine\physics.cpp(73): note: 'physx::PxMaterialTableIndex physx::PxTriangleMesh::getTriangleMaterialIndex(physx::PxTriangleID) const': は抽象型です
+  c:\git\billiardsgame\awoengine\thirdparty\physxsdk3.3.4\include\geometry\pxtrianglemesh.h(163): note: 'physx::PxTriangleMesh::getTriangleMaterialIndex' の宣言を確認してください
+  c:\git\billiardsgame\awoengine\awoengine\physics.cpp(73): note: 'physx::PxBounds3 physx::PxTriangleMesh::getLocalBounds(void) const': は抽象型です
+  c:\git\billiardsgame\awoengine\thirdparty\physxsdk3.3.4\include\geometry\pxtrianglemesh.h(170): note: 'physx::PxTriangleMesh::getLocalBounds' の宣言を確認してください
+  c:\git\billiardsgame\awoengine\awoengine\physics.cpp(73): note: 'physx::PxU32 physx::PxTriangleMesh::getReferenceCount(void) const': は抽象型です
+  c:\git\billiardsgame\awoengine\thirdparty\physxsdk3.3.4\include\geometry\pxtrianglemesh.h(180): note: 'physx::PxTriangleMesh::getReferenceCount' の宣言を確認してください
+c:\git\billiardsgame\awoengine\awoengine\physics.cpp(73): error C2511: 'physx::PxTriangleMesh Physics::createTriangleMesh(void)': オーバーロードされたメンバー関数が 'Physics' にありません。
+  c:\git\billiardsgame\awoengine\awoengine\physics.h(20): note: 'Physics' の宣言を確認してください
+c:\git\billiardsgame\awoengine\awoengine\physics.cpp(79): error C2065: 'Pxm': 定義されていない識別子です。
+c:\git\billiardsgame\awoengine\awoengine\physics.cpp(80): error C2143: 構文エラー: ';' が 'return' の前にありません。
+  MeshData.cpp
+c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(12): warning C4005: 'DXGI_STATUS_OCCLUDED': マクロが再定義されました。
+  c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50092): note: 'DXGI_STATUS_OCCLUDED' の以前の定義を確認してください
+c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(13): warning C4005: 'DXGI_STATUS_CLIPPED': マクロが再定義されました。
+  c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50101): note: 'DXGI_STATUS_CLIPPED' の以前の定義を確認してください
+c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(14): warning C4005: 'DXGI_STATUS_NO_REDIRECTION': マクロが再定義されました。
+  c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50110): note: 'DXGI_STATUS_NO_REDIRECTION' の以前の定義を確認してください
+c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(15): warning C4005: 'DXGI_STATUS_NO_DESKTOP_ACCESS': マクロが再定義されました。
+  c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50119): note: 'DXGI_STATUS_NO_DESKTOP_ACCESS' の以前の定義を確認してください
+c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(16): warning C4005: 'DXGI_STATUS_GRAPHICS_VIDPN_SOURCE_IN_USE': マクロが再定義されました。
+  c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50128): note: 'DXGI_STATUS_GRAPHICS_VIDPN_SOURCE_IN_USE' の以前の定義を確認してください
+c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(17): warning C4005: 'DXGI_STATUS_MODE_CHANGED': マクロが再定義されました。
+  c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50137): note: 'DXGI_STATUS_MODE_CHANGED' の以前の定義を確認してください
+c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(18): warning C4005: 'DXGI_STATUS_MODE_CHANGE_IN_PROGRESS': マクロが再定義されました。
+  c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50146): note: 'DXGI_STATUS_MODE_CHANGE_IN_PROGRESS' の以前の定義を確認してください
+c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(21): warning C4005: 'DXGI_ERROR_INVALID_CALL': マクロが再定義されました。
+  c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50161): note: 'DXGI_ERROR_INVALID_CALL' の以前の定義を確認してください
+c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(22): warning C4005: 'DXGI_ERROR_NOT_FOUND': マクロが再定義されました。
+  c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50170): note: 'DXGI_ERROR_NOT_FOUND' の以前の定義を確認してください
+c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(23): warning C4005: 'DXGI_ERROR_MORE_DATA': マクロが再定義されました。
+  c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50179): note: 'DXGI_ERROR_MORE_DATA' の以前の定義を確認してください
+c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(24): warning C4005: 'DXGI_ERROR_UNSUPPORTED': マクロが再定義されました。
+  c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50188): note: 'DXGI_ERROR_UNSUPPORTED' の以前の定義を確認してください
+c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(25): warning C4005: 'DXGI_ERROR_DEVICE_REMOVED': マクロが再定義されました。
+  c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50197): note: 'DXGI_ERROR_DEVICE_REMOVED' の以前の定義を確認してください
+c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(26): warning C4005: 'DXGI_ERROR_DEVICE_HUNG': マクロが再定義されました。
+  c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50206): note: 'DXGI_ERROR_DEVICE_HUNG' の以前の定義を確認してください
+c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(27): warning C4005: 'DXGI_ERROR_DEVICE_RESET': マクロが再定義されました。
+  c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50216): note: 'DXGI_ERROR_DEVICE_RESET' の以前の定義を確認してください
+c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(28): warning C4005: 'DXGI_ERROR_WAS_STILL_DRAWING': マクロが再定義されました。
+  c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50225): note: 'DXGI_ERROR_WAS_STILL_DRAWING' の以前の定義を確認してください
+c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(29): warning C4005: 'DXGI_ERROR_FRAME_STATISTICS_DISJOINT': マクロが再定義されました。
+  c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50235): note: 'DXGI_ERROR_FRAME_STATISTICS_DISJOINT' の以前の定義を確認してください
+c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(30): warning C4005: 'DXGI_ERROR_GRAPHICS_VIDPN_SOURCE_IN_USE': マクロが再定義されました。
+  c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50244): note: 'DXGI_ERROR_GRAPHICS_VIDPN_SOURCE_IN_USE' の以前の定義を確認してください
+c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(31): warning C4005: 'DXGI_ERROR_DRIVER_INTERNAL_ERROR': マクロが再定義されました。
+  c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50254): note: 'DXGI_ERROR_DRIVER_INTERNAL_ERROR' の以前の定義を確認してください
+c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(32): warning C4005: 'DXGI_ERROR_NONEXCLUSIVE': マクロが再定義されました。
+  c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50263): note: 'DXGI_ERROR_NONEXCLUSIVE' の以前の定義を確認してください
+c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(33): warning C4005: 'DXGI_ERROR_NOT_CURRENTLY_AVAILABLE': マクロが再定義されました。
+  c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50272): note: 'DXGI_ERROR_NOT_CURRENTLY_AVAILABLE' の以前の定義を確認してください
+c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(34): warning C4005: 'DXGI_ERROR_REMOTE_CLIENT_DISCONNECTED': マクロが再定義されました。
+  c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50282): note: 'DXGI_ERROR_REMOTE_CLIENT_DISCONNECTED' の以前の定義を確認してください
+c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(35): warning C4005: 'DXGI_ERROR_REMOTE_OUTOFMEMORY': マクロが再定義されました。
+  c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50291): note: 'DXGI_ERROR_REMOTE_OUTOFMEMORY' の以前の定義を確認してください
+c:\program files (x86)\microsoft directx sdk (june 2010)\include\d3d11.h(917): warning C4005: 'D3D11_ERROR_TOO_MANY_UNIQUE_STATE_OBJECTS': マクロが再定義されました。
+  c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50469): note: 'D3D11_ERROR_TOO_MANY_UNIQUE_STATE_OBJECTS' の以前の定義を確認してください
+c:\program files (x86)\microsoft directx sdk (june 2010)\include\d3d11.h(918): warning C4005: 'D3D11_ERROR_FILE_NOT_FOUND': マクロが再定義されました。
+  c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50478): note: 'D3D11_ERROR_FILE_NOT_FOUND' の以前の定義を確認してください
+c:\program files (x86)\microsoft directx sdk (june 2010)\include\d3d11.h(919): warning C4005: 'D3D11_ERROR_TOO_MANY_UNIQUE_VIEW_OBJECTS': マクロが再定義されました。
+  c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50488): note: 'D3D11_ERROR_TOO_MANY_UNIQUE_VIEW_OBJECTS' の以前の定義を確認してください
+c:\program files (x86)\microsoft directx sdk (june 2010)\include\d3d11.h(920): warning C4005: 'D3D11_ERROR_DEFERRED_CONTEXT_MAP_WITHOUT_INITIAL_DISCARD': マクロが再定義されました。
+  c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50497): note: 'D3D11_ERROR_DEFERRED_CONTEXT_MAP_WITHOUT_INITIAL_DISCARD' の以前の定義を確認してください
+c:\program files (x86)\microsoft directx sdk (june 2010)\include\d3d10.h(608): warning C4005: 'D3D10_ERROR_TOO_MANY_UNIQUE_STATE_OBJECTS': マクロが再定義されました。
+  c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50445): note: 'D3D10_ERROR_TOO_MANY_UNIQUE_STATE_OBJECTS' の以前の定義を確認してください
+c:\program files (x86)\microsoft directx sdk (june 2010)\include\d3d10.h(609): warning C4005: 'D3D10_ERROR_FILE_NOT_FOUND': マクロが再定義されました。
+  c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50454): note: 'D3D10_ERROR_FILE_NOT_FOUND' の以前の定義を確認してください
+c:\git\billiardsgame\awoengine\awoengine\meshdata.cpp(69): warning C4244: '=': 'double' から 'FLOAT' への変換です。データが失われる可能性があります。
+c:\git\billiardsgame\awoengine\awoengine\meshdata.cpp(265): warning C4244: '=': 'fbxsdk::FbxDouble' から 'float' への変換です。データが失われる可能性があります。
+c:\git\billiardsgame\awoengine\awoengine\meshdata.cpp(266): warning C4244: '=': 'fbxsdk::FbxDouble' から 'float' への変換です。データが失われる可能性があります。
+c:\git\billiardsgame\awoengine\awoengine\meshdata.cpp(267): warning C4244: '=': 'fbxsdk::FbxDouble' から 'float' への変換です。データが失われる可能性があります。
+c:\git\billiardsgame\awoengine\awoengine\meshdata.cpp(270): warning C4244: '=': 'fbxsdk::FbxDouble' から 'float' への変換です。データが失われる可能性があります。
+c:\git\billiardsgame\awoengine\awoengine\meshdata.cpp(271): warning C4244: '=': 'fbxsdk::FbxDouble' から 'float' への変換です。データが失われる可能性があります。
+c:\git\billiardsgame\awoengine\awoengine\meshdata.cpp(272): warning C4244: '=': 'fbxsdk::FbxDouble' から 'float' への変換です。データが失われる可能性があります。
+c:\git\billiardsgame\awoengine\awoengine\meshdata.cpp(275): warning C4244: '=': 'fbxsdk::FbxDouble' から 'float' への変換です。データが失われる可能性があります。
+c:\git\billiardsgame\awoengine\awoengine\meshdata.cpp(276): warning C4244: '=': 'fbxsdk::FbxDouble' から 'float' への変換です。データが失われる可能性があります。
+c:\git\billiardsgame\awoengine\awoengine\meshdata.cpp(277): warning C4244: '=': 'fbxsdk::FbxDouble' から 'float' への変換です。データが失われる可能性があります。
+c:\git\billiardsgame\awoengine\awoengine\meshdata.cpp(282): warning C4244: '=': 'fbxsdk::FbxDouble' から 'float' への変換です。データが失われる可能性があります。
+c:\git\billiardsgame\awoengine\awoengine\meshdata.cpp(283): warning C4244: '=': 'fbxsdk::FbxDouble' から 'float' への変換です。データが失われる可能性があります。
+c:\git\billiardsgame\awoengine\awoengine\meshdata.cpp(284): warning C4244: '=': 'fbxsdk::FbxDouble' から 'float' への変換です。データが失われる可能性があります。
+c:\git\billiardsgame\awoengine\awoengine\meshdata.cpp(287): warning C4244: '=': 'fbxsdk::FbxDouble' から 'float' への変換です。データが失われる可能性があります。
+c:\git\billiardsgame\awoengine\awoengine\meshdata.cpp(288): warning C4244: '=': 'fbxsdk::FbxDouble' から 'float' への変換です。データが失われる可能性があります。
+c:\git\billiardsgame\awoengine\awoengine\meshdata.cpp(289): warning C4244: '=': 'fbxsdk::FbxDouble' から 'float' への変換です。データが失われる可能性があります。
+c:\git\billiardsgame\awoengine\awoengine\meshdata.cpp(292): warning C4244: '=': 'fbxsdk::FbxDouble' から 'float' への変換です。データが失われる可能性があります。
+c:\git\billiardsgame\awoengine\awoengine\meshdata.cpp(293): warning C4244: '=': 'fbxsdk::FbxDouble' から 'float' への変換です。データが失われる可能性があります。
+c:\git\billiardsgame\awoengine\awoengine\meshdata.cpp(294): warning C4244: '=': 'fbxsdk::FbxDouble' から 'float' への変換です。データが失われる可能性があります。
+c:\git\billiardsgame\awoengine\awoengine\meshdata.cpp(308): warning C4244: '=': 'fbxsdk::FbxDouble' から 'FLOAT' への変換です。データが失われる可能性があります。
+c:\git\billiardsgame\awoengine\awoengine\meshdata.cpp(309): warning C4244: '=': 'fbxsdk::FbxDouble' から 'FLOAT' への変換です。データが失われる可能性があります。
+c:\git\billiardsgame\awoengine\awoengine\meshdata.cpp(313): warning C4244: '=': 'fbxsdk::FbxDouble' から 'FLOAT' への変換です。データが失われる可能性があります。
+c:\git\billiardsgame\awoengine\awoengine\meshdata.cpp(314): warning C4244: '=': 'fbxsdk::FbxDouble' から 'FLOAT' への変換です。データが失われる可能性があります。
+c:\git\billiardsgame\awoengine\awoengine\meshdata.cpp(318): warning C4244: '=': 'fbxsdk::FbxDouble' から 'FLOAT' への変換です。データが失われる可能性があります。
+c:\git\billiardsgame\awoengine\awoengine\meshdata.cpp(319): warning C4244: '=': 'fbxsdk::FbxDouble' から 'FLOAT' への変換です。データが失われる可能性があります。
+c:\git\billiardsgame\awoengine\awoengine\meshdata.cpp(474): warning C4018: '<': signed と unsigned の数値を比較しようとしました。
+  GameObject.cpp
+c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(12): warning C4005: 'DXGI_STATUS_OCCLUDED': マクロが再定義されました。
+  c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50092): note: 'DXGI_STATUS_OCCLUDED' の以前の定義を確認してください
+c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(13): warning C4005: 'DXGI_STATUS_CLIPPED': マクロが再定義されました。
+  c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50101): note: 'DXGI_STATUS_CLIPPED' の以前の定義を確認してください
+c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(14): warning C4005: 'DXGI_STATUS_NO_REDIRECTION': マクロが再定義されました。
+  c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50110): note: 'DXGI_STATUS_NO_REDIRECTION' の以前の定義を確認してください
+c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(15): warning C4005: 'DXGI_STATUS_NO_DESKTOP_ACCESS': マクロが再定義されました。
+  c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50119): note: 'DXGI_STATUS_NO_DESKTOP_ACCESS' の以前の定義を確認してください
+c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(16): warning C4005: 'DXGI_STATUS_GRAPHICS_VIDPN_SOURCE_IN_USE': マクロが再定義されました。
+  c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50128): note: 'DXGI_STATUS_GRAPHICS_VIDPN_SOURCE_IN_USE' の以前の定義を確認してください
+c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(17): warning C4005: 'DXGI_STATUS_MODE_CHANGED': マクロが再定義されました。
+  c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50137): note: 'DXGI_STATUS_MODE_CHANGED' の以前の定義を確認してください
+c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(18): warning C4005: 'DXGI_STATUS_MODE_CHANGE_IN_PROGRESS': マクロが再定義されました。
+  c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50146): note: 'DXGI_STATUS_MODE_CHANGE_IN_PROGRESS' の以前の定義を確認してください
+c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(21): warning C4005: 'DXGI_ERROR_INVALID_CALL': マクロが再定義されました。
+  c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50161): note: 'DXGI_ERROR_INVALID_CALL' の以前の定義を確認してください
+c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(22): warning C4005: 'DXGI_ERROR_NOT_FOUND': マクロが再定義されました。
+  c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50170): note: 'DXGI_ERROR_NOT_FOUND' の以前の定義を確認してください
+c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(23): warning C4005: 'DXGI_ERROR_MORE_DATA': マクロが再定義されました。
+  c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50179): note: 'DXGI_ERROR_MORE_DATA' の以前の定義を確認してください
+c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(24): warning C4005: 'DXGI_ERROR_UNSUPPORTED': マクロが再定義されました。
+  c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50188): note: 'DXGI_ERROR_UNSUPPORTED' の以前の定義を確認してください
+c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(25): warning C4005: 'DXGI_ERROR_DEVICE_REMOVED': マクロが再定義されました。
+  c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50197): note: 'DXGI_ERROR_DEVICE_REMOVED' の以前の定義を確認してください
+c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(26): warning C4005: 'DXGI_ERROR_DEVICE_HUNG': マクロが再定義されました。
+  c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50206): note: 'DXGI_ERROR_DEVICE_HUNG' の以前の定義を確認してください
+c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(27): warning C4005: 'DXGI_ERROR_DEVICE_RESET': マクロが再定義されました。
+  c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50216): note: 'DXGI_ERROR_DEVICE_RESET' の以前の定義を確認してください
+c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(28): warning C4005: 'DXGI_ERROR_WAS_STILL_DRAWING': マクロが再定義されました。
+  c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50225): note: 'DXGI_ERROR_WAS_STILL_DRAWING' の以前の定義を確認してください
+c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(29): warning C4005: 'DXGI_ERROR_FRAME_STATISTICS_DISJOINT': マクロが再定義されました。
+  c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50235): note: 'DXGI_ERROR_FRAME_STATISTICS_DISJOINT' の以前の定義を確認してください
+c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(30): warning C4005: 'DXGI_ERROR_GRAPHICS_VIDPN_SOURCE_IN_USE': マクロが再定義されました。
+  c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50244): note: 'DXGI_ERROR_GRAPHICS_VIDPN_SOURCE_IN_USE' の以前の定義を確認してください
+c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(31): warning C4005: 'DXGI_ERROR_DRIVER_INTERNAL_ERROR': マクロが再定義されました。
+  c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50254): note: 'DXGI_ERROR_DRIVER_INTERNAL_ERROR' の以前の定義を確認してください
+c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(32): warning C4005: 'DXGI_ERROR_NONEXCLUSIVE': マクロが再定義されました。
+  c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50263): note: 'DXGI_ERROR_NONEXCLUSIVE' の以前の定義を確認してください
+c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(33): warning C4005: 'DXGI_ERROR_NOT_CURRENTLY_AVAILABLE': マクロが再定義されました。
+  c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50272): note: 'DXGI_ERROR_NOT_CURRENTLY_AVAILABLE' の以前の定義を確認してください
+c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(34): warning C4005: 'DXGI_ERROR_REMOTE_CLIENT_DISCONNECTED': マクロが再定義されました。
+  c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50282): note: 'DXGI_ERROR_REMOTE_CLIENT_DISCONNECTED' の以前の定義を確認してください
+c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(35): warning C4005: 'DXGI_ERROR_REMOTE_OUTOFMEMORY': マクロが再定義されました。
+  c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50291): note: 'DXGI_ERROR_REMOTE_OUTOFMEMORY' の以前の定義を確認してください
+c:\program files (x86)\microsoft directx sdk (june 2010)\include\d3d11.h(917): warning C4005: 'D3D11_ERROR_TOO_MANY_UNIQUE_STATE_OBJECTS': マクロが再定義されました。
+  c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50469): note: 'D3D11_ERROR_TOO_MANY_UNIQUE_STATE_OBJECTS' の以前の定義を確認してください
+c:\program files (x86)\microsoft directx sdk (june 2010)\include\d3d11.h(918): warning C4005: 'D3D11_ERROR_FILE_NOT_FOUND': マクロが再定義されました。
+  c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50478): note: 'D3D11_ERROR_FILE_NOT_FOUND' の以前の定義を確認してください
+c:\program files (x86)\microsoft directx sdk (june 2010)\include\d3d11.h(919): warning C4005: 'D3D11_ERROR_TOO_MANY_UNIQUE_VIEW_OBJECTS': マクロが再定義されました。
+  c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50488): note: 'D3D11_ERROR_TOO_MANY_UNIQUE_VIEW_OBJECTS' の以前の定義を確認してください
+c:\program files (x86)\microsoft directx sdk (june 2010)\include\d3d11.h(920): warning C4005: 'D3D11_ERROR_DEFERRED_CONTEXT_MAP_WITHOUT_INITIAL_DISCARD': マクロが再定義されました。
+  c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50497): note: 'D3D11_ERROR_DEFERRED_CONTEXT_MAP_WITHOUT_INITIAL_DISCARD' の以前の定義を確認してください
+c:\program files (x86)\microsoft directx sdk (june 2010)\include\d3d10.h(608): warning C4005: 'D3D10_ERROR_TOO_MANY_UNIQUE_STATE_OBJECTS': マクロが再定義されました。
+  c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50445): note: 'D3D10_ERROR_TOO_MANY_UNIQUE_STATE_OBJECTS' の以前の定義を確認してください
+c:\program files (x86)\microsoft directx sdk (june 2010)\include\d3d10.h(609): warning C4005: 'D3D10_ERROR_FILE_NOT_FOUND': マクロが再定義されました。
+  c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50454): note: 'D3D10_ERROR_FILE_NOT_FOUND' の以前の定義を確認してください
+c:\git\billiardsgame\awoengine\awoengine\physics.h(37): error C2259: 'physx::PxTriangleMesh': 抽象クラスをインスタンス化できません。
+  c:\git\billiardsgame\awoengine\awoengine\physics.h(37): note: 次のメンバーが原因です:
+  c:\git\billiardsgame\awoengine\awoengine\physics.h(37): note: 'void physx::PxTriangleMesh::release(void)': は抽象型です
+  c:\git\billiardsgame\awoengine\thirdparty\physxsdk3.3.4\include\geometry\pxtrianglemesh.h(153): note: 'physx::PxTriangleMesh::release' の宣言を確認してください
+  c:\git\billiardsgame\awoengine\awoengine\physics.h(37): note: 'physx::PxU32 physx::PxTriangleMesh::getNbVertices(void) const': は抽象型です
+  c:\git\billiardsgame\awoengine\thirdparty\physxsdk3.3.4\include\geometry\pxtrianglemesh.h(91): note: 'physx::PxTriangleMesh::getNbVertices' の宣言を確認してください
+  c:\git\billiardsgame\awoengine\awoengine\physics.h(37): note: 'const physx::PxVec3 *physx::PxTriangleMesh::getVertices(void) const': は抽象型です
+  c:\git\billiardsgame\awoengine\thirdparty\physxsdk3.3.4\include\geometry\pxtrianglemesh.h(98): note: 'physx::PxTriangleMesh::getVertices' の宣言を確認してください
+  c:\git\billiardsgame\awoengine\awoengine\physics.h(37): note: 'physx::PxU32 physx::PxTriangleMesh::getNbTriangles(void) const': は抽象型です
+  c:\git\billiardsgame\awoengine\thirdparty\physxsdk3.3.4\include\geometry\pxtrianglemesh.h(105): note: 'physx::PxTriangleMesh::getNbTriangles' の宣言を確認してください
+  c:\git\billiardsgame\awoengine\awoengine\physics.h(37): note: 'const void *physx::PxTriangleMesh::getTriangles(void) const': は抽象型です
+  c:\git\billiardsgame\awoengine\thirdparty\physxsdk3.3.4\include\geometry\pxtrianglemesh.h(118): note: 'physx::PxTriangleMesh::getTriangles' の宣言を確認してください
+  c:\git\billiardsgame\awoengine\awoengine\physics.h(37): note: 'physx::PxTriangleMeshFlags physx::PxTriangleMesh::getTriangleMeshFlags(void) const': は抽象型です
+  c:\git\billiardsgame\awoengine\thirdparty\physxsdk3.3.4\include\geometry\pxtrianglemesh.h(129): note: 'physx::PxTriangleMesh::getTriangleMeshFlags' の宣言を確認してください
+  c:\git\billiardsgame\awoengine\awoengine\physics.h(37): note: 'const physx::PxU32 *physx::PxTriangleMesh::getTrianglesRemap(void) const': は抽象型です
+  c:\git\billiardsgame\awoengine\thirdparty\physxsdk3.3.4\include\geometry\pxtrianglemesh.h(143): note: 'physx::PxTriangleMesh::getTrianglesRemap' の宣言を確認してください
+  c:\git\billiardsgame\awoengine\awoengine\physics.h(37): note: 'physx::PxMaterialTableIndex physx::PxTriangleMesh::getTriangleMaterialIndex(physx::PxTriangleID) const': は抽象型です
+  c:\git\billiardsgame\awoengine\thirdparty\physxsdk3.3.4\include\geometry\pxtrianglemesh.h(163): note: 'physx::PxTriangleMesh::getTriangleMaterialIndex' の宣言を確認してください
+  c:\git\billiardsgame\awoengine\awoengine\physics.h(37): note: 'physx::PxBounds3 physx::PxTriangleMesh::getLocalBounds(void) const': は抽象型です
+  c:\git\billiardsgame\awoengine\thirdparty\physxsdk3.3.4\include\geometry\pxtrianglemesh.h(170): note: 'physx::PxTriangleMesh::getLocalBounds' の宣言を確認してください
+  c:\git\billiardsgame\awoengine\awoengine\physics.h(37): note: 'physx::PxU32 physx::PxTriangleMesh::getReferenceCount(void) const': は抽象型です
+  c:\git\billiardsgame\awoengine\thirdparty\physxsdk3.3.4\include\geometry\pxtrianglemesh.h(180): note: 'physx::PxTriangleMesh::getReferenceCount' の宣言を確認してください
+c:\git\billiardsgame\awoengine\awoengine\gameobject.h(14): warning C4305: '引数': 'double' から 'physx::PxReal' へ切り詰めます。
   Application.cpp
 c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(12): warning C4005: 'DXGI_STATUS_OCCLUDED': マクロが再定義されました。
   c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50092): note: 'DXGI_STATUS_OCCLUDED' の以前の定義を確認してください
@@ -59,11 +414,32 @@ c:\program files (x86)\microsoft directx sdk (june 2010)\include\d3d10.h(609): w
   c:\program files (x86)\microsoft directx sdk (june 2010)\include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
 c:\git\billiardsgame\awoengine\awoengine\input.h(10): warning C4005: 'SAFE_RELEASE': マクロが再定義されました。
   c:\git\billiardsgame\awoengine\awoengine\meshdata.h(12): note: 'SAFE_RELEASE' の以前の定義を確認してください
+c:\git\billiardsgame\awoengine\awoengine\physics.h(37): error C2259: 'physx::PxTriangleMesh': 抽象クラスをインスタンス化できません。
+  c:\git\billiardsgame\awoengine\awoengine\physics.h(37): note: 次のメンバーが原因です:
+  c:\git\billiardsgame\awoengine\awoengine\physics.h(37): note: 'void physx::PxTriangleMesh::release(void)': は抽象型です
+  c:\git\billiardsgame\awoengine\thirdparty\physxsdk3.3.4\include\geometry\pxtrianglemesh.h(153): note: 'physx::PxTriangleMesh::release' の宣言を確認してください
+  c:\git\billiardsgame\awoengine\awoengine\physics.h(37): note: 'physx::PxU32 physx::PxTriangleMesh::getNbVertices(void) const': は抽象型です
+  c:\git\billiardsgame\awoengine\thirdparty\physxsdk3.3.4\include\geometry\pxtrianglemesh.h(91): note: 'physx::PxTriangleMesh::getNbVertices' の宣言を確認してください
+  c:\git\billiardsgame\awoengine\awoengine\physics.h(37): note: 'const physx::PxVec3 *physx::PxTriangleMesh::getVertices(void) const': は抽象型です
+  c:\git\billiardsgame\awoengine\thirdparty\physxsdk3.3.4\include\geometry\pxtrianglemesh.h(98): note: 'physx::PxTriangleMesh::getVertices' の宣言を確認してください
+  c:\git\billiardsgame\awoengine\awoengine\physics.h(37): note: 'physx::PxU32 physx::PxTriangleMesh::getNbTriangles(void) const': は抽象型です
+  c:\git\billiardsgame\awoengine\thirdparty\physxsdk3.3.4\include\geometry\pxtrianglemesh.h(105): note: 'physx::PxTriangleMesh::getNbTriangles' の宣言を確認してください
+  c:\git\billiardsgame\awoengine\awoengine\physics.h(37): note: 'const void *physx::PxTriangleMesh::getTriangles(void) const': は抽象型です
+  c:\git\billiardsgame\awoengine\thirdparty\physxsdk3.3.4\include\geometry\pxtrianglemesh.h(118): note: 'physx::PxTriangleMesh::getTriangles' の宣言を確認してください
+  c:\git\billiardsgame\awoengine\awoengine\physics.h(37): note: 'physx::PxTriangleMeshFlags physx::PxTriangleMesh::getTriangleMeshFlags(void) const': は抽象型です
+  c:\git\billiardsgame\awoengine\thirdparty\physxsdk3.3.4\include\geometry\pxtrianglemesh.h(129): note: 'physx::PxTriangleMesh::getTriangleMeshFlags' の宣言を確認してください
+  c:\git\billiardsgame\awoengine\awoengine\physics.h(37): note: 'const physx::PxU32 *physx::PxTriangleMesh::getTrianglesRemap(void) const': は抽象型です
+  c:\git\billiardsgame\awoengine\thirdparty\physxsdk3.3.4\include\geometry\pxtrianglemesh.h(143): note: 'physx::PxTriangleMesh::getTrianglesRemap' の宣言を確認してください
+  c:\git\billiardsgame\awoengine\awoengine\physics.h(37): note: 'physx::PxMaterialTableIndex physx::PxTriangleMesh::getTriangleMaterialIndex(physx::PxTriangleID) const': は抽象型です
+  c:\git\billiardsgame\awoengine\thirdparty\physxsdk3.3.4\include\geometry\pxtrianglemesh.h(163): note: 'physx::PxTriangleMesh::getTriangleMaterialIndex' の宣言を確認してください
+  c:\git\billiardsgame\awoengine\awoengine\physics.h(37): note: 'physx::PxBounds3 physx::PxTriangleMesh::getLocalBounds(void) const': は抽象型です
+  c:\git\billiardsgame\awoengine\thirdparty\physxsdk3.3.4\include\geometry\pxtrianglemesh.h(170): note: 'physx::PxTriangleMesh::getLocalBounds' の宣言を確認してください
+  c:\git\billiardsgame\awoengine\awoengine\physics.h(37): note: 'physx::PxU32 physx::PxTriangleMesh::getReferenceCount(void) const': は抽象型です
+  c:\git\billiardsgame\awoengine\thirdparty\physxsdk3.3.4\include\geometry\pxtrianglemesh.h(180): note: 'physx::PxTriangleMesh::getReferenceCount' の宣言を確認してください
 c:\git\billiardsgame\awoengine\awoengine\gameobject.h(14): warning C4305: '引数': 'double' から 'physx::PxReal' へ切り詰めます。
 c:\git\billiardsgame\awoengine\awoengine\application.h(24): warning C4996: 'strdup': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _strdup. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\string.h(552): note: 'strdup' の宣言を確認してください
-c:\git\billiardsgame\awoengine\awoengine\application.cpp(78): warning C4018: '<': signed と unsigned の数値を比較しようとしました。
-c:\git\billiardsgame\awoengine\awoengine\application.cpp(126): warning C4018: '<': signed と unsigned の数値を比較しようとしました。
-c:\git\billiardsgame\awoengine\awoengine\application.cpp(166): warning C4018: '<': signed と unsigned の数値を比較しようとしました。
-  AwoEngine.vcxproj -> C:\Git\BilliardsGame\AwoEngine\AwoEngine\..\bin\x86\Debug\AwoEngine.exe
-  AwoEngine.vcxproj -> ..\bin\x86\Debug\AwoEngine.pdb (Full PDB)
+c:\git\billiardsgame\awoengine\awoengine\application.cpp(79): warning C4018: '<': signed と unsigned の数値を比較しようとしました。
+c:\git\billiardsgame\awoengine\awoengine\application.cpp(127): warning C4018: '<': signed と unsigned の数値を比較しようとしました。
+c:\git\billiardsgame\awoengine\awoengine\application.cpp(167): warning C4018: '<': signed と unsigned の数値を比較しようとしました。
+  コードを生成中...

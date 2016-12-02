@@ -52,8 +52,9 @@ void Application::Init(HWND hWnd, SIZE windowSize)
 	m_pMeshManager->m_pSampleLinear = m_pDeviceManager->m_pSampleLinear;
 	m_pMeshManager->m_pConstantBuffer = m_pDeviceManager->m_pConstantBuffer1;
 
-	MeshData* pMeshData	= m_pMeshManager->CreateMeshData("ball_low.fbx");
-	
+	//MeshData* pMeshData	= m_pMeshManager->CreateMeshData("ball_low.fbx");
+	MeshData* pMeshData = m_pMeshManager->CreateMeshData("table.fbx");
+
 	// 
 	Transform* pTransform = new Transform();
 	pTransform->m_position = D3DXVECTOR3(0, 5, 0);

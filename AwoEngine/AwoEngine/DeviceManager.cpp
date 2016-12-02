@@ -241,7 +241,7 @@ void DeviceManager::RenderSetUp(SIZE windowSize)
 
 	//ÉrÉÖÅ[çsóÒ
 	//D3DXVECTOR3 Eye(0.0f, 0.0f, -3500.5f);
-	D3DXVECTOR3 Eye(0.0f, 0.0f, -3000.0f);
+	D3DXVECTOR3 Eye(0.0f, 500.0f, -500.0f);
 	D3DXVECTOR3 At(0.0f, 0.0f, 0.0f);
 	D3DXVECTOR3 Up(0.0f, 1.0f, 0.0f);
 	D3DXMatrixLookAtLH(&m_view, &Eye, &At, &Up);

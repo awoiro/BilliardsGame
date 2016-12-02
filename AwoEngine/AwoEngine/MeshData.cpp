@@ -330,6 +330,7 @@ ID3D11Buffer* MeshImporter::GetVertexBuffer(FbxMesh* pMesh)
 	}
 #endif
 
+
 	// 頂点バッファーを作成
 	ID3D11Buffer* pVertexBuffer = nullptr;
 
@@ -345,7 +346,7 @@ ID3D11Buffer* MeshImporter::GetVertexBuffer(FbxMesh* pMesh)
 	InitData.pSysMem = pVertexData;
 	HRESULT hr = m_pDevice->CreateBuffer(&bd, &InitData, &pVertexBuffer);
 	CHECK_ERROR(hr, "VertexBufferCreateError");
-
+	
 	delete[] pVertexData;
 	return pVertexBuffer;
 }
@@ -439,7 +440,7 @@ MaterialData* MeshImporter::GetMaterials(FbxNode* pNode)
 			}
 		}
 #else
-		CHAR* pTextureName = "phong1_Base_Color.bmp";
+		CHAR* pTextureName = "table_base.bmp";
 		strcpy_s(pMaterialData[i].diffuseTextureName, pTextureName);
 		hr = D3DX11CreateShaderResourceViewFromFileA(m_pDevice, pMaterialData[i].diffuseTextureName, nullptr, nullptr, &pMaterialData[i].pDiffuseTexture, nullptr);
 
@@ -506,6 +507,9 @@ ID3D11Buffer ** MeshImporter::GetIndexBuffer(FbxNode * pNode)
 			}
 		}
 
+		//
+
+		// 
 		D3D11_BUFFER_DESC bd;
 		bd.Usage = D3D11_USAGE_DEFAULT;
 		bd.ByteWidth = sizeof(int) * count;
@@ -542,3 +546,97 @@ HRESULT MeshImporter::SetMaterialTexture(ID3D11Device * pDevice, CHAR * pDiffuse
 	/*if(pNormalTextureName[0] != NULL){}*/
 	return hr;
 }
+
+int* GetIndexData(MeshData* pMeshData)
+{
+	// インデックスバッファーの作成
+	const int POLYGON_COUNT = pMeshData->m_polygonCount;
+	const int UV_COUNT = pMeshData->m_uvCount;
+	const int VERTEX_COUNT = pMeshData->m_vertexCount;
+	int vCount = UV_COUNT > VERTEX_COUNT ? UV_COUNT : VERTEX_COUNT;
+	pMeshData->vertexCountToCollider = vCount;
+
+	int* pIndex = new int[POLYGON_COUNT * 3];
+
+	int count = 0;
+	for (int k = 0; k < POLYGON_COUNT; k++)
+	{
+		FbxLayerElementMaterial* mat = pMeshData->pFBXMesh->GetLayer(0)->GetMaterials();
+		int matId = mat->GetIndexArray().GetAt(k);
+		if (matId == 0)// Zero Only
+		{
+			if (UV_COUNT > VERTEX_COUNT)
+			{
+				// UVベースのインデックス
+				pIndex[count] = pMeshData->pFBXMesh->GetTextureUVIndex(k, 0);
+				pIndex[count + 1] = pMeshData->pFBXMesh->GetTextureUVIndex(k, 1);
+				pIndex[count + 2] = pMeshData->pFBXMesh->GetTextureUVIndex(k, 2);
+			}
+			else
+			{
+				// 座標頂点ベースのインデックス
+				pIndex[count] = pMeshData->pFBXMesh->GetPolygonVertex(k, 0);
+				pIndex[count + 1] = pMeshData->pFBXMesh->GetPolygonVertex(k, 1);
+				pIndex[count + 2] = pMeshData->pFBXMesh->GetPolygonVertex(k, 2);
+			}
+
+			count += 3;
+		}
+	}
+	return pIndex;
+}
+
+/*
+D3DXVECTOR3* GetVertexDataToCollider(MeshData* pMeshData)
+{
+	const int POLYGON_COUNT = pMeshData->m_polygonCount;
+	const int UV_COUNT = pMeshData->m_uvCount;
+	const int VERTEX_COUNT = pMeshData->m_vertexCount;
+	int vCount = UV_COUNT > VERTEX_COUNT ? UV_COUNT : VERTEX_COUNT;
+	pMeshData->vertexCountToCollider = vCount;
+
+	D3DXVECTOR3* pVertex = new D3DXVECTOR3[vCount];
+
+	// ポリゴンごとにデータ取得
+	for (int i = 0; i < POLYGON_COUNT; i++)
+	{
+		int index[3] = { 0,0,0 };
+
+		// インデックス
+		if (UV_COUNT > VERTEX_COUNT)
+		{
+			// UVベース
+			index[0] = pMesh->GetTextureUVIndex(i, 0);
+			index[1] = pMesh->GetTextureUVIndex(i, 1);
+			index[2] = pMesh->GetTextureUVIndex(i, 2);
+		}
+		else
+		{
+			// 座標ベース
+			int startIndex = pMesh->GetPolygonVertexIndex(i);
+			int* pIndex = pMesh->GetPolygonVertices();
+
+			index[0] = pIndex[startIndex];
+			index[1] = pIndex[startIndex + 1];
+			index[2] = pIndex[startIndex + 2];
+		}
+
+		// 頂点
+		FbxVector4* vertex = 0;
+		vertex = pMesh->GetControlPoints();
+		int vIndex = pMesh->GetPolygonVertex(i, 0);
+		pVertexData[index[0]].pos.x = vertex[vIndex].mData[0] * -1;
+		pVertexData[index[0]].pos.y = vertex[vIndex].mData[1];
+		pVertexData[index[0]].pos.z = vertex[vIndex].mData[2];
+
+		vIndex = pMesh->GetPolygonVertex(i, 1);
+		pVertexData[index[1]].pos.x = vertex[vIndex].mData[0] * -1;
+		pVertexData[index[1]].pos.y = vertex[vIndex].mData[1];
+		pVertexData[index[1]].pos.z = vertex[vIndex].mData[2];
+
+		vIndex = pMesh->GetPolygonVertex(i, 2);
+		pVertexData[index[2]].pos.x = vertex[vIndex].mData[0] * -1;
+		pVertexData[index[2]].pos.y = vertex[vIndex].mData[1];
+		pVertexData[index[2]].pos.z = vertex[vIndex].mData[2];
+}
+*/

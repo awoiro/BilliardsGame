@@ -2,6 +2,7 @@
 
 #include <PxPhysicsAPI.h>
 #include "ErrorManager.h"
+#include "MeshData.h"
 
 #pragma comment (lib,"PhysX3CommonDEBUG_x86.lib" )
 #pragma comment (lib,"PhysX3DEBUG_x86.lib" )
@@ -31,7 +32,9 @@ public:
 
 	void StepPhysics();
 
-	PxRigidDynamic* createDynamic(const PxTransform & t, const PxGeometry & geometry, const PxVec3 & velocity);
+	PxRigidDynamic* createDynamic(const PxTransform &t, const PxGeometry &geometry, const PxVec3 &velocity);
+	PxRigidStatic* createStatic(const PxTransform &t, const PxGeometry &geometry, const PxVec3 &velocity);
+	PxTriangleMesh createTriangleMesh(MeshData* pMeshData);
 
 	void UpdatePVDCamera();
 private:

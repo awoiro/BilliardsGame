@@ -69,6 +69,17 @@ PxRigidDynamic * Physics::createDynamic(const PxTransform & t, const PxGeometry 
 	return dynamic;
 }
 
+PxTriangleMesh Physics::createTriangleMesh()
+{
+	return nullptr;
+}
+
+PxRigidStatic * Physics::createStatic(const PxTransform & t, const PxGeometry & geometry, const PxVec3 & velocity)
+{
+	PxRigidStatic* pStatic = PxCreateStatic(*m_pPhysics, t, Pxm)
+	return nullptr;
+}
+
 void Physics::UpdatePVDCamera()
 {
 #if false

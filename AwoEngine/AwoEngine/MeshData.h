@@ -132,7 +132,7 @@ public:
 
 	MeshData* CreateMeshData(CHAR* pFileName);
 	void RenderMesh(D3DXMATRIX* pWorld, MeshData* pMeshData);
-	HRESULT SetMaterialTexture(ID3D11Device* pDevice, CHAR* pDiffuseTextureName,/*CHAR* pNormalTextureName,*/ MaterialData* pTargetMaterial);
+	HRESULT SetMaterialTexture(ID3D11Device* pDevice, CHAR* pDiffuseTextureName,/*CHAR* pNormalTextureName,*/ MeshData* pMeshData /*MaterialData* pTargetMaterial*/);
 
 protected:
 	HRESULT InitFBXImporter();

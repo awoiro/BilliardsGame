@@ -77,28 +77,61 @@ void Application::Init(HWND hWnd, SIZE windowSize)
 
 	// create balls
 	{
-		MeshData* pBallMesh = m_pMeshManager->CreateMeshData("ball_low_T.fbx");
+		// mesh datas
+		MeshData* pBallMesh0 = m_pMeshManager->CreateMeshData("ball_low.fbx");
+		m_pMeshManager->SetMaterialTexture(m_pDeviceManager->m_pDevice, "ball_0_d.bmp", pBallMesh0);
+		MeshData* pBallMesh1 = m_pMeshManager->CreateMeshData("ball_low.fbx");
+		m_pMeshManager->SetMaterialTexture(m_pDeviceManager->m_pDevice, "ball_1_d.bmp", pBallMesh1);
+		MeshData* pBallMesh2 = m_pMeshManager->CreateMeshData("ball_low.fbx");
+		m_pMeshManager->SetMaterialTexture(m_pDeviceManager->m_pDevice, "ball_2_d.bmp", pBallMesh2);
+		MeshData* pBallMesh3 = m_pMeshManager->CreateMeshData("ball_low.fbx");
+		m_pMeshManager->SetMaterialTexture(m_pDeviceManager->m_pDevice, "ball_3_d.bmp", pBallMesh3);
+		MeshData* pBallMesh4 = m_pMeshManager->CreateMeshData("ball_low.fbx");
+		m_pMeshManager->SetMaterialTexture(m_pDeviceManager->m_pDevice, "ball_4_d.bmp", pBallMesh4);
+		MeshData* pBallMesh5 = m_pMeshManager->CreateMeshData("ball_low.fbx");
+		m_pMeshManager->SetMaterialTexture(m_pDeviceManager->m_pDevice, "ball_5_d.bmp", pBallMesh5);
+		MeshData* pBallMesh6 = m_pMeshManager->CreateMeshData("ball_low.fbx");
+		m_pMeshManager->SetMaterialTexture(m_pDeviceManager->m_pDevice, "ball_6_d.bmp", pBallMesh6);
+		MeshData* pBallMesh7 = m_pMeshManager->CreateMeshData("ball_low.fbx");
+		m_pMeshManager->SetMaterialTexture(m_pDeviceManager->m_pDevice, "ball_7_d.bmp", pBallMesh7);
+		MeshData* pBallMesh8 = m_pMeshManager->CreateMeshData("ball_low.fbx");
+		m_pMeshManager->SetMaterialTexture(m_pDeviceManager->m_pDevice, "ball_8_d.bmp", pBallMesh8);
+		MeshData* pBallMesh9 = m_pMeshManager->CreateMeshData("ball_low.fbx");
+		m_pMeshManager->SetMaterialTexture(m_pDeviceManager->m_pDevice, "ball_9_d.bmp", pBallMesh9);
+		MeshData* pBallMesh10 = m_pMeshManager->CreateMeshData("ball_low.fbx");
+		m_pMeshManager->SetMaterialTexture(m_pDeviceManager->m_pDevice, "ball_10_d.bmp", pBallMesh10);
+		MeshData* pBallMesh11 = m_pMeshManager->CreateMeshData("ball_low.fbx");
+		m_pMeshManager->SetMaterialTexture(m_pDeviceManager->m_pDevice, "ball_11_d.bmp", pBallMesh11);
+		MeshData* pBallMesh12 = m_pMeshManager->CreateMeshData("ball_low.fbx");
+		m_pMeshManager->SetMaterialTexture(m_pDeviceManager->m_pDevice, "ball_12_d.bmp", pBallMesh12);
+		MeshData* pBallMesh13 = m_pMeshManager->CreateMeshData("ball_low.fbx");
+		m_pMeshManager->SetMaterialTexture(m_pDeviceManager->m_pDevice, "ball_13_d.bmp", pBallMesh13);
+		MeshData* pBallMesh14 = m_pMeshManager->CreateMeshData("ball_low.fbx");
+		m_pMeshManager->SetMaterialTexture(m_pDeviceManager->m_pDevice, "ball_14_d.bmp", pBallMesh14);
+		MeshData* pBallMesh15 = m_pMeshManager->CreateMeshData("ball_low.fbx");
+		m_pMeshManager->SetMaterialTexture(m_pDeviceManager->m_pDevice, "ball_15_d.bmp", pBallMesh15);
+
 		const int r = 5.71;// radius
 		m_ballCount = 16;
 		D3DXVECTOR3 cPos = D3DXVECTOR3(0, 100, 70); // centerPos
 
 		m_ppBalls = new Ball*[m_ballCount];
-		m_ppBalls[0]  = new Ball(pBallMesh, D3DXVECTOR3(0,				cPos.y, -100		), D3DXQUATERNION(0, 0, 0, 1), m_pPhysics, r, 0);// white ball
-		m_ppBalls[1]  = new Ball(pBallMesh, D3DXVECTOR3(cPos.x,			cPos.y, cPos.z - 4*r), D3DXQUATERNION(0, 0, 0, 1), m_pPhysics, r, 1);
-		m_ppBalls[2]  = new Ball(pBallMesh, D3DXVECTOR3(cPos.x + r,		cPos.y, cPos.z - 2*r), D3DXQUATERNION(0, 0, 0, 1), m_pPhysics, r, 1);
-		m_ppBalls[3]  = new Ball(pBallMesh, D3DXVECTOR3(cPos.x - r,		cPos.y, cPos.z - 2*r), D3DXQUATERNION(0, 0, 0, 1), m_pPhysics, r, 1);
-		m_ppBalls[4]  = new Ball(pBallMesh, D3DXVECTOR3(cPos.x + 2*r,	cPos.y, cPos.z		), D3DXQUATERNION(0, 0, 0, 1), m_pPhysics, r, 1);
-		m_ppBalls[5]  = new Ball(pBallMesh, D3DXVECTOR3(cPos.x - 2*r,	cPos.y, cPos.z		), D3DXQUATERNION(0, 0, 0, 1), m_pPhysics, r, 1);
-		m_ppBalls[6]  = new Ball(pBallMesh, D3DXVECTOR3(cPos.x + 3*r,	cPos.y, cPos.z + 2*r), D3DXQUATERNION(0, 0, 0, 1), m_pPhysics, r, 1);
-		m_ppBalls[7]  = new Ball(pBallMesh, D3DXVECTOR3(cPos.x + 4*r,	cPos.y, cPos.z + 4*r), D3DXQUATERNION(0, 0, 0, 1), m_pPhysics, r, 1);// L ball
-		m_ppBalls[8]  = new Ball(pBallMesh, D3DXVECTOR3(cPos.x,			cPos.y, cPos.z		), D3DXQUATERNION(0, 0, 0, 1), m_pPhysics, r, 1);// 8 ball
-		m_ppBalls[9]  = new Ball(pBallMesh, D3DXVECTOR3(cPos.x - 4*r,	cPos.y, cPos.z + 4*r), D3DXQUATERNION(0, 0, 0, 1), m_pPhysics, r, 1);// H ball
-		m_ppBalls[10] = new Ball(pBallMesh, D3DXVECTOR3(cPos.x + r,		cPos.y, cPos.z + 2*r), D3DXQUATERNION(0, 0, 0, 1), m_pPhysics, r, 1);
-		m_ppBalls[11] = new Ball(pBallMesh, D3DXVECTOR3(cPos.x - r,		cPos.y, cPos.z + 2*r), D3DXQUATERNION(0, 0, 0, 1), m_pPhysics, r, 1);
-		m_ppBalls[12] = new Ball(pBallMesh, D3DXVECTOR3(cPos.x - 3*r,	cPos.y, cPos.z + 2*r), D3DXQUATERNION(0, 0, 0, 1), m_pPhysics, r, 1);
-		m_ppBalls[13] = new Ball(pBallMesh, D3DXVECTOR3(cPos.x + 2*r,	cPos.y, cPos.z + 4*r), D3DXQUATERNION(0, 0, 0, 1), m_pPhysics, r, 1);
-		m_ppBalls[14] = new Ball(pBallMesh, D3DXVECTOR3(cPos.x,			cPos.y, cPos.z + 4*r), D3DXQUATERNION(0, 0, 0, 1), m_pPhysics, r, 1);
-		m_ppBalls[15] = new Ball(pBallMesh, D3DXVECTOR3(cPos.x - 2*r,	cPos.y, cPos.z + 4*r), D3DXQUATERNION(0, 0, 0, 1), m_pPhysics, r, 1);
+		m_ppBalls[0]  = new Ball(pBallMesh0,  D3DXVECTOR3(0,				cPos.y, -100		), D3DXQUATERNION(0, 0, 0, 1), m_pPhysics, r, 0);// white ball
+		m_ppBalls[1]  = new Ball(pBallMesh1,  D3DXVECTOR3(cPos.x,			cPos.y, cPos.z - 4*r), D3DXQUATERNION(0, 0, 0, 1), m_pPhysics, r, 1);
+		m_ppBalls[2]  = new Ball(pBallMesh2,  D3DXVECTOR3(cPos.x + r,		cPos.y, cPos.z - 2*r), D3DXQUATERNION(0, 0, 0, 1), m_pPhysics, r, 1);
+		m_ppBalls[3]  = new Ball(pBallMesh3,  D3DXVECTOR3(cPos.x - r,		cPos.y, cPos.z - 2*r), D3DXQUATERNION(0, 0, 0, 1), m_pPhysics, r, 1);
+		m_ppBalls[4]  = new Ball(pBallMesh4,  D3DXVECTOR3(cPos.x + 2*r,		cPos.y, cPos.z		), D3DXQUATERNION(0, 0, 0, 1), m_pPhysics, r, 1);
+		m_ppBalls[5]  = new Ball(pBallMesh5,  D3DXVECTOR3(cPos.x - 2*r,		cPos.y, cPos.z		), D3DXQUATERNION(0, 0, 0, 1), m_pPhysics, r, 1);
+		m_ppBalls[6]  = new Ball(pBallMesh6,  D3DXVECTOR3(cPos.x + 3*r,		cPos.y, cPos.z + 2*r), D3DXQUATERNION(0, 0, 0, 1), m_pPhysics, r, 1);
+		m_ppBalls[7]  = new Ball(pBallMesh7,  D3DXVECTOR3(cPos.x + 4*r,		cPos.y, cPos.z + 4*r), D3DXQUATERNION(0, 0, 0, 1), m_pPhysics, r, 1);// L ball
+		m_ppBalls[8]  = new Ball(pBallMesh8,  D3DXVECTOR3(cPos.x,			cPos.y, cPos.z		), D3DXQUATERNION(0, 0, 0, 1), m_pPhysics, r, 1);// 8 ball
+		m_ppBalls[9]  = new Ball(pBallMesh9,  D3DXVECTOR3(cPos.x - 4*r,		cPos.y, cPos.z + 4*r), D3DXQUATERNION(0, 0, 0, 1), m_pPhysics, r, 1);// H ball
+		m_ppBalls[10] = new Ball(pBallMesh10, D3DXVECTOR3(cPos.x + r,		cPos.y, cPos.z + 2*r), D3DXQUATERNION(0, 0, 0, 1), m_pPhysics, r, 1);
+		m_ppBalls[11] = new Ball(pBallMesh11, D3DXVECTOR3(cPos.x - r,		cPos.y, cPos.z + 2*r), D3DXQUATERNION(0, 0, 0, 1), m_pPhysics, r, 1);
+		m_ppBalls[12] = new Ball(pBallMesh12, D3DXVECTOR3(cPos.x - 3*r,		cPos.y, cPos.z + 2*r), D3DXQUATERNION(0, 0, 0, 1), m_pPhysics, r, 1);
+		m_ppBalls[13] = new Ball(pBallMesh13, D3DXVECTOR3(cPos.x + 2*r,		cPos.y, cPos.z + 4*r), D3DXQUATERNION(0, 0, 0, 1), m_pPhysics, r, 1);
+		m_ppBalls[14] = new Ball(pBallMesh14, D3DXVECTOR3(cPos.x,			cPos.y, cPos.z + 4*r), D3DXQUATERNION(0, 0, 0, 1), m_pPhysics, r, 1);
+		m_ppBalls[15] = new Ball(pBallMesh15, D3DXVECTOR3(cPos.x - 2*r,		cPos.y, cPos.z + 4*r), D3DXQUATERNION(0, 0, 0, 1), m_pPhysics, r, 1);
 
 		/*
 		for (int i = 0; i < m_ballCount; i++)
@@ -119,6 +152,8 @@ void Application::Init(HWND hWnd, SIZE windowSize)
 	// create table
 	{
 		MeshData* pTableMesh = m_pMeshManager->CreateMeshData("table.fbx");
+		m_pMeshManager->SetMaterialTexture(m_pDeviceManager->m_pDevice, "table_d.bmp", pTableMesh);
+
 		m_pTable = new Table(pTableMesh, D3DXVECTOR3(0, 0, 0), D3DXQUATERNION(0, 0, 0, 1));
 
 		m_pTable->AddRigidStatic(m_pPhysics, D3DXVECTOR3(0, 50, 0), D3DXVECTOR3(150, 50, 300));	// ’ê–Ê

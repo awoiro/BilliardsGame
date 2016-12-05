@@ -440,11 +440,13 @@ MaterialData* MeshImporter::GetMaterials(FbxNode* pNode)
 			}
 		}
 #else
-		CHAR* pTextureName = "table_base.bmp";
+		// エラーテクスチャーの設定
+		CHAR* pTextureName = "error.bmp";
 		strcpy_s(pMaterialData[i].diffuseTextureName, pTextureName);
 		hr = D3DX11CreateShaderResourceViewFromFileA(m_pDevice, pMaterialData[i].diffuseTextureName, nullptr, nullptr, &pMaterialData[i].pDiffuseTexture, nullptr);
 
 		CHECK_ERROR(hr, "テクスチャー読み込み失敗");
+
 #endif
 
 		FbxMesh* pMesh = pNode->GetMesh();
@@ -532,17 +534,40 @@ ID3D11Buffer ** MeshImporter::GetIndexBuffer(FbxNode * pNode)
 }
 
 
-HRESULT MeshImporter::SetMaterialTexture(ID3D11Device * pDevice, CHAR * pDiffuseTextureName, MaterialData * pTargetMaterial)
+HRESULT MeshImporter::SetMaterialTexture(ID3D11Device * pDevice, CHAR * pDiffuseTextureName, MeshData* pMeshData/*MaterialData * pTargetMaterial*/)
 {
+	HRESULT hr = E_FAIL;
+	
+	for (int i = 0; i < pMeshData->m_materialCount; i++)
+	{
+		MaterialData* pMaterial = &pMeshData->pMaterials[i];
+
+		if (pMaterial == nullptr) { IS_CHECK_ERROR(false, "テクスチャーセット先のマテリアルが取得できていません"); return E_FAIL; }
+
+		if (pDiffuseTextureName[0] != NULL)
+		{
+			strcpy_s(pMaterial->diffuseTextureName, pDiffuseTextureName);
+			hr = D3DX11CreateShaderResourceViewFromFileA(pDevice, pMaterial->diffuseTextureName, nullptr, nullptr, &pMaterial->pDiffuseTexture, nullptr);
+			CHECK_ERROR(hr, "Diffuseテクスチャーインポート失敗");
+		}
+	}
+
+	for (int i = 0; i < pMeshData->m_childCount; i++)
+	{
+		MeshData* pChildMesh = pMeshData->ppChildMeshData[i];
+		SetMaterialTexture(pDevice, pDiffuseTextureName, pChildMesh);
+	}
+
+	/*
 	if (pTargetMaterial == nullptr) { IS_CHECK_ERROR(false, "テクスチャーセット先のマテリアルが取得できていません"); return E_FAIL; }
 
-	HRESULT hr = E_FAIL;
 	if (pDiffuseTextureName[0] != NULL)
 	{
 		strcpy_s(pTargetMaterial->diffuseTextureName, pDiffuseTextureName);
 		hr = D3DX11CreateShaderResourceViewFromFileA(pDevice, pTargetMaterial->diffuseTextureName, nullptr, nullptr, &pTargetMaterial->pDiffuseTexture, nullptr);
 		CHECK_ERROR(hr, "Diffuseテクスチャーインポート失敗");
 	}
+	*/
 	/*if(pNormalTextureName[0] != NULL){}*/
 	return hr;
 }

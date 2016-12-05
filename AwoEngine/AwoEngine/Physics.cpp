@@ -41,9 +41,12 @@ HRESULT Physics::Init()
 	m_pScene->addActor(*pGroundPlane);
 
 	// ボールの作成
-	//PxRigidDynamic* pRigid = createDynamic(PxTransform(PxVec3(10, 10, -100)), PxSphereGeometry(10), PxVec3(0, 0, 0));
-	//createDynamic(PxTransform(PxVec3(30, 30, -100)), PxSphereGeometry(10), PxVec3(0, 0, 0));
-	//createDynamic(PxTransform(PxVec3(50, 50, -100)), PxSphereGeometry(10), PxVec3(0, 0, 0));
+	//PxRigidDynamic* pRigid = CreateDynamic(PxTransform(PxVec3(10, 10, -100)), PxSphereGeometry(10), PxVec3(0, 0, 0));
+	//CreateDynamic(PxTransform(PxVec3(30, 30, -100)), PxSphereGeometry(10), PxVec3(0, 0, 0));
+	//CreateDynamic(PxTransform(PxVec3(50, 50, -100)), PxSphereGeometry(10), PxVec3(0, 0, 0));
+
+	// 不動四角形の作成
+	//CreateStatic(PxTransform(PxVec3(0, 0, 0)), PxBoxGeometry(5, 4, 3), PxVec3(0, 0, 0));
 
 	return S_OK;
 }
@@ -60,7 +63,7 @@ void Physics::Shutdown()
 	m_pFoundation->release();
 }
 
-PxRigidDynamic * Physics::createDynamic(const PxTransform & t, const PxGeometry & geometry, const PxVec3 & velocity)
+PxRigidDynamic * Physics::CreateDynamic(const PxTransform & t, const PxGeometry & geometry, const PxVec3 & velocity)
 {
 	PxRigidDynamic* dynamic = PxCreateDynamic(*m_pPhysics, t, geometry, *m_pMaterial, 10.0f);
 	dynamic->setAngularDamping(0.5f);
@@ -69,15 +72,21 @@ PxRigidDynamic * Physics::createDynamic(const PxTransform & t, const PxGeometry 
 	return dynamic;
 }
 
+/*
 PxTriangleMesh Physics::createTriangleMesh()
 {
 	return nullptr;
 }
+*/
 
-PxRigidStatic * Physics::createStatic(const PxTransform & t, const PxGeometry & geometry, const PxVec3 & velocity)
+PxRigidStatic * Physics::CreateStatic(const PxTransform & t, const PxGeometry & geometry, const PxVec3 & velocity)
 {
-	PxRigidStatic* pStatic = PxCreateStatic(*m_pPhysics, t, Pxm)
-	return nullptr;
+	//PxRigidStatic* pStatic = PxCreateStatic(*m_pPhysics, t, geometry, *m_pMaterial, 10.0f);
+	PxRigidStatic* pStatic = m_pPhysics->createRigidStatic(t);
+	PxShape* pShape = pStatic->createShape(geometry, *m_pMaterial);
+	PX_UNUSED(pShape);
+	m_pScene->addActor(*pStatic);
+	return pStatic;
 }
 
 void Physics::UpdatePVDCamera()

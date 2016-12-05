@@ -33,8 +33,10 @@ public:
 	~Application()
 	{
 		TwTerminate();
-
-		m_pGameObjList.clear();
+		
+		delete m_pTable;
+		delete[] m_ppBalls;
+//		m_pGameObjList.clear();
 
 		delete m_pPhysics;
 
@@ -83,5 +85,12 @@ public:
 	Physics* m_pPhysics = nullptr;
 
 	// GameObjects
-	std::vector<GameObject*> m_pGameObjList = std::vector<GameObject*>();
+	//std::vector<GameObject*> m_pGameObjList = std::vector<GameObject*>();
+
+	// Balls
+	Ball** m_ppBalls = nullptr;
+	int m_ballCount = -1;
+
+	// Table
+	Table* m_pTable = nullptr;
 };

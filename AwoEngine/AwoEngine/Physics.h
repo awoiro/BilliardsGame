@@ -32,9 +32,9 @@ public:
 
 	void StepPhysics();
 
-	PxRigidDynamic* createDynamic(const PxTransform &t, const PxGeometry &geometry, const PxVec3 &velocity);
-	PxRigidStatic* createStatic(const PxTransform &t, const PxGeometry &geometry, const PxVec3 &velocity);
-	PxTriangleMesh createTriangleMesh(MeshData* pMeshData);
+	PxRigidDynamic* CreateDynamic(const PxTransform &t, const PxGeometry &geometry, const PxVec3 &velocity);
+	PxRigidStatic* CreateStatic(const PxTransform &t, const PxGeometry &geometry, const PxVec3 &velocity);
+	//PxTriangleMesh createTriangleMesh(MeshData* pMeshData);
 
 	void UpdatePVDCamera();
 private:

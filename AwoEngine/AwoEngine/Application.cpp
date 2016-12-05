@@ -53,9 +53,10 @@ void Application::Init(HWND hWnd, SIZE windowSize)
 	m_pMeshManager->m_pConstantBuffer = m_pDeviceManager->m_pConstantBuffer1;
 
 	//MeshData* pMeshData	= m_pMeshManager->CreateMeshData("ball_low.fbx");
-	MeshData* pMeshData = m_pMeshManager->CreateMeshData("table.fbx");
+	//MeshData* pMeshData = m_pMeshManager->CreateMeshData("table.fbx");
 
-	// 
+	/*
+	//  ball 1
 	Transform* pTransform = new Transform();
 	pTransform->m_position = D3DXVECTOR3(0, 5, 0);
 	pTransform->m_angle = D3DXQUATERNION(0,0,0,1);
@@ -64,18 +65,73 @@ void Application::Init(HWND hWnd, SIZE windowSize)
 	GameObject* pBall = new GameObject(pTransform, pMeshData, m_pPhysics);
 	m_pGameObjList.push_back(pBall);
 	
-	//
+	// ball 2
 	Transform* pTransform2 = new Transform();
 	pTransform2->m_position = D3DXVECTOR3(1000, 5, 0);
 	pTransform2->m_angle = D3DXQUATERNION(0, 0, 0, 1);
 	pTransform2->m_scale = D3DXVECTOR3(1, 1, 1);
-
+	
 	GameObject* pBall2 = new GameObject(pTransform2, pMeshData, m_pPhysics);
 	m_pGameObjList.push_back(pBall2);
+	*/
+
+	// create balls
+	{
+		MeshData* pBallMesh = m_pMeshManager->CreateMeshData("ball_low_T.fbx");
+		const int r = 5.71;// radius
+		m_ballCount = 16;
+		D3DXVECTOR3 cPos = D3DXVECTOR3(0, 100, 70); // centerPos
+
+		m_ppBalls = new Ball*[m_ballCount];
+		m_ppBalls[0]  = new Ball(pBallMesh, D3DXVECTOR3(0,				cPos.y, -100		), D3DXQUATERNION(0, 0, 0, 1), m_pPhysics, r, 0);// white ball
+		m_ppBalls[1]  = new Ball(pBallMesh, D3DXVECTOR3(cPos.x,			cPos.y, cPos.z - 4*r), D3DXQUATERNION(0, 0, 0, 1), m_pPhysics, r, 1);
+		m_ppBalls[2]  = new Ball(pBallMesh, D3DXVECTOR3(cPos.x + r,		cPos.y, cPos.z - 2*r), D3DXQUATERNION(0, 0, 0, 1), m_pPhysics, r, 1);
+		m_ppBalls[3]  = new Ball(pBallMesh, D3DXVECTOR3(cPos.x - r,		cPos.y, cPos.z - 2*r), D3DXQUATERNION(0, 0, 0, 1), m_pPhysics, r, 1);
+		m_ppBalls[4]  = new Ball(pBallMesh, D3DXVECTOR3(cPos.x + 2*r,	cPos.y, cPos.z		), D3DXQUATERNION(0, 0, 0, 1), m_pPhysics, r, 1);
+		m_ppBalls[5]  = new Ball(pBallMesh, D3DXVECTOR3(cPos.x - 2*r,	cPos.y, cPos.z		), D3DXQUATERNION(0, 0, 0, 1), m_pPhysics, r, 1);
+		m_ppBalls[6]  = new Ball(pBallMesh, D3DXVECTOR3(cPos.x + 3*r,	cPos.y, cPos.z + 2*r), D3DXQUATERNION(0, 0, 0, 1), m_pPhysics, r, 1);
+		m_ppBalls[7]  = new Ball(pBallMesh, D3DXVECTOR3(cPos.x + 4*r,	cPos.y, cPos.z + 4*r), D3DXQUATERNION(0, 0, 0, 1), m_pPhysics, r, 1);// L ball
+		m_ppBalls[8]  = new Ball(pBallMesh, D3DXVECTOR3(cPos.x,			cPos.y, cPos.z		), D3DXQUATERNION(0, 0, 0, 1), m_pPhysics, r, 1);// 8 ball
+		m_ppBalls[9]  = new Ball(pBallMesh, D3DXVECTOR3(cPos.x - 4*r,	cPos.y, cPos.z + 4*r), D3DXQUATERNION(0, 0, 0, 1), m_pPhysics, r, 1);// H ball
+		m_ppBalls[10] = new Ball(pBallMesh, D3DXVECTOR3(cPos.x + r,		cPos.y, cPos.z + 2*r), D3DXQUATERNION(0, 0, 0, 1), m_pPhysics, r, 1);
+		m_ppBalls[11] = new Ball(pBallMesh, D3DXVECTOR3(cPos.x - r,		cPos.y, cPos.z + 2*r), D3DXQUATERNION(0, 0, 0, 1), m_pPhysics, r, 1);
+		m_ppBalls[12] = new Ball(pBallMesh, D3DXVECTOR3(cPos.x - 3*r,	cPos.y, cPos.z + 2*r), D3DXQUATERNION(0, 0, 0, 1), m_pPhysics, r, 1);
+		m_ppBalls[13] = new Ball(pBallMesh, D3DXVECTOR3(cPos.x + 2*r,	cPos.y, cPos.z + 4*r), D3DXQUATERNION(0, 0, 0, 1), m_pPhysics, r, 1);
+		m_ppBalls[14] = new Ball(pBallMesh, D3DXVECTOR3(cPos.x,			cPos.y, cPos.z + 4*r), D3DXQUATERNION(0, 0, 0, 1), m_pPhysics, r, 1);
+		m_ppBalls[15] = new Ball(pBallMesh, D3DXVECTOR3(cPos.x - 2*r,	cPos.y, cPos.z + 4*r), D3DXQUATERNION(0, 0, 0, 1), m_pPhysics, r, 1);
+
+		/*
+		for (int i = 0; i < m_ballCount; i++)
+		{
+			m_ppBalls[i] = new Ball();
+
+			Transform* pTransform = new Transform();
+			pTransform->m_position = D3DXVECTOR3(0, 0, 0);
+			pTransform->m_angle = D3DXQUATERNION(0, 0, 0, 1);
+			pTransform->m_scale = D3DXVECTOR3(1, 1, 1);
+
+			m_ppBalls[i]->SetTransform(pTransform);
+			m_ppBalls[i]->SetMesh(pBallMesh);
+		}
+		*/
+	}
+
+	// create table
+	{
+		MeshData* pTableMesh = m_pMeshManager->CreateMeshData("table.fbx");
+		m_pTable = new Table(pTableMesh, D3DXVECTOR3(0, 0, 0), D3DXQUATERNION(0, 0, 0, 1));
+
+		m_pTable->AddRigidStatic(m_pPhysics, D3DXVECTOR3(0, 50, 0), D3DXVECTOR3(150, 50, 300));	// 底面
+		m_pTable->AddRigidStatic(m_pPhysics, D3DXVECTOR3(-88.5, 80, 0), D3DXVECTOR3(50, 100, 300));	// 左側面
+		m_pTable->AddRigidStatic(m_pPhysics, D3DXVECTOR3(88.5, 80, 0), D3DXVECTOR3(50, 100, 300));	// 右側面
+		m_pTable->AddRigidStatic(m_pPhysics, D3DXVECTOR3(0, 80, 152), D3DXVECTOR3(150, 100, 50));   // 奥
+		m_pTable->AddRigidStatic(m_pPhysics, D3DXVECTOR3(0, 80, -152), D3DXVECTOR3(150, 100, 50));  // 手前
+	}
 }
 
 void Application::Update(HWND hwnd, SIZE windowSize)
 {
+	/*
 	for (int i = 0; i < m_pGameObjList.size(); i++)
 	{
 		m_pGameObjList[i]->Update();
@@ -86,7 +142,13 @@ void Application::Update(HWND hwnd, SIZE windowSize)
 		//m_pGameObjList[0]->m_pRigidBody->addForce(PxVec3(10000, 10000, 0));
 		m_pGameObjList[0]->m_pRigidBody->setLinearVelocity(PxVec3(200, 0, 0));
 	}
+	*/
 
+	if (m_pInput->GetKeyDown(DIK_R))
+	{
+		//m_ppBalls[0]->m_pRigidBody->addForce(PxVec3(100, 0, 0));
+		m_ppBalls[0]->m_pRigidBody->setLinearVelocity(PxVec3(0, 0, 300));
+	}
 }
 
 void Application::RenderSetUp(HWND hwnd, SIZE windowSize)
@@ -124,12 +186,30 @@ void Application::RenderSetUp(HWND hwnd, SIZE windowSize)
 #else
 		m_pMeshManager->m_view = m_pDeviceManager->m_view;
 		m_pMeshManager->m_proj = m_pDeviceManager->m_projection;
+		
+		// ball render
+		for (int i = 0; i < m_ballCount; i++)
+		{
+			D3DXMATRIX world = m_ppBalls[i]->m_pTransform->GetWorld();
+			MeshData* pMeshData = m_ppBalls[i]->m_pRootMesh;
+			m_pMeshManager->RenderMesh(&world, pMeshData);
+		}
+		// table render
+		{
+			D3DXMATRIX world = m_pTable->m_pTransform->GetWorld();
+			MeshData* pMeshData = m_pTable->m_pRootMesh;
+			m_pMeshManager->RenderMesh(&world, pMeshData);
+		}
+
+
+		/*
 		for (int i = 0; i < m_pGameObjList.size(); i++)
 		{
 			D3DXMATRIX world = m_pGameObjList[i]->m_pTransform->GetWorld();
 			MeshData* pMeshData = m_pGameObjList[i]->m_pRootMesh;
 			m_pMeshManager->RenderMesh(&world, pMeshData);
 		}
+		*/
 #endif
 	}
 
@@ -164,11 +244,16 @@ void Application::RenderSetUp(HWND hwnd, SIZE windowSize)
 	m_pPhysics->StepPhysics();
 
 	// PhysX 移動
+	/*
 	for (int i = 0; i < m_pGameObjList.size(); i++)
 	{
 		m_pGameObjList[i]->UpdatePos();
 	}
-
+	*/
+	for (int i = 0; i < m_ballCount; i++)
+	{
+		m_ppBalls[i]->UpdatePos();
+	}
 
 	// 画面更新
 	m_pDeviceManager->UpdateScreen();

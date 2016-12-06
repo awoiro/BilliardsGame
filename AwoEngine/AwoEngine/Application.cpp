@@ -31,6 +31,7 @@ void RenderTwText(int x, int y, char* msg)
 
 void Application::Init(HWND hWnd, SIZE windowSize)
 {
+	// device init
 	m_pDeviceManager = new DeviceManager;
 	m_pDeviceManager->InitD3D(hWnd, windowSize);
 
@@ -45,7 +46,11 @@ void Application::Init(HWND hWnd, SIZE windowSize)
 	TwAddVarRW(m_pBar, "Scale", TW_TYPE_DIR3F, &m_scale, "");
 #endif
 
-	// 
+	// canera init
+	m_pCamera = new Camera();
+	m_pCamera->ShowCameraEditWindow(windowSize);
+
+	// mesh importer init
 	m_pMeshManager = new MeshImporter();
 	m_pMeshManager->m_pDevice = m_pDeviceManager->m_pDevice;
 	m_pMeshManager->m_pDeviceContext = m_pDeviceManager->m_pDeviceContext;
@@ -219,8 +224,10 @@ void Application::RenderSetUp(HWND hwnd, SIZE windowSize)
 			m_pMeshManager->RenderMesh(&mWorld, meshDataList[i]);
 		}
 #else
-		m_pMeshManager->m_view = m_pDeviceManager->m_view;
-		m_pMeshManager->m_proj = m_pDeviceManager->m_projection;
+		m_pCamera->CameraSetting(m_pDeviceManager);
+
+		m_pMeshManager->m_view = m_pCamera->GetView();//m_pDeviceManager->m_view;
+		m_pMeshManager->m_proj = m_pCamera->GetProjection(m_pDeviceManager->m_depthStencilDesc);//m_pDeviceManager->m_projection;
 		
 		// ball render
 		for (int i = 0; i < m_ballCount; i++)

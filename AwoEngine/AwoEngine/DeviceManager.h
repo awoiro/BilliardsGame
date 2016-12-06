@@ -74,6 +74,6 @@ public:
 
 	ID3D11SamplerState* m_pSampleLinear = nullptr;
 
-	D3DXMATRIX m_view;
-	D3DXMATRIX m_projection;
+//	D3DXMATRIX m_view;
+//	D3DXMATRIX m_projection;
 };

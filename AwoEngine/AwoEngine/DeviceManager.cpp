@@ -239,6 +239,7 @@ void DeviceManager::RenderSetUp(SIZE windowSize)
 {
 	ClearRender();
 
+	/*
 	//ƒrƒ…[s—ñ
 	//D3DXVECTOR3 Eye(0.0f, 0.0f, -3500.5f);
 	D3DXVECTOR3 Eye(0.0f, 500.0f, -500.0f);
@@ -264,15 +265,20 @@ void DeviceManager::RenderSetUp(SIZE windowSize)
 		memcpy_s(pData.pData, pData.RowPitch, (void*)&sg, sizeof(SHADER_GLOBAL0));
 		m_pDeviceContext->Unmap(m_pConstantBuffer0, 0);
 	}
+
 	m_pDeviceContext->VSSetConstantBuffers(0, 1, &m_pConstantBuffer0);
 	m_pDeviceContext->PSSetConstantBuffers(0, 1, &m_pConstantBuffer0);
+	*/
 
-	m_pDeviceContext->VSSetShader(m_pVertexShader, nullptr, 0);
-	m_pDeviceContext->PSSetShader(m_pPixelShader, nullptr, 0);
+//	m_pDeviceContext->VSSetShader(m_pVertexShader, nullptr, 0);
+//	m_pDeviceContext->PSSetShader(m_pPixelShader, nullptr, 0);
 }
 
 void DeviceManager::UpdateScreen()
 {
+	m_pDeviceContext->VSSetShader(m_pVertexShader, nullptr, 0);
+	m_pDeviceContext->PSSetShader(m_pPixelShader, nullptr, 0);
+
 	m_pSwapChain->Present(0, 0);
 }
 

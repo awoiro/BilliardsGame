@@ -8,6 +8,7 @@
 #include "Input.h"
 #include "Physics.h"
 #include "GameObject.h"
+#include "Camera.h"
 
 class Application
 {
@@ -38,6 +39,8 @@ public:
 		delete[] m_ppBalls;
 //		m_pGameObjList.clear();
 
+		delete m_pCamera;
+
 		delete m_pPhysics;
 
 		delete m_pInput;
@@ -66,7 +69,7 @@ public:
 	//std::vector<MeshData*> meshDataList = std::vector<MeshData*>();
 	
 	// antWeenBar
-	TwBar* m_pBar;
+	//TwBar* m_pBar;
 
 	// meshOrientation
 	D3DXVECTOR3 m_position;
@@ -83,6 +86,9 @@ public:
 
 	// PhysX
 	Physics* m_pPhysics = nullptr;
+
+	// Camera
+	Camera* m_pCamera = nullptr;
 
 	// GameObjects
 	//std::vector<GameObject*> m_pGameObjList = std::vector<GameObject*>();

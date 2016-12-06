@@ -59,6 +59,7 @@ public:
 	void ResizeWindow(LPARAM lParam);
 
 	void MeshInitEvent();
+	void CreateModel();
 
 	// device
 	DeviceManager* m_pDeviceManager;

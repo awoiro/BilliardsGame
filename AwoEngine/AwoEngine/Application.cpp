@@ -48,7 +48,7 @@ void Application::Init(HWND hWnd, SIZE windowSize)
 
 	// canera init
 	m_pCamera = new Camera();
-	m_pCamera->ShowCameraEditWindow(windowSize);
+	//m_pCamera->ShowCameraEditWindow(windowSize);
 
 	// mesh importer init
 	m_pMeshManager = new MeshImporter();
@@ -79,7 +79,7 @@ void Application::Init(HWND hWnd, SIZE windowSize)
 	GameObject* pBall2 = new GameObject(pTransform2, pMeshData, m_pPhysics);
 	m_pGameObjList.push_back(pBall2);
 	*/
-
+#if false
 	// create balls
 	{
 		// mesh datas
@@ -167,6 +167,7 @@ void Application::Init(HWND hWnd, SIZE windowSize)
 		m_pTable->AddRigidStatic(m_pPhysics, D3DXVECTOR3(0, 80, 152), D3DXVECTOR3(150, 100, 50));   // 奥
 		m_pTable->AddRigidStatic(m_pPhysics, D3DXVECTOR3(0, 80, -152), D3DXVECTOR3(150, 100, 50));  // 手前
 	}
+#endif
 }
 
 void Application::Update(HWND hwnd, SIZE windowSize)
@@ -184,7 +185,7 @@ void Application::Update(HWND hwnd, SIZE windowSize)
 	}
 	*/
 
-	if (m_pInput->GetKeyDown(DIK_R))
+	if (m_pInput->GetKeyDown(DIK_R) && m_ballCount > 0)
 	{
 		//m_ppBalls[0]->m_pRigidBody->addForce(PxVec3(100, 0, 0));
 		m_ppBalls[0]->m_pRigidBody->setLinearVelocity(PxVec3(0, 0, 300));
@@ -237,6 +238,7 @@ void Application::RenderSetUp(HWND hwnd, SIZE windowSize)
 			m_pMeshManager->RenderMesh(&world, pMeshData);
 		}
 		// table render
+		if(m_pTable)
 		{
 			D3DXMATRIX world = m_pTable->m_pTransform->GetWorld();
 			MeshData* pMeshData = m_pTable->m_pRootMesh;
@@ -255,8 +257,12 @@ void Application::RenderSetUp(HWND hwnd, SIZE windowSize)
 #endif
 	}
 
-	RenderTwText(50, 50, "messageA");
-	RenderTwText(50, 62, "messageB");
+	//RenderTwText(50, 50, "messageA");
+	//RenderTwText(50, 62, "messageB");
+	if (m_ballCount <= 0)
+	{
+		RenderTwText(50, 50, "Now Loading ...");
+	}
 
 #if false // インプットテスト
 
@@ -299,6 +305,12 @@ void Application::RenderSetUp(HWND hwnd, SIZE windowSize)
 
 	// 画面更新
 	m_pDeviceManager->UpdateScreen();
+
+	if (m_ballCount <= 0)
+	{
+		CreateModel();
+		m_pCamera->ShowCameraEditWindow(windowSize);
+	}
 }
 
 void Application::InputKeyUpdate()
@@ -329,4 +341,96 @@ void Application::MeshInitEvent()
 	//m_pMeshManager->CreateFromFBX(pFBXFileName);
 
 	//_ meshDataList.push_back(m_pMeshManager->CreateMeshData(pFBXFileName));
+}
+
+
+void Application::CreateModel()
+{
+	// create balls
+	{
+		// mesh datas
+		MeshData* pBallMesh0 = m_pMeshManager->CreateMeshData("ball_low.fbx");
+		m_pMeshManager->SetMaterialTexture(m_pDeviceManager->m_pDevice, "ball_0_d.bmp", pBallMesh0);
+		MeshData* pBallMesh1 = m_pMeshManager->CreateMeshData("ball_low.fbx");
+		m_pMeshManager->SetMaterialTexture(m_pDeviceManager->m_pDevice, "ball_1_d.bmp", pBallMesh1);
+		MeshData* pBallMesh2 = m_pMeshManager->CreateMeshData("ball_low.fbx");
+		m_pMeshManager->SetMaterialTexture(m_pDeviceManager->m_pDevice, "ball_2_d.bmp", pBallMesh2);
+		MeshData* pBallMesh3 = m_pMeshManager->CreateMeshData("ball_low.fbx");
+		m_pMeshManager->SetMaterialTexture(m_pDeviceManager->m_pDevice, "ball_3_d.bmp", pBallMesh3);
+		MeshData* pBallMesh4 = m_pMeshManager->CreateMeshData("ball_low.fbx");
+		m_pMeshManager->SetMaterialTexture(m_pDeviceManager->m_pDevice, "ball_4_d.bmp", pBallMesh4);
+		MeshData* pBallMesh5 = m_pMeshManager->CreateMeshData("ball_low.fbx");
+		m_pMeshManager->SetMaterialTexture(m_pDeviceManager->m_pDevice, "ball_5_d.bmp", pBallMesh5);
+		MeshData* pBallMesh6 = m_pMeshManager->CreateMeshData("ball_low.fbx");
+		m_pMeshManager->SetMaterialTexture(m_pDeviceManager->m_pDevice, "ball_6_d.bmp", pBallMesh6);
+		MeshData* pBallMesh7 = m_pMeshManager->CreateMeshData("ball_low.fbx");
+		m_pMeshManager->SetMaterialTexture(m_pDeviceManager->m_pDevice, "ball_7_d.bmp", pBallMesh7);
+		MeshData* pBallMesh8 = m_pMeshManager->CreateMeshData("ball_low.fbx");
+		m_pMeshManager->SetMaterialTexture(m_pDeviceManager->m_pDevice, "ball_8_d.bmp", pBallMesh8);
+		MeshData* pBallMesh9 = m_pMeshManager->CreateMeshData("ball_low.fbx");
+		m_pMeshManager->SetMaterialTexture(m_pDeviceManager->m_pDevice, "ball_9_d.bmp", pBallMesh9);
+		MeshData* pBallMesh10 = m_pMeshManager->CreateMeshData("ball_low.fbx");
+		m_pMeshManager->SetMaterialTexture(m_pDeviceManager->m_pDevice, "ball_10_d.bmp", pBallMesh10);
+		MeshData* pBallMesh11 = m_pMeshManager->CreateMeshData("ball_low.fbx");
+		m_pMeshManager->SetMaterialTexture(m_pDeviceManager->m_pDevice, "ball_11_d.bmp", pBallMesh11);
+		MeshData* pBallMesh12 = m_pMeshManager->CreateMeshData("ball_low.fbx");
+		m_pMeshManager->SetMaterialTexture(m_pDeviceManager->m_pDevice, "ball_12_d.bmp", pBallMesh12);
+		MeshData* pBallMesh13 = m_pMeshManager->CreateMeshData("ball_low.fbx");
+		m_pMeshManager->SetMaterialTexture(m_pDeviceManager->m_pDevice, "ball_13_d.bmp", pBallMesh13);
+		MeshData* pBallMesh14 = m_pMeshManager->CreateMeshData("ball_low.fbx");
+		m_pMeshManager->SetMaterialTexture(m_pDeviceManager->m_pDevice, "ball_14_d.bmp", pBallMesh14);
+		MeshData* pBallMesh15 = m_pMeshManager->CreateMeshData("ball_low.fbx");
+		m_pMeshManager->SetMaterialTexture(m_pDeviceManager->m_pDevice, "ball_15_d.bmp", pBallMesh15);
+
+		const int r = 5.71;// radius
+		m_ballCount = 16;
+		D3DXVECTOR3 cPos = D3DXVECTOR3(0, 100, 70); // centerPos
+
+		m_ppBalls = new Ball*[m_ballCount];
+		m_ppBalls[0] = new Ball(pBallMesh0, D3DXVECTOR3(0, cPos.y, -100), D3DXQUATERNION(0, 0, 0, 1), m_pPhysics, r, 0);// white ball
+		m_ppBalls[1] = new Ball(pBallMesh1, D3DXVECTOR3(cPos.x, cPos.y, cPos.z - 4 * r), D3DXQUATERNION(0, 0, 0, 1), m_pPhysics, r, 1);
+		m_ppBalls[2] = new Ball(pBallMesh2, D3DXVECTOR3(cPos.x + r, cPos.y, cPos.z - 2 * r), D3DXQUATERNION(0, 0, 0, 1), m_pPhysics, r, 1);
+		m_ppBalls[3] = new Ball(pBallMesh3, D3DXVECTOR3(cPos.x - r, cPos.y, cPos.z - 2 * r), D3DXQUATERNION(0, 0, 0, 1), m_pPhysics, r, 1);
+		m_ppBalls[4] = new Ball(pBallMesh4, D3DXVECTOR3(cPos.x + 2 * r, cPos.y, cPos.z), D3DXQUATERNION(0, 0, 0, 1), m_pPhysics, r, 1);
+		m_ppBalls[5] = new Ball(pBallMesh5, D3DXVECTOR3(cPos.x - 2 * r, cPos.y, cPos.z), D3DXQUATERNION(0, 0, 0, 1), m_pPhysics, r, 1);
+		m_ppBalls[6] = new Ball(pBallMesh6, D3DXVECTOR3(cPos.x + 3 * r, cPos.y, cPos.z + 2 * r), D3DXQUATERNION(0, 0, 0, 1), m_pPhysics, r, 1);
+		m_ppBalls[7] = new Ball(pBallMesh7, D3DXVECTOR3(cPos.x + 4 * r, cPos.y, cPos.z + 4 * r), D3DXQUATERNION(0, 0, 0, 1), m_pPhysics, r, 1);// L ball
+		m_ppBalls[8] = new Ball(pBallMesh8, D3DXVECTOR3(cPos.x, cPos.y, cPos.z), D3DXQUATERNION(0, 0, 0, 1), m_pPhysics, r, 1);// 8 ball
+		m_ppBalls[9] = new Ball(pBallMesh9, D3DXVECTOR3(cPos.x - 4 * r, cPos.y, cPos.z + 4 * r), D3DXQUATERNION(0, 0, 0, 1), m_pPhysics, r, 1);// H ball
+		m_ppBalls[10] = new Ball(pBallMesh10, D3DXVECTOR3(cPos.x + r, cPos.y, cPos.z + 2 * r), D3DXQUATERNION(0, 0, 0, 1), m_pPhysics, r, 1);
+		m_ppBalls[11] = new Ball(pBallMesh11, D3DXVECTOR3(cPos.x - r, cPos.y, cPos.z + 2 * r), D3DXQUATERNION(0, 0, 0, 1), m_pPhysics, r, 1);
+		m_ppBalls[12] = new Ball(pBallMesh12, D3DXVECTOR3(cPos.x - 3 * r, cPos.y, cPos.z + 2 * r), D3DXQUATERNION(0, 0, 0, 1), m_pPhysics, r, 1);
+		m_ppBalls[13] = new Ball(pBallMesh13, D3DXVECTOR3(cPos.x + 2 * r, cPos.y, cPos.z + 4 * r), D3DXQUATERNION(0, 0, 0, 1), m_pPhysics, r, 1);
+		m_ppBalls[14] = new Ball(pBallMesh14, D3DXVECTOR3(cPos.x, cPos.y, cPos.z + 4 * r), D3DXQUATERNION(0, 0, 0, 1), m_pPhysics, r, 1);
+		m_ppBalls[15] = new Ball(pBallMesh15, D3DXVECTOR3(cPos.x - 2 * r, cPos.y, cPos.z + 4 * r), D3DXQUATERNION(0, 0, 0, 1), m_pPhysics, r, 1);
+
+		/*
+		for (int i = 0; i < m_ballCount; i++)
+		{
+		m_ppBalls[i] = new Ball();
+
+		Transform* pTransform = new Transform();
+		pTransform->m_position = D3DXVECTOR3(0, 0, 0);
+		pTransform->m_angle = D3DXQUATERNION(0, 0, 0, 1);
+		pTransform->m_scale = D3DXVECTOR3(1, 1, 1);
+
+		m_ppBalls[i]->SetTransform(pTransform);
+		m_ppBalls[i]->SetMesh(pBallMesh);
+		}
+		*/
+	}
+
+	// create table
+	{
+		MeshData* pTableMesh = m_pMeshManager->CreateMeshData("table.fbx");
+		m_pMeshManager->SetMaterialTexture(m_pDeviceManager->m_pDevice, "table_d.bmp", pTableMesh);
+
+		m_pTable = new Table(pTableMesh, D3DXVECTOR3(0, 0, 0), D3DXQUATERNION(0, 0, 0, 1));
+
+		m_pTable->AddRigidStatic(m_pPhysics, D3DXVECTOR3(0, 50, 0), D3DXVECTOR3(150, 50, 300));	// 底面
+		m_pTable->AddRigidStatic(m_pPhysics, D3DXVECTOR3(-88.5, 80, 0), D3DXVECTOR3(50, 100, 300));	// 左側面
+		m_pTable->AddRigidStatic(m_pPhysics, D3DXVECTOR3(88.5, 80, 0), D3DXVECTOR3(50, 100, 300));	// 右側面
+		m_pTable->AddRigidStatic(m_pPhysics, D3DXVECTOR3(0, 80, 152), D3DXVECTOR3(150, 100, 50));   // 奥
+		m_pTable->AddRigidStatic(m_pPhysics, D3DXVECTOR3(0, 80, -152), D3DXVECTOR3(150, 100, 50));  // 手前
+	}
 }

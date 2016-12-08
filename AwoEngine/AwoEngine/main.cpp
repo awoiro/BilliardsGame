@@ -9,7 +9,6 @@
 
 HWND g_hWnd;
 Application* g_pApp;
-bool g_IsStartInit = false;
 
 LRESULT CALLBACK WndProc(HWND, UINT, WPARAM, LPARAM);
 BOOL SetClientSize(HWND hWnd, int width, int height);
@@ -93,8 +92,6 @@ INT WINAPI WinMain(HINSTANCE hInst, HINSTANCE hPrevInst, LPSTR szStr, INT iCmdSh
 			g_pApp->Update(g_hWnd, windowSize);
 			g_pApp->RenderSetUp(g_hWnd, windowSize);
 			g_pApp->InputKeyUpdate();
-
-			g_IsStartInit = true;
 		}
 	}
 	delete g_pApp;

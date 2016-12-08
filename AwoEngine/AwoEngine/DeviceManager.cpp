@@ -13,8 +13,8 @@ HRESULT DeviceManager::CreateDeviceAndSwapChian(const HWND hWnd, SIZE windowSize
 	sd.BufferDesc.RefreshRate.Denominator = 1;
 	sd.BufferUsage = DXGI_USAGE_RENDER_TARGET_OUTPUT;
 	sd.OutputWindow = hWnd;
-	sd.SampleDesc.Count = 1;
-	sd.SampleDesc.Quality = 0;
+	sd.SampleDesc.Count = SAMPLE_COUNT;
+	sd.SampleDesc.Quality = SAMPLE_QUALITY;
 	sd.Windowed = TRUE;
 	m_SwapChainDesc = sd;
 
@@ -53,8 +53,8 @@ HRESULT DeviceManager::InitBackBuffer(SIZE windowSize)
 	descDepth.MipLevels = 1;
 	descDepth.ArraySize = 1;
 	descDepth.Format = DXGI_FORMAT_D32_FLOAT;
-	descDepth.SampleDesc.Count = 1;
-	descDepth.SampleDesc.Quality = 0;
+	descDepth.SampleDesc.Count = SAMPLE_COUNT;
+	descDepth.SampleDesc.Quality = SAMPLE_QUALITY;
 	descDepth.Usage = D3D11_USAGE_DEFAULT;
 	descDepth.BindFlags = D3D11_BIND_DEPTH_STENCIL;
 	descDepth.CPUAccessFlags = 0;

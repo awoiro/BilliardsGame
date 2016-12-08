@@ -2,8 +2,14 @@
   Application.cpp
   c:\program files (x86)\microsoft directx sdk (june 2010)\include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
   コードを生成中...
-  スキップ中... (関連する変更は検出されませんでした)
+  コンパイル中...
   main.cpp
+  c:\program files (x86)\microsoft directx sdk (june 2010)\include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+  Text.cpp
+  GameObject.cpp
+  DeviceManager.cpp
   Camera.cpp
+  c:\program files (x86)\microsoft directx sdk (june 2010)\include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+  コードを生成中...
   AwoEngine.vcxproj -> C:\Git\BilliardsGame\AwoEngine\AwoEngine\..\bin\x86\Debug\AwoEngine.exe
   AwoEngine.vcxproj -> ..\bin\x86\Debug\AwoEngine.pdb (Full PDB)

@@ -13,6 +13,8 @@
 #pragma comment(lib,"d3dCompiler.lib")
 
 #define SAFE_RELEASE(p) { if(p) { (p)->Release(); (p)=nullptr; } }
+#define SAMPLE_COUNT 8
+#define SAMPLE_QUALITY 0.9
 
 static D3DXVECTOR3 g_lightDir(-1, 1, -1);
 

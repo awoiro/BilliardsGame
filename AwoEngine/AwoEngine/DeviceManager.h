@@ -55,6 +55,7 @@ public:
 	void RenderSetUp(SIZE windowSize);
 	void UpdateScreen();
 	void ResizeRenderWindow(LPARAM lParam);
+	void ResizeRenderWindow(SIZE windowSize);
 
 	ID3D11Device* m_pDevice;
 	IDXGISwapChain*			m_pSwapChain;

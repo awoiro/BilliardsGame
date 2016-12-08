@@ -54,12 +54,25 @@ public:
 
 	void Init(HWND hWnd, SIZE windowSize);
 	void Update(HWND hwnd, SIZE windowSize);
+	void CollisionCheck();
+	bool IsBallHitToHole(Ball* pBall, Hole* pHole);
 	void RenderSetUp(HWND hwnd, SIZE windowSize);
 	void InputKeyUpdate();
 	void ResizeWindow(LPARAM lParam);
+	void ResizeWindow(SIZE windowSize);
 
 	void MeshInitEvent();
 	void CreateModel();
+
+	void RenderGameobject(GameObject* pObj)
+	{
+		if (!pObj) { return; }
+		if (pObj->isRender == false) { return; }
+
+		D3DXMATRIX world = pObj->m_pTransform->GetWorld();
+		MeshData* pMeshData = pObj->m_pRootMesh;
+		m_pMeshManager->RenderMesh(&world, pMeshData);
+	}
 
 	// device
 	DeviceManager* m_pDeviceManager;
@@ -100,4 +113,14 @@ public:
 
 	// Table
 	Table* m_pTable = nullptr;
+
+	// Table holes
+	Hole** m_ppHoles = nullptr;
+	int m_holeCount;
+
+	// Shooter
+	Arrow* m_pArrow = nullptr;
+	D3DXQUATERNION m_shootAngle;
+	float m_shootPower;
+	TwBar* m_pShooterBar;
 };

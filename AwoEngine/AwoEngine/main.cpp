@@ -9,8 +9,10 @@
 
 HWND g_hWnd;
 Application* g_pApp;
+bool g_IsStartInit = false;
 
 LRESULT CALLBACK WndProc(HWND, UINT, WPARAM, LPARAM);
+BOOL SetClientSize(HWND hWnd, int width, int height);
 
 void TW_CALL ImportFBXButtonClick(void* clientData) { g_pApp->MeshInitEvent(); }
 
@@ -60,10 +62,12 @@ INT WINAPI WinMain(HINSTANCE hInst, HINSTANCE hPrevInst, LPSTR szStr, INT iCmdSh
 	UpdateWindow(g_hWnd);
 
 	SIZE windowSize;
-	windowSize.cy = WINDOW_WIDTH;
-	windowSize.cx = WINDOW_HEIGHT;
+	windowSize.cx = WINDOW_WIDTH;
+	windowSize.cy = WINDOW_HEIGHT;
 	g_pApp = new Application;
 	g_pApp->Init(g_hWnd, windowSize);
+
+	SetClientSize(g_hWnd, WINDOW_WIDTH, WINDOW_HEIGHT);
 
 #if false
 	TwBar* pBar = TwNewBar("FBXFileImport");
@@ -86,9 +90,11 @@ INT WINAPI WinMain(HINSTANCE hInst, HINSTANCE hPrevInst, LPSTR szStr, INT iCmdSh
 		}
 		else
 		{
-			g_pApp->Update(g_hWnd,windowSize);
+			g_pApp->Update(g_hWnd, windowSize);
 			g_pApp->RenderSetUp(g_hWnd, windowSize);
 			g_pApp->InputKeyUpdate();
+
+			g_IsStartInit = true;
 		}
 	}
 	delete g_pApp;
@@ -116,4 +122,16 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT iMsg, WPARAM wParam, LPARAM lParam)
 		return 0;
 	}
 	return DefWindowProc(hWnd, iMsg, wParam, lParam);
+}
+
+BOOL SetClientSize(HWND hWnd, int width, int height)
+{
+	RECT rw, rc;
+	::GetWindowRect(hWnd, &rw);
+	::GetClientRect(hWnd, &rc);
+
+	int new_width = (rw.right - rw.left) - (rc.right - rc.left) + width;
+	int new_height = (rw.bottom - rw.top) - (rc.bottom - rc.top) + height;
+
+	return ::SetWindowPos(hWnd, NULL, 0, 0, new_width, new_height, SWP_NOMOVE | SWP_NOZORDER);
 }

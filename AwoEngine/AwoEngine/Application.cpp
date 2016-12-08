@@ -60,6 +60,7 @@ void Application::Init(HWND hWnd, SIZE windowSize)
 	//MeshData* pMeshData	= m_pMeshManager->CreateMeshData("ball_low.fbx");
 	//MeshData* pMeshData = m_pMeshManager->CreateMeshData("table.fbx");
 
+
 	/*
 	//  ball 1
 	Transform* pTransform = new Transform();
@@ -190,7 +191,47 @@ void Application::Update(HWND hwnd, SIZE windowSize)
 		//m_ppBalls[0]->m_pRigidBody->addForce(PxVec3(100, 0, 0));
 		m_ppBalls[0]->m_pRigidBody->setLinearVelocity(PxVec3(0, 0, 300));
 	}
+
+	CollisionCheck();
 }
+
+void Application::CollisionCheck()
+{
+	for (int i = 0; i < m_ballCount; i++)
+	{
+		for (int i = 0; i < m_holeCount; i++)
+		{
+			if (IsBallHitToHole(m_ppBalls[i],m_ppHoles[i]))
+			{
+				MessageBoxA(nullptr, "hit", nullptr, MB_OK);
+			}
+		}
+	}
+}
+
+bool Application::IsBallHitToHole(Ball* pBall, Hole* pHole)
+{
+	// 2つのオブジェクトの距離(2乗)
+	D3DXVECTOR3 distSquared = pBall->m_pTransform->m_position - pHole->m_pTransform->m_position;
+	distSquared.x = distSquared.x * distSquared.x;
+	//distSquared.y = distSquared.y * distSquared.y;
+	distSquared.z = distSquared.z * distSquared.z;
+	
+	// 2つのオブジェクトの半径の合計(2乗)
+	float sumRadiusSquared = pBall->m_radius + pHole->m_radius;
+	sumRadiusSquared = sumRadiusSquared * sumRadiusSquared;
+
+	// 衝突しているか
+	if (distSquared.x + distSquared.z <= sumRadiusSquared)
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
+}
+
 
 void Application::RenderSetUp(HWND hwnd, SIZE windowSize)
 {
@@ -229,22 +270,38 @@ void Application::RenderSetUp(HWND hwnd, SIZE windowSize)
 
 		m_pMeshManager->m_view = m_pCamera->GetView();//m_pDeviceManager->m_view;
 		m_pMeshManager->m_proj = m_pCamera->GetProjection(m_pDeviceManager->m_depthStencilDesc);//m_pDeviceManager->m_projection;
-		
+#pragma region Gameobjects render
+
 		// ball render
 		for (int i = 0; i < m_ballCount; i++)
 		{
+			/*
 			D3DXMATRIX world = m_ppBalls[i]->m_pTransform->GetWorld();
 			MeshData* pMeshData = m_ppBalls[i]->m_pRootMesh;
 			m_pMeshManager->RenderMesh(&world, pMeshData);
+			*/
+			RenderGameobject(m_ppBalls[i]);
 		}
 		// table render
 		if(m_pTable)
 		{
+			/*
 			D3DXMATRIX world = m_pTable->m_pTransform->GetWorld();
 			MeshData* pMeshData = m_pTable->m_pRootMesh;
 			m_pMeshManager->RenderMesh(&world, pMeshData);
+			*/
+			RenderGameobject(m_pTable);
 		}
-
+		// arrow render
+		if (m_pArrow)
+		{
+			/*
+			D3DXMATRIX world = m_pArrow->m_pTransform->GetWorld();
+			MeshData* pMeshData = m_pArrow->m_pRootMesh;
+			m_pMeshManager->RenderMesh(&world, pMeshData);
+			*/
+			RenderGameobject(m_pArrow);
+		}
 
 		/*
 		for (int i = 0; i < m_pGameObjList.size(); i++)
@@ -254,6 +311,8 @@ void Application::RenderSetUp(HWND hwnd, SIZE windowSize)
 			m_pMeshManager->RenderMesh(&world, pMeshData);
 		}
 		*/
+#pragma endregion
+
 #endif
 	}
 
@@ -262,6 +321,11 @@ void Application::RenderSetUp(HWND hwnd, SIZE windowSize)
 	if (m_ballCount <= 0)
 	{
 		RenderTwText(50, 50, "Now Loading ...");
+	}
+	else
+	{
+		RenderTwText(50, 50, "Reset command : R");
+		RenderTwText(50, 70, "Shoot command : S");
 	}
 
 #if false // インプットテスト
@@ -280,7 +344,7 @@ void Application::RenderSetUp(HWND hwnd, SIZE windowSize)
 	if (m_pInput->GetMouseButtonDown(Input::MOUSE_BUTTON_RIGHT)) { RenderTwText(10, 80, "KeyDownT"); }
 	if (m_pInput->GetMouseButton(Input::MOUSE_BUTTON_LEFT)) { RenderTwText(10, 90, "KeyDownT"); }
 
-	D3DXVECTOR2 mousePos = m_pInput->GetMousePos(windowSize.cx, windowSize.cy, hwnd);
+	D3DXVECTOR2 mousePos = m_pInput->GetMousePos(windowSize.cx, windowSize.cy, hWnd);
 	char message[100];
 	wsprintfA(message, "Mouse Pos ( X:%d , Y:%d )", (int)mousePos.x, (int)mousePos.y);
 	RenderTwText(10, 100, message);
@@ -300,16 +364,20 @@ void Application::RenderSetUp(HWND hwnd, SIZE windowSize)
 	*/
 	for (int i = 0; i < m_ballCount; i++)
 	{
+		if (m_ppBalls[i]->isRender == false) { continue; }
 		m_ppBalls[i]->UpdatePos();
 	}
-
+	if (m_pArrow)
+	{
+		m_pArrow->m_pTransform->m_position = m_ppBalls[0]->m_pTransform->m_position;
+	}
 	// 画面更新
 	m_pDeviceManager->UpdateScreen();
 
 	if (m_ballCount <= 0)
 	{
 		CreateModel();
-		m_pCamera->ShowCameraEditWindow(windowSize);
+		m_pCamera->ShowCameraEditWindow();
 	}
 }
 
@@ -322,6 +390,11 @@ void Application::InputKeyUpdate()
 void Application::ResizeWindow(LPARAM lParam)
 {
 	m_pDeviceManager->ResizeRenderWindow(lParam);
+}
+
+void Application::ResizeWindow(SIZE windowSize)
+{
+	m_pDeviceManager->ResizeRenderWindow(windowSize);
 }
 
 void Application::MeshInitEvent()
@@ -432,5 +505,39 @@ void Application::CreateModel()
 		m_pTable->AddRigidStatic(m_pPhysics, D3DXVECTOR3(88.5, 80, 0), D3DXVECTOR3(50, 100, 300));	// 右側面
 		m_pTable->AddRigidStatic(m_pPhysics, D3DXVECTOR3(0, 80, 152), D3DXVECTOR3(150, 100, 50));   // 奥
 		m_pTable->AddRigidStatic(m_pPhysics, D3DXVECTOR3(0, 80, -152), D3DXVECTOR3(150, 100, 50));  // 手前
+	}
+
+	// create holes
+	{
+		const int c_radius = 57.1 / 2.0;
+		m_holeCount = 6;
+		m_ppHoles = new Hole*[m_holeCount];
+
+		m_ppHoles[0] = new Hole(D3DXVECTOR3(-145 - c_radius, 50 + c_radius, 80 + c_radius	), c_radius);// 左上
+		m_ppHoles[1] = new Hole(D3DXVECTOR3(-145 - c_radius, 50 + c_radius, 0				), c_radius);// 左中
+		m_ppHoles[2] = new Hole(D3DXVECTOR3(-145 - c_radius, 50 + c_radius, 80 - c_radius	), c_radius);// 左下
+		m_ppHoles[3] = new Hole(D3DXVECTOR3(80 * c_radius,	 50 + c_radius, 145 + c_radius	), c_radius);// 右上
+		m_ppHoles[4] = new Hole(D3DXVECTOR3(0,				 50 + c_radius, 145 + c_radius	), c_radius);// 右中
+		m_ppHoles[5] = new Hole(D3DXVECTOR3(90 - c_radius,	 50 + c_radius, 145 + c_radius	), c_radius);// 右下
+	}
+
+	// create arrow
+	{
+		m_shootAngle = D3DXQUATERNION(0, 0, 0, 1);
+		m_shootPower = 50;
+
+		m_pArrow = new Arrow();
+
+		Transform* pTransform = new Transform();
+		pTransform->m_position = m_ppBalls[0]->m_pTransform->m_position;
+		pTransform->m_angle = m_shootAngle;
+		pTransform->m_scale = D3DXVECTOR3(7, 7, 7);
+		m_pArrow->SetTransform(pTransform);
+		
+		m_pArrow->SetMesh(m_pMeshManager->CreateMeshData("arrow.fbx"));
+
+		m_pShooterBar = TwNewBar("ShooterSetting");
+		TwAddVarRW(m_pShooterBar, "ShootingAngle", TW_TYPE_QUAT4F, &m_shootAngle, "");
+		TwAddVarRW(m_pShooterBar, "ShootingPower", TW_TYPE_FLOAT, &m_shootPower, "");
 	}
 }

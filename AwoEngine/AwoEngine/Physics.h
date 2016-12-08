@@ -14,6 +14,8 @@
 #pragma comment (lib,"PhysXVisualDebuggerSDKDEBUG.lib" )
 #pragma comment (lib,"PxTaskDEBUG.lib" )
 
+//#define SAFE_RELEASE(p) { if(p) { (p)->release(); (p)=nullptr; } }
+
 using namespace physx;
 
 class Physics

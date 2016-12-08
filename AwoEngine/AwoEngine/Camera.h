@@ -1,6 +1,7 @@
 #pragma once
 #include "DeviceManager.h"
 #include "Input.h"
+#include <AntTweakBar.h>
 
 struct ShaderGlobal_Camera
 {
@@ -18,7 +19,7 @@ class Camera
 {
 public:
 	Camera()
-		: m_eye(0.0f, 500.0f, -500.0f)
+		: m_eye(0.0f, 300.0f, -250.0f)
 		, m_lookAt(0.0f, 0.0f, 0.0f)
 		, m_up(0.0f, 1.0f, 0.0f)
 	{};
@@ -34,13 +35,14 @@ public:
 	}
 #endif	
 
-	void ShowCameraEditWindow(SIZE windowSize)
+
+	void ShowCameraEditWindow()
 	{
-		TwWindowSize(windowSize.cy, windowSize.cx);
 		m_pBar = TwNewBar("CameraSetting");
 		TwAddVarRW(m_pBar, "Eye", TW_TYPE_DIR3F, &m_eye, "");
 		TwAddVarRW(m_pBar, "LookAt", TW_TYPE_DIR3F, &m_lookAt, "");
 		TwAddVarRW(m_pBar, "UP", TW_TYPE_DIR3F, &m_up, "");
+		
 	}
 
 	void CameraSetting(DeviceManager* pDeviceManager)
@@ -67,10 +69,11 @@ public:
 	D3DXVECTOR3 m_lookAt;
 	D3DXVECTOR3 m_up;
 
+	TwBar* m_pBar;
+	
 	//D3DXMATRIX m_view;
 	//D3DXMATRIX m_Projection;
 
-	TwBar* m_pBar;
 
 	D3DXMATRIX GetView()
 	{ 

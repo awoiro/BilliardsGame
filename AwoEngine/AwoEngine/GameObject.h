@@ -19,6 +19,7 @@ public:
 	*/
 	~GameObject()
 	{
+		delete m_pRootMesh;
 		delete m_pTransform;
 	}
 
@@ -31,6 +32,8 @@ public:
 
 	Transform* m_pTransform = nullptr;
 	MeshData* m_pRootMesh = nullptr;
+
+	bool isRender = true;
 protected:
 
 };
@@ -40,7 +43,10 @@ class DynamicGameObject : public GameObject
 public:
 
 	DynamicGameObject() {};
-	~DynamicGameObject() {};
+	~DynamicGameObject() 
+	{
+		//SAFE_RELEASE(m_pRigidBody);
+	};
 
 	virtual void SetRigidDynamicSphere(Physics* pPhysics, int radius)
 	{
@@ -101,14 +107,33 @@ public:
 		SetTransform(pTransform);
 		SetMesh(pMeshData);
 		SetRigidDynamicSphere(pPhysics, radius);
+		m_radius = radius;
 		m_ballNumber = ballNum;
 	}
 	~Ball() {};
 
+	int m_radius;
 	int m_ballNumber = -1;
 
 private:
 
+};
+
+class Hole : public GameObject
+{
+public:
+	Hole() {};
+	Hole(D3DXVECTOR3 pos, int radius)
+	{
+		Transform* pTransform = new Transform();
+		pTransform->m_position = pos;
+		pTransform->m_angle = D3DXQUATERNION(0, 0, 0, 1);
+		pTransform->m_scale = D3DXVECTOR3(1, 1, 1);
+		SetTransform(pTransform);
+		m_radius = radius;
+	}
+	~Hole() {};
+	int m_radius;
 };
 
 class Table : public StaticGameObject
@@ -138,3 +163,14 @@ public:
 private:
 
 };
+
+class Arrow : public GameObject
+{
+public:
+	Arrow() {};
+	~Arrow() {};
+
+private:
+	
+};
+

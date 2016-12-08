@@ -6,8 +6,8 @@ HRESULT DeviceManager::CreateDeviceAndSwapChian(const HWND hWnd, SIZE windowSize
 	DXGI_SWAP_CHAIN_DESC sd;
 	ZeroMemory(&sd, sizeof(sd));
 	sd.BufferCount = 1;
-	sd.BufferDesc.Width = windowSize.cy;
-	sd.BufferDesc.Height = windowSize.cx;
+	sd.BufferDesc.Width = windowSize.cx;
+	sd.BufferDesc.Height = windowSize.cy;
 	sd.BufferDesc.Format = DXGI_FORMAT_R8G8B8A8_UNORM;
 	sd.BufferDesc.RefreshRate.Numerator = 60;
 	sd.BufferDesc.RefreshRate.Denominator = 1;
@@ -48,8 +48,8 @@ HRESULT DeviceManager::InitBackBuffer(SIZE windowSize)
 
 	// DSVの作成
 	D3D11_TEXTURE2D_DESC descDepth;
-	descDepth.Width = windowSize.cy;
-	descDepth.Height = windowSize.cx;
+	descDepth.Width = m_SwapChainDesc.BufferDesc.Width;//windowSize.cx;
+	descDepth.Height = m_SwapChainDesc.BufferDesc.Height;//windowSize.cy;
 	descDepth.MipLevels = 1;
 	descDepth.ArraySize = 1;
 	descDepth.Format = DXGI_FORMAT_D32_FLOAT;
@@ -68,8 +68,8 @@ HRESULT DeviceManager::InitBackBuffer(SIZE windowSize)
 
 	// ビューポート設定
 	D3D11_VIEWPORT vp;
-	vp.Width = windowSize.cy;
-	vp.Height = windowSize.cy;
+	vp.Width = (float)m_SwapChainDesc.BufferDesc.Width;//windowSize.cx;
+	vp.Height = (float)m_SwapChainDesc.BufferDesc.Height;//windowSize.cy;
 	vp.MinDepth = 0.0f;
 	vp.MaxDepth = 1.0f;
 	vp.TopLeftX = 0;
@@ -305,6 +305,63 @@ void DeviceManager::ResizeRenderWindow(LPARAM lParam)
 			// スワップチェーン再設定
 			m_SwapChainDesc.BufferDesc.Width = LOWORD(lParam);
 			m_SwapChainDesc.BufferDesc.Height = HIWORD(lParam);
+			m_pSwapChain->ResizeBuffers(
+				m_SwapChainDesc.BufferCount,
+				m_SwapChainDesc.BufferDesc.Width,
+				m_SwapChainDesc.BufferDesc.Height,
+				m_SwapChainDesc.BufferDesc.Format,
+				m_SwapChainDesc.Flags
+			);
+
+			// RTVとDSVを再設定
+			ID3D11Texture2D *backBuffer = nullptr, *dsBuffer = nullptr;
+			m_pSwapChain->GetBuffer(0, __uuidof(ID3D11Texture2D), (LPVOID*)&backBuffer);
+			m_pDevice->CreateRenderTargetView(backBuffer, nullptr, &m_pRTV);
+			backBuffer->Release();
+			m_depthStencilDesc.Width = m_SwapChainDesc.BufferDesc.Width;
+			m_depthStencilDesc.Height = m_SwapChainDesc.BufferDesc.Height;
+			m_pDevice->CreateTexture2D(&m_depthStencilDesc, nullptr, &dsBuffer);
+			m_pDevice->CreateDepthStencilView(dsBuffer, nullptr, &m_pDSV);
+			dsBuffer->Release();
+			m_pDeviceContext->OMSetRenderTargets(1, &m_pRTV, m_pDSV);
+
+			// ビューポート設定
+			D3D11_VIEWPORT vp;
+			vp.Width = (float)m_SwapChainDesc.BufferDesc.Width;
+			vp.Height = (float)m_SwapChainDesc.BufferDesc.Height;
+			vp.MinDepth = 0.0f;
+			vp.MaxDepth = 1.0f;
+			vp.TopLeftX = 0;
+			vp.TopLeftY = 0;
+			m_pDeviceContext->RSSetViewports(1, &vp);
+		}
+	}
+}
+
+
+void DeviceManager::ResizeRenderWindow(SIZE windowSize)
+{
+	if (m_pDevice)
+	{
+		// RTVとDSVを開放
+		ID3D11RenderTargetView *nullptrRTV = nullptr;
+		m_pDeviceContext->OMSetRenderTargets(1, &nullptrRTV, nullptr);
+		if (m_pRTV)
+		{
+			m_pRTV->Release();
+			m_pRTV = nullptr;
+		}
+		if (m_pDSV)
+		{
+			m_pDSV->Release();
+			m_pDSV = nullptr;
+		}
+
+		if (m_pSwapChain)
+		{
+			// スワップチェーン再設定
+			m_SwapChainDesc.BufferDesc.Width = windowSize.cx;
+			m_SwapChainDesc.BufferDesc.Height = windowSize.cy;
 			m_pSwapChain->ResizeBuffers(
 				m_SwapChainDesc.BufferCount,
 				m_SwapChainDesc.BufferDesc.Width,

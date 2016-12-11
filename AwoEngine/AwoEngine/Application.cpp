@@ -186,10 +186,57 @@ void Application::Update(HWND hwnd, SIZE windowSize)
 	}
 	*/
 
-	if (m_pInput->GetKeyDown(DIK_R) && m_ballCount > 0)
+	if (m_pInput->GetKeyDown(DIK_S) && m_ballCount > 0)
 	{
 		//m_ppBalls[0]->m_pRigidBody->addForce(PxVec3(100, 0, 0));
-		m_ppBalls[0]->m_pRigidBody->setLinearVelocity(PxVec3(0, 0, 300));
+		/*
+		D3DXVECTOR3* pShootVec = new D3DXVECTOR3;
+		D3DXVec3Normalize(pShootVec,&D3DXVECTOR3(m_shootAngle));
+		*pShootVec = *pShootVec * m_shootPower;
+		m_ppBalls[0]->m_pRigidBody->setLinearVelocity(PxVec3(pShootVec->x,pShootVec->y,pShootVec->z));
+		delete pShootVec;
+		//D3DXVec3
+		*/
+		/*
+		D3DXVECTOR3 shootVer = D3DXVECTOR3();
+
+		const float c_X = m_shootAngle.x;
+		const float c_Y = m_shootAngle.y;
+		const float c_Z = m_shootAngle.z;
+		const float c_W = m_shootAngle.w;
+		const float c_singularityTest = c_Z * c_X - c_W * c_Y;
+		const float c_yawY = 2.0f * (c_W * c_Z + c_X * c_Y);
+		const float c_yawX = (1.0f - 2.0f * ((c_Y * c_Y) + (c_Z * c_Z)));
+
+		const float c_singularityThreshold = 0.499f;
+		const float c_radToDeg = (180.f) / D3DX_PI;
+
+		if (c_singularityTest < -c_singularityThreshold)
+		{
+			shootVer.x = -90.0f;
+			shootVer.y = atan2(c_yawY, c_yawX) * c_radToDeg;
+			shootVer.z = 
+		}
+		else if (c_singularityTest > c_singularityThreshold)
+		{
+
+		}
+		else
+		{
+		
+		}
+		*/
+
+		D3DXVECTOR3 vec = D3DXVECTOR3(0,0,0);
+		vec.x = sinf(m_shootAngle * DIG_TO_RAD);
+		vec.z = cosf(m_shootAngle * DIG_TO_RAD);
+		D3DXVECTOR3 shootVec = D3DXVECTOR3();
+		D3DXVec3Normalize(&shootVec, &vec);
+		shootVec *= m_shootPower;
+		m_ppBalls[0]->m_pRigidBody->setLinearVelocity(PxVec3(shootVec.x, shootVec.y, shootVec.z));//setLinearVelocity(PxVec3(shootVec.x, shootVec.y, shootVec.z));
+
+		//setLinearVelocity();
+		//m_ppBalls[0]->m_pRigidBody->setLinearVelocity(PxVec3(0, 0, 300));
 	}
 
 	CollisionCheck();
@@ -324,8 +371,9 @@ void Application::RenderSetUp(HWND hwnd, SIZE windowSize)
 	}
 	else
 	{
-		RenderTwText(50, 50, "Reset command : R");
+		//RenderTwText(50, 50, "Reset command : R");
 		RenderTwText(50, 70, "Shoot command : S");
+		RenderTwText(50, 90, "FullScreen toggle : Alt + Enter");
 	}
 
 #if false // インプットテスト
@@ -370,6 +418,13 @@ void Application::RenderSetUp(HWND hwnd, SIZE windowSize)
 	if (m_pArrow)
 	{
 		m_pArrow->m_pTransform->m_position = m_ppBalls[0]->m_pTransform->m_position;
+		
+		D3DXMATRIX matRotation;
+		D3DXMatrixRotationY(&matRotation, m_shootAngle * DIG_TO_RAD);
+		D3DXQUATERNION autoRotationValue;
+		D3DXQuaternionRotationMatrix(&autoRotationValue, &matRotation);
+		m_pArrow->m_pTransform->m_angle = autoRotationValue;
+		//m_pArrow->m_pTransform->m_angle = m_shootAngle;
 	}
 	// 画面更新
 	m_pDeviceManager->UpdateScreen();
@@ -499,12 +554,36 @@ void Application::CreateModel()
 		m_pMeshManager->SetMaterialTexture(m_pDeviceManager->m_pDevice, "table_d.bmp", pTableMesh);
 
 		m_pTable = new Table(pTableMesh, D3DXVECTOR3(0, 0, 0), D3DXQUATERNION(0, 0, 0, 1));
-
+#if true
 		m_pTable->AddRigidStatic(m_pPhysics, D3DXVECTOR3(0, 50, 0), D3DXVECTOR3(150, 50, 300));	// 底面
 		m_pTable->AddRigidStatic(m_pPhysics, D3DXVECTOR3(-88.5, 80, 0), D3DXVECTOR3(50, 100, 300));	// 左側面
 		m_pTable->AddRigidStatic(m_pPhysics, D3DXVECTOR3(88.5, 80, 0), D3DXVECTOR3(50, 100, 300));	// 右側面
 		m_pTable->AddRigidStatic(m_pPhysics, D3DXVECTOR3(0, 80, 152), D3DXVECTOR3(150, 100, 50));   // 奥
 		m_pTable->AddRigidStatic(m_pPhysics, D3DXVECTOR3(0, 80, -152), D3DXVECTOR3(150, 100, 50));  // 手前
+#else
+		m_pTable->AddRigidStatic(m_pPhysics, D3DXVECTOR3(0, 50, 0), D3DXVECTOR3(150, 50, 300));		// 底面
+		m_pTable->AddRigidStatic(m_pPhysics, D3DXVECTOR3(0, 50, 0), D3DXVECTOR3(150, 50, 300));		// 上面
+
+		m_pTable->AddRigidStatic(m_pPhysics, D3DXVECTOR3(-88.5, 80, 0), D3DXVECTOR3(50, 100, 300));	// 左側面 奥
+		m_pTable->AddRigidStatic(m_pPhysics, D3DXVECTOR3(-88.5, 80, 0), D3DXVECTOR3(50, 100, 300));	// 左側面 前
+		m_pTable->AddRigidStatic(m_pPhysics, D3DXVECTOR3(-88.5, 80, 0), D3DXVECTOR3(50, 100, 300));	// 左側面 奥ホール
+		m_pTable->AddRigidStatic(m_pPhysics, D3DXVECTOR3(-88.5, 80, 0), D3DXVECTOR3(50, 100, 300));	// 左側面 中ホール
+		m_pTable->AddRigidStatic(m_pPhysics, D3DXVECTOR3(-88.5, 80, 0), D3DXVECTOR3(50, 100, 300));	// 左側面 前ホール
+
+		m_pTable->AddRigidStatic(m_pPhysics, D3DXVECTOR3(88.5, 80, 0), D3DXVECTOR3(50, 100, 300));	// 右側面 奥
+		m_pTable->AddRigidStatic(m_pPhysics, D3DXVECTOR3(88.5, 80, 0), D3DXVECTOR3(50, 100, 300));	// 右側面 前
+		m_pTable->AddRigidStatic(m_pPhysics, D3DXVECTOR3(88.5, 80, 0), D3DXVECTOR3(50, 100, 300));	// 右側面 奥ホール
+		m_pTable->AddRigidStatic(m_pPhysics, D3DXVECTOR3(88.5, 80, 0), D3DXVECTOR3(50, 100, 300));	// 右側面 中ホール
+		m_pTable->AddRigidStatic(m_pPhysics, D3DXVECTOR3(88.5, 80, 0), D3DXVECTOR3(50, 100, 300));	// 右側面 前ホール
+
+		m_pTable->AddRigidStatic(m_pPhysics, D3DXVECTOR3(0, 80, 152), D3DXVECTOR3(150, 100, 50));   // 奥
+		m_pTable->AddRigidStatic(m_pPhysics, D3DXVECTOR3(0, 80, 152), D3DXVECTOR3(150, 100, 50));   // 奥 右
+		m_pTable->AddRigidStatic(m_pPhysics, D3DXVECTOR3(0, 80, 152), D3DXVECTOR3(150, 100, 50));   // 奥 左
+
+		m_pTable->AddRigidStatic(m_pPhysics, D3DXVECTOR3(0, 80, -152), D3DXVECTOR3(150, 100, 50));  // 手前
+		m_pTable->AddRigidStatic(m_pPhysics, D3DXVECTOR3(0, 80, -152), D3DXVECTOR3(150, 100, 50));  // 手前 右
+		m_pTable->AddRigidStatic(m_pPhysics, D3DXVECTOR3(0, 80, -152), D3DXVECTOR3(150, 100, 50));  // 手前 左
+#endif
 	}
 
 	// create holes
@@ -523,21 +602,32 @@ void Application::CreateModel()
 
 	// create arrow
 	{
-		m_shootAngle = D3DXQUATERNION(0, 0, 0, 1);
+		//m_shootAngle = D3DXQUATERNION(0, 0, 0, 1);
+		m_shootAngle = 0;
 		m_shootPower = 50;
 
 		m_pArrow = new Arrow();
 
 		Transform* pTransform = new Transform();
 		pTransform->m_position = m_ppBalls[0]->m_pTransform->m_position;
-		pTransform->m_angle = m_shootAngle;
+		
+		D3DXMATRIX matRotation = D3DXMATRIX();
+		D3DXMatrixRotationY(&matRotation, m_shootAngle * DIG_TO_RAD);
+		D3DXQUATERNION autoRotationValue = D3DXQUATERNION();
+		D3DXQuaternionRotationMatrix(&autoRotationValue, &matRotation);
+		pTransform->m_angle = autoRotationValue;
+		//D3DXMatrixRotationQuaternion(&matRotation, &m_angle);
+		//D3DXQuaternionRotationMatrix(&pTransform->m_angle, &matRotation);
+		//pTransform->m_angle = m_shootAngle;
+
 		pTransform->m_scale = D3DXVECTOR3(7, 7, 7);
 		m_pArrow->SetTransform(pTransform);
 		
 		m_pArrow->SetMesh(m_pMeshManager->CreateMeshData("arrow.fbx"));
 
 		m_pShooterBar = TwNewBar("ShooterSetting");
-		TwAddVarRW(m_pShooterBar, "ShootingAngle", TW_TYPE_QUAT4F, &m_shootAngle, "");
+		TwAddVarRO(m_pShooterBar, "arrowQuat", TW_TYPE_QUAT4F, &m_pArrow->m_pTransform->m_angle, "");
+		TwAddVarRW(m_pShooterBar, "ShootingAngle", TW_TYPE_FLOAT, &m_shootAngle, "");
 		TwAddVarRW(m_pShooterBar, "ShootingPower", TW_TYPE_FLOAT, &m_shootPower, "");
 	}
 }

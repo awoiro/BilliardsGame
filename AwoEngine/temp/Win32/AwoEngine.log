@@ -1,15 +1,5 @@
 ﻿C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppBuild.targets(392,5): warning MSB8028: The intermediate directory (..\temp\Win32\\) contains files shared from another project (AnimationEditor.vcxproj).  This can lead to incorrect clean and rebuild behavior.
   Application.cpp
   c:\program files (x86)\microsoft directx sdk (june 2010)\include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-  コードを生成中...
-  コンパイル中...
-  main.cpp
-  c:\program files (x86)\microsoft directx sdk (june 2010)\include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-  Text.cpp
-  GameObject.cpp
-  DeviceManager.cpp
-  Camera.cpp
-  c:\program files (x86)\microsoft directx sdk (june 2010)\include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-  コードを生成中...
   AwoEngine.vcxproj -> C:\Git\BilliardsGame\AwoEngine\AwoEngine\..\bin\x86\Debug\AwoEngine.exe
   AwoEngine.vcxproj -> ..\bin\x86\Debug\AwoEngine.pdb (Full PDB)

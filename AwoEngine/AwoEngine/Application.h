@@ -10,6 +10,9 @@
 #include "GameObject.h"
 #include "Camera.h"
 
+#define DIG_TO_RAD D3DX_PI /180.0f
+#define RAD_TO_DIG 180.0f / D3DX_PI
+
 class Application
 {
 public:
@@ -26,7 +29,7 @@ public:
 
 		m_pAudio = new Audio();
 		m_pAudio->Init();
-		m_pAudio->PlayCue(BGM1);
+		//m_pAudio->PlayCue(BGM1);
 		
 		m_pInput = new Input();
 		m_pPhysics = new Physics();
@@ -120,7 +123,8 @@ public:
 
 	// Shooter
 	Arrow* m_pArrow = nullptr;
-	D3DXQUATERNION m_shootAngle;
+	//D3DXQUATERNION m_shootAngle;
+	float m_shootAngle;
 	float m_shootPower;
 	TwBar* m_pShooterBar;
 };

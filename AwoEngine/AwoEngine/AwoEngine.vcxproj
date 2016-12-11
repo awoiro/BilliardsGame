@@ -181,7 +181,6 @@
     <ClCompile Include="Text.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="ClassDiagram.cd" />
     <None Include="Shader.hlsl">
       <FileType>Document</FileType>
     </None>

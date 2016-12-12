@@ -4,6 +4,12 @@
 
 #pragma comment(lib,"winmm.lib")
 
+// Œx‚ğ”ñ•\¦
+#pragma warning(disable : 4305)
+#pragma warning(disable : 4996)
+#pragma warning(disable : 4018)
+#pragma warning(disable : 4101)
+
 #define WINDOW_WIDTH 640
 #define WINDOW_HEIGHT 480
 

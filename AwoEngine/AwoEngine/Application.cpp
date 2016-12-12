@@ -474,7 +474,10 @@ void Application::MeshInitEvent()
 
 void Application::CreateModel()
 {
+	//OutputDebugString("Start create model\n");
+
 	// create balls
+	const int c_ballRadius = 5.71 / 2;
 	{
 		// mesh datas
 		MeshData* pBallMesh0 = m_pMeshManager->CreateMeshData("ball_low.fbx");
@@ -510,7 +513,7 @@ void Application::CreateModel()
 		MeshData* pBallMesh15 = m_pMeshManager->CreateMeshData("ball_low.fbx");
 		m_pMeshManager->SetMaterialTexture(m_pDeviceManager->m_pDevice, "ball_15_d.bmp", pBallMesh15);
 
-		const int r = 5.71;// radius
+		const int r = c_ballRadius * 2;
 		m_ballCount = 16;
 		D3DXVECTOR3 cPos = D3DXVECTOR3(0, 100, 70); // centerPos
 
@@ -548,13 +551,24 @@ void Application::CreateModel()
 		*/
 	}
 
+	const int c_tableWidth = 127;//127
+	const int c_tableHeight = 254;
+	const int c_colliderSize = 50;
+
 	// create table
 	{
+		const int w = c_tableWidth;
+		const int h = c_tableHeight;
+		const int c = c_colliderSize;
+		const int r = c_ballRadius;
+
+		const int offs = 9;//offset
+
 		MeshData* pTableMesh = m_pMeshManager->CreateMeshData("table.fbx");
 		m_pMeshManager->SetMaterialTexture(m_pDeviceManager->m_pDevice, "table_d.bmp", pTableMesh);
 
 		m_pTable = new Table(pTableMesh, D3DXVECTOR3(0, 0, 0), D3DXQUATERNION(0, 0, 0, 1));
-#if true
+#if false
 		m_pTable->AddRigidStatic(m_pPhysics, D3DXVECTOR3(0, 50, 0), D3DXVECTOR3(150, 50, 300));	// 底面
 		m_pTable->AddRigidStatic(m_pPhysics, D3DXVECTOR3(-88.5, 80, 0), D3DXVECTOR3(50, 100, 300));	// 左側面
 		m_pTable->AddRigidStatic(m_pPhysics, D3DXVECTOR3(88.5, 80, 0), D3DXVECTOR3(50, 100, 300));	// 右側面
@@ -562,27 +576,21 @@ void Application::CreateModel()
 		m_pTable->AddRigidStatic(m_pPhysics, D3DXVECTOR3(0, 80, -152), D3DXVECTOR3(150, 100, 50));  // 手前
 #else
 		m_pTable->AddRigidStatic(m_pPhysics, D3DXVECTOR3(0, 50, 0), D3DXVECTOR3(150, 50, 300));		// 底面
-		m_pTable->AddRigidStatic(m_pPhysics, D3DXVECTOR3(0, 50, 0), D3DXVECTOR3(150, 50, 300));		// 上面
+		m_pTable->AddRigidStatic(m_pPhysics, D3DXVECTOR3(0, 130, 0), D3DXVECTOR3(150, 50, 300));	// 上面
 
-		m_pTable->AddRigidStatic(m_pPhysics, D3DXVECTOR3(-88.5, 80, 0), D3DXVECTOR3(50, 100, 300));	// 左側面 奥
-		m_pTable->AddRigidStatic(m_pPhysics, D3DXVECTOR3(-88.5, 80, 0), D3DXVECTOR3(50, 100, 300));	// 左側面 前
-		m_pTable->AddRigidStatic(m_pPhysics, D3DXVECTOR3(-88.5, 80, 0), D3DXVECTOR3(50, 100, 300));	// 左側面 奥ホール
-		m_pTable->AddRigidStatic(m_pPhysics, D3DXVECTOR3(-88.5, 80, 0), D3DXVECTOR3(50, 100, 300));	// 左側面 中ホール
-		m_pTable->AddRigidStatic(m_pPhysics, D3DXVECTOR3(-88.5, 80, 0), D3DXVECTOR3(50, 100, 300));	// 左側面 前ホール
+		m_pTable->AddRigidStatic(m_pPhysics, D3DXVECTOR3(-1 * (w / 2 + c / 2), 80, (h / 4)), D3DXVECTOR3(c, 100, (h / 2) - (2 * r)- offs));	// 左側面 奥
+		m_pTable->AddRigidStatic(m_pPhysics, D3DXVECTOR3(-1 * (w / 2 + c / 2), 80, -1 * (h / 4)), D3DXVECTOR3(c, 100, (h / 2) - (2 * r)- offs)); // 左側面 前
+		m_pTable->AddRigidStatic(m_pPhysics, D3DXVECTOR3(-1 * (w / 2 + c / 2) - 1 * r*2, 80, 0), D3DXVECTOR3(c, 100, h+(2*r)+10));	// 左側面　左でっぱり
 
-		m_pTable->AddRigidStatic(m_pPhysics, D3DXVECTOR3(88.5, 80, 0), D3DXVECTOR3(50, 100, 300));	// 右側面 奥
-		m_pTable->AddRigidStatic(m_pPhysics, D3DXVECTOR3(88.5, 80, 0), D3DXVECTOR3(50, 100, 300));	// 右側面 前
-		m_pTable->AddRigidStatic(m_pPhysics, D3DXVECTOR3(88.5, 80, 0), D3DXVECTOR3(50, 100, 300));	// 右側面 奥ホール
-		m_pTable->AddRigidStatic(m_pPhysics, D3DXVECTOR3(88.5, 80, 0), D3DXVECTOR3(50, 100, 300));	// 右側面 中ホール
-		m_pTable->AddRigidStatic(m_pPhysics, D3DXVECTOR3(88.5, 80, 0), D3DXVECTOR3(50, 100, 300));	// 右側面 前ホール
+		m_pTable->AddRigidStatic(m_pPhysics, D3DXVECTOR3((w / 2 + c / 2), 80, (h/4)), D3DXVECTOR3(c, 100, (h / 2) - (2 * r)- offs)); // 右側面 奥
+		m_pTable->AddRigidStatic(m_pPhysics, D3DXVECTOR3((w / 2 + c / 2), 80, -1 * (h/4)), D3DXVECTOR3(c, 100, (h / 2) - (2 * r)- offs)); // 右側面 前
+		m_pTable->AddRigidStatic(m_pPhysics, D3DXVECTOR3((w / 2 + c / 2) + r*2, 80, 0), D3DXVECTOR3(c, 100, h+(2*r)+10));	// 右側面 右でっぱり
 
-		m_pTable->AddRigidStatic(m_pPhysics, D3DXVECTOR3(0, 80, 152), D3DXVECTOR3(150, 100, 50));   // 奥
-		m_pTable->AddRigidStatic(m_pPhysics, D3DXVECTOR3(0, 80, 152), D3DXVECTOR3(150, 100, 50));   // 奥 右
-		m_pTable->AddRigidStatic(m_pPhysics, D3DXVECTOR3(0, 80, 152), D3DXVECTOR3(150, 100, 50));   // 奥 左
+		m_pTable->AddRigidStatic(m_pPhysics, D3DXVECTOR3(0, 80, (h / 2) + (c / 2)), D3DXVECTOR3(w-2*r- offs, 100, c)); // 奥 手前
+		m_pTable->AddRigidStatic(m_pPhysics, D3DXVECTOR3(0, 80, (h / 2) + (c / 2) + r*2), D3DXVECTOR3(w+(2*r)+10, 100, c)); // 奥 奥
 
-		m_pTable->AddRigidStatic(m_pPhysics, D3DXVECTOR3(0, 80, -152), D3DXVECTOR3(150, 100, 50));  // 手前
-		m_pTable->AddRigidStatic(m_pPhysics, D3DXVECTOR3(0, 80, -152), D3DXVECTOR3(150, 100, 50));  // 手前 右
-		m_pTable->AddRigidStatic(m_pPhysics, D3DXVECTOR3(0, 80, -152), D3DXVECTOR3(150, 100, 50));  // 手前 左
+		m_pTable->AddRigidStatic(m_pPhysics, D3DXVECTOR3(0, 80, -1*(h/2+c/2)), D3DXVECTOR3(w - 2 * r- offs, 100, c));  // 手前 奥
+		m_pTable->AddRigidStatic(m_pPhysics, D3DXVECTOR3(0, 80, -1 * (h / 2 + c / 2) + (r*-2)), D3DXVECTOR3(w + (2 * r) + 10, 100, c));  // 手前 手前
 #endif
 	}
 
@@ -630,4 +638,6 @@ void Application::CreateModel()
 		TwAddVarRW(m_pShooterBar, "ShootingAngle", TW_TYPE_FLOAT, &m_shootAngle, "");
 		TwAddVarRW(m_pShooterBar, "ShootingPower", TW_TYPE_FLOAT, &m_shootPower, "");
 	}
+
+	//OutputDebugString("complete create model\n");
 }

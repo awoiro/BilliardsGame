@@ -34,7 +34,7 @@ HRESULT Physics::Init()
 
 	// ƒ}ƒeƒŠƒAƒ‹‚Ìì¬
 	//								[Ã‰^“®–€C]  [“®‰^“®–€C]  [”½”­ŒW”]
-	m_pMaterial = m_pPhysics->createMaterial(0.5f, 0.5f, 0.6f);
+	m_pMaterial = m_pPhysics->createMaterial(0.2f, 0.4f, 0.8f);
 
 	// ƒOƒ‰ƒ“ƒh‚Ìì¬
 	PxRigidStatic* pGroundPlane = PxCreatePlane(*m_pPhysics, PxPlane(0, 1, 0, 0), *m_pMaterial);

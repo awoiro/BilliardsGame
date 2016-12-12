@@ -246,11 +246,12 @@ void Application::CollisionCheck()
 {
 	for (int i = 0; i < m_ballCount; i++)
 	{
-		for (int i = 0; i < m_holeCount; i++)
+		for (int k = 0; k < m_holeCount; k++)
 		{
-			if (IsBallHitToHole(m_ppBalls[i],m_ppHoles[i]))
+			if (IsBallHitToHole(m_ppBalls[i],m_ppHoles[k]))
 			{
-				MessageBoxA(nullptr, "hit", nullptr, MB_OK);
+				//MessageBoxA(nullptr, "Hit_BallDown", nullptr, MB_OK);
+				m_ppBalls[i]->isRender = false;
 			}
 		}
 	}
@@ -513,7 +514,7 @@ void Application::CreateModel()
 		MeshData* pBallMesh15 = m_pMeshManager->CreateMeshData("ball_low.fbx");
 		m_pMeshManager->SetMaterialTexture(m_pDeviceManager->m_pDevice, "ball_15_d.bmp", pBallMesh15);
 
-		const int r = c_ballRadius * 2;
+		const int r = c_ballRadius * 2 + 1.8;
 		m_ballCount = 16;
 		D3DXVECTOR3 cPos = D3DXVECTOR3(0, 100, 70); // centerPos
 
@@ -596,16 +597,19 @@ void Application::CreateModel()
 
 	// create holes
 	{
-		const int c_radius = 57.1 / 2.0;
+		//const int c_radius = 57.1 / 2.0;
+		const int r = c_ballRadius;
+		const int w = c_tableWidth;
+		const int h = c_tableHeight;
 		m_holeCount = 6;
 		m_ppHoles = new Hole*[m_holeCount];
 
-		m_ppHoles[0] = new Hole(D3DXVECTOR3(-145 - c_radius, 50 + c_radius, 80 + c_radius	), c_radius);// 左上
-		m_ppHoles[1] = new Hole(D3DXVECTOR3(-145 - c_radius, 50 + c_radius, 0				), c_radius);// 左中
-		m_ppHoles[2] = new Hole(D3DXVECTOR3(-145 - c_radius, 50 + c_radius, 80 - c_radius	), c_radius);// 左下
-		m_ppHoles[3] = new Hole(D3DXVECTOR3(80 * c_radius,	 50 + c_radius, 145 + c_radius	), c_radius);// 右上
-		m_ppHoles[4] = new Hole(D3DXVECTOR3(0,				 50 + c_radius, 145 + c_radius	), c_radius);// 右中
-		m_ppHoles[5] = new Hole(D3DXVECTOR3(90 - c_radius,	 50 + c_radius, 145 + c_radius	), c_radius);// 右下
+		m_ppHoles[0] = new Hole(D3DXVECTOR3(-w/2,50+r,h/2), r);// 左上
+		m_ppHoles[1] = new Hole(D3DXVECTOR3(-w/2,50+r,0), r);// 左中
+		m_ppHoles[2] = new Hole(D3DXVECTOR3(-w/2,50+r,-h/2), r);// 左下
+		m_ppHoles[3] = new Hole(D3DXVECTOR3(w/2,50+r,h/2), r);// 右上
+		m_ppHoles[4] = new Hole(D3DXVECTOR3(w/2,50+r,0), r);// 右中
+		m_ppHoles[5] = new Hole(D3DXVECTOR3(w/2,50+r,-h/2), r);// 右下
 	}
 
 	// create arrow

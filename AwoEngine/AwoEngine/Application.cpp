@@ -256,8 +256,9 @@ void Application::CollisionCheckForHolls()
 			if (IsBallHitToHole(m_ppBalls[i],m_ppHoles[k]))
 			{
 				m_pAudio->PlayCue(SE_BALL_FALL);
-
-				//MessageBoxA(nullptr, "Hit_BallDown", nullptr, MB_OK);
+				char msg[30];
+				wsprintfA(msg, "%d BALL POCKET TO %d HALL", i, k);
+				MessageBoxA(nullptr, msg, "BALL POCKET", MB_OK);
 				m_ppBalls[i]->isRender = false;
 			}
 		}

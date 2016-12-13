@@ -65,21 +65,21 @@ c:\git\billiardsgame\awoengine\awoengine\application.h(28): warning C4996: 'strd
   c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\string.h(552): note: 'strdup' の宣言を確認してください
 c:\git\billiardsgame\awoengine\awoengine\application.cpp(233): warning C4244: '引数': 'double' から 'float' への変換です。データが失われる可能性があります。
 c:\git\billiardsgame\awoengine\awoengine\application.cpp(234): warning C4244: '引数': 'double' から 'float' への変換です。データが失われる可能性があります。
-c:\git\billiardsgame\awoengine\awoengine\application.cpp(293): warning C4244: '初期化中': 'int' から 'float' への変換です。データが失われる可能性があります。
-c:\git\billiardsgame\awoengine\awoengine\application.cpp(316): warning C4244: '初期化中': 'int' から 'float' への変換です。データが失われる可能性があります。
-c:\git\billiardsgame\awoengine\awoengine\application.cpp(470): warning C4244: '引数': 'double' から 'FLOAT' への変換です。データが失われる可能性があります。
-c:\git\billiardsgame\awoengine\awoengine\application.cpp(527): warning C4244: '初期化中': 'double' から 'int' への変換です。データが失われる可能性があります。
-c:\git\billiardsgame\awoengine\awoengine\application.cpp(563): warning C4244: '初期化中': 'double' から 'int' への変換です。データが失われる可能性があります。
-c:\git\billiardsgame\awoengine\awoengine\application.cpp(628): warning C4244: '引数': 'const int' から 'FLOAT' への変換です。データが失われる可能性があります。
+c:\git\billiardsgame\awoengine\awoengine\application.cpp(294): warning C4244: '初期化中': 'int' から 'float' への変換です。データが失われる可能性があります。
+c:\git\billiardsgame\awoengine\awoengine\application.cpp(317): warning C4244: '初期化中': 'int' から 'float' への変換です。データが失われる可能性があります。
+c:\git\billiardsgame\awoengine\awoengine\application.cpp(471): warning C4244: '引数': 'double' から 'FLOAT' への変換です。データが失われる可能性があります。
+c:\git\billiardsgame\awoengine\awoengine\application.cpp(528): warning C4244: '初期化中': 'double' から 'int' への変換です。データが失われる可能性があります。
+c:\git\billiardsgame\awoengine\awoengine\application.cpp(564): warning C4244: '初期化中': 'double' から 'int' への変換です。データが失われる可能性があります。
 c:\git\billiardsgame\awoengine\awoengine\application.cpp(629): warning C4244: '引数': 'const int' から 'FLOAT' への変換です。データが失われる可能性があります。
 c:\git\billiardsgame\awoengine\awoengine\application.cpp(630): warning C4244: '引数': 'const int' から 'FLOAT' への変換です。データが失われる可能性があります。
-c:\git\billiardsgame\awoengine\awoengine\application.cpp(632): warning C4244: '引数': 'const int' から 'FLOAT' への変換です。データが失われる可能性があります。
+c:\git\billiardsgame\awoengine\awoengine\application.cpp(631): warning C4244: '引数': 'const int' から 'FLOAT' への変換です。データが失われる可能性があります。
 c:\git\billiardsgame\awoengine\awoengine\application.cpp(633): warning C4244: '引数': 'const int' から 'FLOAT' への変換です。データが失われる可能性があります。
 c:\git\billiardsgame\awoengine\awoengine\application.cpp(634): warning C4244: '引数': 'const int' から 'FLOAT' への変換です。データが失われる可能性があります。
-c:\git\billiardsgame\awoengine\awoengine\application.cpp(636): warning C4244: '引数': 'const int' から 'FLOAT' への変換です。データが失われる可能性があります。
+c:\git\billiardsgame\awoengine\awoengine\application.cpp(635): warning C4244: '引数': 'const int' から 'FLOAT' への変換です。データが失われる可能性があります。
 c:\git\billiardsgame\awoengine\awoengine\application.cpp(637): warning C4244: '引数': 'const int' から 'FLOAT' への変換です。データが失われる可能性があります。
-c:\git\billiardsgame\awoengine\awoengine\application.cpp(639): warning C4244: '引数': 'const int' から 'FLOAT' への変換です。データが失われる可能性があります。
+c:\git\billiardsgame\awoengine\awoengine\application.cpp(638): warning C4244: '引数': 'const int' から 'FLOAT' への変換です。データが失われる可能性があります。
 c:\git\billiardsgame\awoengine\awoengine\application.cpp(640): warning C4244: '引数': 'const int' から 'FLOAT' への変換です。データが失われる可能性があります。
-c:\git\billiardsgame\awoengine\awoengine\application.cpp(673): warning C4244: '引数': 'double' から 'FLOAT' への変換です。データが失われる可能性があります。
+c:\git\billiardsgame\awoengine\awoengine\application.cpp(641): warning C4244: '引数': 'const int' から 'FLOAT' への変換です。データが失われる可能性があります。
+c:\git\billiardsgame\awoengine\awoengine\application.cpp(674): warning C4244: '引数': 'double' から 'FLOAT' への変換です。データが失われる可能性があります。
   AwoEngine.vcxproj -> C:\Git\BilliardsGame\AwoEngine\AwoEngine\..\bin\x86\Debug\AwoEngine.exe
   AwoEngine.vcxproj -> ..\bin\x86\Debug\AwoEngine.pdb (Full PDB)

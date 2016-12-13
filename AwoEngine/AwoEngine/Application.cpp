@@ -227,6 +227,8 @@ void Application::Update(HWND hwnd, SIZE windowSize)
 		}
 		*/
 
+		m_pAudio->PlayCue(SE_BALL_HIT);
+
 		D3DXVECTOR3 vec = D3DXVECTOR3(0,0,0);
 		vec.x = sinf(m_shootAngle * DIG_TO_RAD);
 		vec.z = cosf(m_shootAngle * DIG_TO_RAD);
@@ -239,17 +241,22 @@ void Application::Update(HWND hwnd, SIZE windowSize)
 		//m_ppBalls[0]->m_pRigidBody->setLinearVelocity(PxVec3(0, 0, 300));
 	}
 
-	CollisionCheck();
+	CollisionCheckForHolls();
+	CollisionCheckForBalls();
 }
 
-void Application::CollisionCheck()
+void Application::CollisionCheckForHolls()
 {
 	for (int i = 0; i < m_ballCount; i++)
 	{
+		if (m_ppBalls[i]->isRender == false) { continue; }
+
 		for (int k = 0; k < m_holeCount; k++)
 		{
 			if (IsBallHitToHole(m_ppBalls[i],m_ppHoles[k]))
 			{
+				m_pAudio->PlayCue(SE_BALL_FALL);
+
 				//MessageBoxA(nullptr, "Hit_BallDown", nullptr, MB_OK);
 				m_ppBalls[i]->isRender = false;
 			}
@@ -257,7 +264,24 @@ void Application::CollisionCheck()
 	}
 }
 
-bool Application::IsBallHitToHole(Ball* pBall, Hole* pHole)
+void Application::CollisionCheckForBalls()
+{
+	for (int i = 0; i < m_ballCount; i++)
+	{
+		if (m_ppBalls[i]->isRender == false) { continue; }
+		for (int k = i+1; k < m_ballCount; k++)
+		{
+			if (m_ppBalls[k]->isRender == false) { continue; }
+			if (i == k) { continue; }
+			if (IsBallHitToBall(m_ppBalls[i], m_ppBalls[k]))
+			{
+				m_pAudio->PlayCue(SE_BALL_HIT);
+			}
+		}
+	}
+}
+
+bool Application::IsBallHitToHole(const Ball* pBall, const Hole* pHole)
 {
 	// 2つのオブジェクトの距離(2乗)
 	D3DXVECTOR3 distSquared = pBall->m_pTransform->m_position - pHole->m_pTransform->m_position;
@@ -280,6 +304,28 @@ bool Application::IsBallHitToHole(Ball* pBall, Hole* pHole)
 	}
 }
 
+bool Application::IsBallHitToBall(const Ball* pBall, const Ball* pBall2)
+{
+	// 2つのオブジェクトの距離(2乗)
+	D3DXVECTOR3 distSquared = pBall->m_pTransform->m_position - pBall2->m_pTransform->m_position;
+	distSquared.x = distSquared.x * distSquared.x;
+	//distSquared.y = distSquared.y * distSquared.y;
+	distSquared.z = distSquared.z * distSquared.z;
+
+	// 2つのオブジェクトの半径の合計(2乗)
+	float sumRadiusSquared = pBall->m_radius + pBall2->m_radius;
+	sumRadiusSquared = sumRadiusSquared * sumRadiusSquared;
+
+	// 衝突しているか
+	if (distSquared.x + distSquared.z <= sumRadiusSquared-1)
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
+}
 
 void Application::RenderSetUp(HWND hwnd, SIZE windowSize)
 {

@@ -57,8 +57,10 @@ public:
 
 	void Init(HWND hWnd, SIZE windowSize);
 	void Update(HWND hwnd, SIZE windowSize);
-	void CollisionCheck();
-	bool IsBallHitToHole(Ball* pBall, Hole* pHole);
+	void CollisionCheckForHolls();
+	void CollisionCheckForBalls();
+	bool IsBallHitToHole(const Ball* pBall, const Hole* pHole);
+	bool IsBallHitToBall(const Ball* pBall, const Ball* pBall2);
 	void RenderSetUp(HWND hwnd, SIZE windowSize);
 	void InputKeyUpdate();
 	void ResizeWindow(LPARAM lParam);

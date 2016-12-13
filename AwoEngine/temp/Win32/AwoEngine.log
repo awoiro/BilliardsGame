@@ -65,88 +65,21 @@ c:\git\billiardsgame\awoengine\awoengine\application.h(28): warning C4996: 'strd
   c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\string.h(552): note: 'strdup' の宣言を確認してください
 c:\git\billiardsgame\awoengine\awoengine\application.cpp(233): warning C4244: '引数': 'double' から 'float' への変換です。データが失われる可能性があります。
 c:\git\billiardsgame\awoengine\awoengine\application.cpp(234): warning C4244: '引数': 'double' から 'float' への変換です。データが失われる可能性があります。
-c:\git\billiardsgame\awoengine\awoengine\application.cpp(271): warning C4244: '初期化中': 'int' から 'float' への変換です。データが失われる可能性があります。
-c:\git\billiardsgame\awoengine\awoengine\application.cpp(426): warning C4244: '引数': 'double' から 'FLOAT' への変換です。データが失われる可能性があります。
-c:\git\billiardsgame\awoengine\awoengine\application.cpp(483): warning C4244: '初期化中': 'double' から 'int' への変換です。データが失われる可能性があります。
-c:\git\billiardsgame\awoengine\awoengine\application.cpp(519): warning C4244: '初期化中': 'double' から 'int' への変換です。データが失われる可能性があります。
-c:\git\billiardsgame\awoengine\awoengine\application.cpp(584): warning C4244: '引数': 'const int' から 'FLOAT' への変換です。データが失われる可能性があります。
-c:\git\billiardsgame\awoengine\awoengine\application.cpp(585): warning C4244: '引数': 'const int' から 'FLOAT' への変換です。データが失われる可能性があります。
-c:\git\billiardsgame\awoengine\awoengine\application.cpp(586): warning C4244: '引数': 'const int' から 'FLOAT' への変換です。データが失われる可能性があります。
-c:\git\billiardsgame\awoengine\awoengine\application.cpp(588): warning C4244: '引数': 'const int' から 'FLOAT' への変換です。データが失われる可能性があります。
-c:\git\billiardsgame\awoengine\awoengine\application.cpp(589): warning C4244: '引数': 'const int' から 'FLOAT' への変換です。データが失われる可能性があります。
-c:\git\billiardsgame\awoengine\awoengine\application.cpp(590): warning C4244: '引数': 'const int' から 'FLOAT' への変換です。データが失われる可能性があります。
-c:\git\billiardsgame\awoengine\awoengine\application.cpp(592): warning C4244: '引数': 'const int' から 'FLOAT' への変換です。データが失われる可能性があります。
-c:\git\billiardsgame\awoengine\awoengine\application.cpp(593): warning C4244: '引数': 'const int' から 'FLOAT' への変換です。データが失われる可能性があります。
-c:\git\billiardsgame\awoengine\awoengine\application.cpp(595): warning C4244: '引数': 'const int' から 'FLOAT' への変換です。データが失われる可能性があります。
-c:\git\billiardsgame\awoengine\awoengine\application.cpp(596): warning C4244: '引数': 'const int' から 'FLOAT' への変換です。データが失われる可能性があります。
-c:\git\billiardsgame\awoengine\awoengine\application.cpp(629): warning C4244: '引数': 'double' から 'FLOAT' への変換です。データが失われる可能性があります。
-  コードを生成中...
-  コンパイル中...
-  main.cpp
-c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(12): warning C4005: 'DXGI_STATUS_OCCLUDED': マクロが再定義されました。
-  c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50092): note: 'DXGI_STATUS_OCCLUDED' の以前の定義を確認してください
-c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(13): warning C4005: 'DXGI_STATUS_CLIPPED': マクロが再定義されました。
-  c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50101): note: 'DXGI_STATUS_CLIPPED' の以前の定義を確認してください
-c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(14): warning C4005: 'DXGI_STATUS_NO_REDIRECTION': マクロが再定義されました。
-  c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50110): note: 'DXGI_STATUS_NO_REDIRECTION' の以前の定義を確認してください
-c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(15): warning C4005: 'DXGI_STATUS_NO_DESKTOP_ACCESS': マクロが再定義されました。
-  c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50119): note: 'DXGI_STATUS_NO_DESKTOP_ACCESS' の以前の定義を確認してください
-c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(16): warning C4005: 'DXGI_STATUS_GRAPHICS_VIDPN_SOURCE_IN_USE': マクロが再定義されました。
-  c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50128): note: 'DXGI_STATUS_GRAPHICS_VIDPN_SOURCE_IN_USE' の以前の定義を確認してください
-c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(17): warning C4005: 'DXGI_STATUS_MODE_CHANGED': マクロが再定義されました。
-  c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50137): note: 'DXGI_STATUS_MODE_CHANGED' の以前の定義を確認してください
-c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(18): warning C4005: 'DXGI_STATUS_MODE_CHANGE_IN_PROGRESS': マクロが再定義されました。
-  c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50146): note: 'DXGI_STATUS_MODE_CHANGE_IN_PROGRESS' の以前の定義を確認してください
-c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(21): warning C4005: 'DXGI_ERROR_INVALID_CALL': マクロが再定義されました。
-  c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50161): note: 'DXGI_ERROR_INVALID_CALL' の以前の定義を確認してください
-c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(22): warning C4005: 'DXGI_ERROR_NOT_FOUND': マクロが再定義されました。
-  c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50170): note: 'DXGI_ERROR_NOT_FOUND' の以前の定義を確認してください
-c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(23): warning C4005: 'DXGI_ERROR_MORE_DATA': マクロが再定義されました。
-  c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50179): note: 'DXGI_ERROR_MORE_DATA' の以前の定義を確認してください
-c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(24): warning C4005: 'DXGI_ERROR_UNSUPPORTED': マクロが再定義されました。
-  c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50188): note: 'DXGI_ERROR_UNSUPPORTED' の以前の定義を確認してください
-c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(25): warning C4005: 'DXGI_ERROR_DEVICE_REMOVED': マクロが再定義されました。
-  c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50197): note: 'DXGI_ERROR_DEVICE_REMOVED' の以前の定義を確認してください
-c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(26): warning C4005: 'DXGI_ERROR_DEVICE_HUNG': マクロが再定義されました。
-  c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50206): note: 'DXGI_ERROR_DEVICE_HUNG' の以前の定義を確認してください
-c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(27): warning C4005: 'DXGI_ERROR_DEVICE_RESET': マクロが再定義されました。
-  c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50216): note: 'DXGI_ERROR_DEVICE_RESET' の以前の定義を確認してください
-c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(28): warning C4005: 'DXGI_ERROR_WAS_STILL_DRAWING': マクロが再定義されました。
-  c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50225): note: 'DXGI_ERROR_WAS_STILL_DRAWING' の以前の定義を確認してください
-c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(29): warning C4005: 'DXGI_ERROR_FRAME_STATISTICS_DISJOINT': マクロが再定義されました。
-  c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50235): note: 'DXGI_ERROR_FRAME_STATISTICS_DISJOINT' の以前の定義を確認してください
-c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(30): warning C4005: 'DXGI_ERROR_GRAPHICS_VIDPN_SOURCE_IN_USE': マクロが再定義されました。
-  c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50244): note: 'DXGI_ERROR_GRAPHICS_VIDPN_SOURCE_IN_USE' の以前の定義を確認してください
-c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(31): warning C4005: 'DXGI_ERROR_DRIVER_INTERNAL_ERROR': マクロが再定義されました。
-  c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50254): note: 'DXGI_ERROR_DRIVER_INTERNAL_ERROR' の以前の定義を確認してください
-c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(32): warning C4005: 'DXGI_ERROR_NONEXCLUSIVE': マクロが再定義されました。
-  c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50263): note: 'DXGI_ERROR_NONEXCLUSIVE' の以前の定義を確認してください
-c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(33): warning C4005: 'DXGI_ERROR_NOT_CURRENTLY_AVAILABLE': マクロが再定義されました。
-  c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50272): note: 'DXGI_ERROR_NOT_CURRENTLY_AVAILABLE' の以前の定義を確認してください
-c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(34): warning C4005: 'DXGI_ERROR_REMOTE_CLIENT_DISCONNECTED': マクロが再定義されました。
-  c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50282): note: 'DXGI_ERROR_REMOTE_CLIENT_DISCONNECTED' の以前の定義を確認してください
-c:\program files (x86)\microsoft directx sdk (june 2010)\include\dxgitype.h(35): warning C4005: 'DXGI_ERROR_REMOTE_OUTOFMEMORY': マクロが再定義されました。
-  c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50291): note: 'DXGI_ERROR_REMOTE_OUTOFMEMORY' の以前の定義を確認してください
-c:\program files (x86)\microsoft directx sdk (june 2010)\include\d3d11.h(917): warning C4005: 'D3D11_ERROR_TOO_MANY_UNIQUE_STATE_OBJECTS': マクロが再定義されました。
-  c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50469): note: 'D3D11_ERROR_TOO_MANY_UNIQUE_STATE_OBJECTS' の以前の定義を確認してください
-c:\program files (x86)\microsoft directx sdk (june 2010)\include\d3d11.h(918): warning C4005: 'D3D11_ERROR_FILE_NOT_FOUND': マクロが再定義されました。
-  c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50478): note: 'D3D11_ERROR_FILE_NOT_FOUND' の以前の定義を確認してください
-c:\program files (x86)\microsoft directx sdk (june 2010)\include\d3d11.h(919): warning C4005: 'D3D11_ERROR_TOO_MANY_UNIQUE_VIEW_OBJECTS': マクロが再定義されました。
-  c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50488): note: 'D3D11_ERROR_TOO_MANY_UNIQUE_VIEW_OBJECTS' の以前の定義を確認してください
-c:\program files (x86)\microsoft directx sdk (june 2010)\include\d3d11.h(920): warning C4005: 'D3D11_ERROR_DEFERRED_CONTEXT_MAP_WITHOUT_INITIAL_DISCARD': マクロが再定義されました。
-  c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50497): note: 'D3D11_ERROR_DEFERRED_CONTEXT_MAP_WITHOUT_INITIAL_DISCARD' の以前の定義を確認してください
-c:\program files (x86)\microsoft directx sdk (june 2010)\include\d3d10.h(608): warning C4005: 'D3D10_ERROR_TOO_MANY_UNIQUE_STATE_OBJECTS': マクロが再定義されました。
-  c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50445): note: 'D3D10_ERROR_TOO_MANY_UNIQUE_STATE_OBJECTS' の以前の定義を確認してください
-c:\program files (x86)\microsoft directx sdk (june 2010)\include\d3d10.h(609): warning C4005: 'D3D10_ERROR_FILE_NOT_FOUND': マクロが再定義されました。
-  c:\program files (x86)\windows kits\8.1\include\shared\winerror.h(50454): note: 'D3D10_ERROR_FILE_NOT_FOUND' の以前の定義を確認してください
-  c:\program files (x86)\microsoft directx sdk (june 2010)\include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-c:\git\billiardsgame\awoengine\awoengine\input.h(10): warning C4005: 'SAFE_RELEASE': マクロが再定義されました。
-  c:\git\billiardsgame\awoengine\awoengine\meshdata.h(12): note: 'SAFE_RELEASE' の以前の定義を確認してください
-c:\git\billiardsgame\awoengine\awoengine\gameobject.h(55): warning C4244: '引数': 'int' から 'physx::PxReal' への変換です。データが失われる可能性があります。
-c:\git\billiardsgame\awoengine\awoengine\camera.h(89): warning C4305: '引数': 'double' から 'FLOAT' へ切り詰めます。
-c:\git\billiardsgame\awoengine\awoengine\application.h(28): warning C4996: 'strdup': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _strdup. See online help for details.
-  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\string.h(552): note: 'strdup' の宣言を確認してください
-  Audio.cpp
-  コードを生成中...
+c:\git\billiardsgame\awoengine\awoengine\application.cpp(293): warning C4244: '初期化中': 'int' から 'float' への変換です。データが失われる可能性があります。
+c:\git\billiardsgame\awoengine\awoengine\application.cpp(316): warning C4244: '初期化中': 'int' から 'float' への変換です。データが失われる可能性があります。
+c:\git\billiardsgame\awoengine\awoengine\application.cpp(470): warning C4244: '引数': 'double' から 'FLOAT' への変換です。データが失われる可能性があります。
+c:\git\billiardsgame\awoengine\awoengine\application.cpp(527): warning C4244: '初期化中': 'double' から 'int' への変換です。データが失われる可能性があります。
+c:\git\billiardsgame\awoengine\awoengine\application.cpp(563): warning C4244: '初期化中': 'double' から 'int' への変換です。データが失われる可能性があります。
+c:\git\billiardsgame\awoengine\awoengine\application.cpp(628): warning C4244: '引数': 'const int' から 'FLOAT' への変換です。データが失われる可能性があります。
+c:\git\billiardsgame\awoengine\awoengine\application.cpp(629): warning C4244: '引数': 'const int' から 'FLOAT' への変換です。データが失われる可能性があります。
+c:\git\billiardsgame\awoengine\awoengine\application.cpp(630): warning C4244: '引数': 'const int' から 'FLOAT' への変換です。データが失われる可能性があります。
+c:\git\billiardsgame\awoengine\awoengine\application.cpp(632): warning C4244: '引数': 'const int' から 'FLOAT' への変換です。データが失われる可能性があります。
+c:\git\billiardsgame\awoengine\awoengine\application.cpp(633): warning C4244: '引数': 'const int' から 'FLOAT' への変換です。データが失われる可能性があります。
+c:\git\billiardsgame\awoengine\awoengine\application.cpp(634): warning C4244: '引数': 'const int' から 'FLOAT' への変換です。データが失われる可能性があります。
+c:\git\billiardsgame\awoengine\awoengine\application.cpp(636): warning C4244: '引数': 'const int' から 'FLOAT' への変換です。データが失われる可能性があります。
+c:\git\billiardsgame\awoengine\awoengine\application.cpp(637): warning C4244: '引数': 'const int' から 'FLOAT' への変換です。データが失われる可能性があります。
+c:\git\billiardsgame\awoengine\awoengine\application.cpp(639): warning C4244: '引数': 'const int' から 'FLOAT' への変換です。データが失われる可能性があります。
+c:\git\billiardsgame\awoengine\awoengine\application.cpp(640): warning C4244: '引数': 'const int' から 'FLOAT' への変換です。データが失われる可能性があります。
+c:\git\billiardsgame\awoengine\awoengine\application.cpp(673): warning C4244: '引数': 'double' から 'FLOAT' への変換です。データが失われる可能性があります。
   AwoEngine.vcxproj -> C:\Git\BilliardsGame\AwoEngine\AwoEngine\..\bin\x86\Debug\AwoEngine.exe
   AwoEngine.vcxproj -> ..\bin\x86\Debug\AwoEngine.pdb (Full PDB)

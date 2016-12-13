@@ -10,6 +10,8 @@ const char SOUND_BANK[] = "../Sound/win/Sound Bank01.xsb";
 const char BGM1[] = "bgm1";
 const char BGM2[] = "bgm2";
 const char BGM3[] = "bgm3";
+const char SE_BALL_HIT[] = "ball_hit";
+const char SE_BALL_FALL[] = "ball_fall";
 
 class Audio
 {

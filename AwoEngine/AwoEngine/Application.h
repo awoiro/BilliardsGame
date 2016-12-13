@@ -29,7 +29,7 @@ public:
 
 		m_pAudio = new Audio();
 		m_pAudio->Init();
-		//m_pAudio->PlayCue(BGM1);
+		m_pAudio->PlayCue(BGM1);
 		
 		m_pInput = new Input();
 		m_pPhysics = new Physics();

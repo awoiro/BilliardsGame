@@ -186,6 +186,11 @@ void Application::Update(HWND hwnd, SIZE windowSize)
 	}
 	*/
 
+	if (m_ppBalls[0]->m_pRigidBody->isSleeping)
+	{
+		RenderTwText(0, 0, "sleep");
+	}
+
 	if (m_pInput->GetKeyDown(DIK_S) && m_ballCount > 0)
 	{
 		//m_ppBalls[0]->m_pRigidBody->addForce(PxVec3(100, 0, 0));
@@ -422,6 +427,7 @@ void Application::RenderSetUp(HWND hwnd, SIZE windowSize)
 		//RenderTwText(50, 50, "Reset command : R");
 		RenderTwText(50, 70, "Shoot command : S");
 		RenderTwText(50, 90, "FullScreen toggle : Alt + Enter");
+		CurrentBallStateMessage();
 	}
 
 #if false // インプットテスト
@@ -498,6 +504,59 @@ void Application::ResizeWindow(LPARAM lParam)
 void Application::ResizeWindow(SIZE windowSize)
 {
 	m_pDeviceManager->ResizeRenderWindow(windowSize);
+}
+
+void Application::CurrentBallStateMessage()
+{
+	RenderTwText(50, 110, "BALL STATE");
+
+	// Low group text
+	RenderTwText(60, 130, "LOW GROUP");
+	for (int i = 1; i < 8; i++)
+	{
+		if (m_ppBalls[i]->isRender)
+		{
+			char msg[40];
+			wsprintfA(msg, "|- %d BALL : ON THE TABLE", i);
+			RenderTwText(70, 130+i*20, msg);
+		}
+		else
+		{
+			char msg[40];
+			wsprintfA(msg, "|- %d BALL : FELL",i);
+			RenderTwText(70, 130+i*20, msg);
+		}
+	}
+	
+	// hight group text
+	RenderTwText(60, 290, "HIGH GROUP");
+	for (int i = 9; i < 16; i++)
+	{
+		if (m_ppBalls[i]->isRender)
+		{
+			char msg[40];
+			wsprintfA(msg, "|- %d BALL : ON THE TABLE", i);
+			RenderTwText(70, 130 + i * 20, msg);
+		}
+		else
+		{
+			char msg[40];
+			wsprintfA(msg, "|- %d BALL : FELL", i);
+			RenderTwText(70, 130 + i * 20, msg);
+		}
+	}
+
+	// 8 ball text
+	{
+		if (m_ppBalls[8]->isRender)
+		{
+			RenderTwText(60, 450, "8 BALL : ON THE TABLE");
+		}
+		else
+		{
+			RenderTwText(60, 450, "8 BALL : FELL");
+		}
+	}
 }
 
 void Application::MeshInitEvent()
@@ -688,6 +747,8 @@ void Application::CreateModel()
 		TwAddVarRO(m_pShooterBar, "arrowQuat", TW_TYPE_QUAT4F, &m_pArrow->m_pTransform->m_angle, "");
 		TwAddVarRW(m_pShooterBar, "ShootingAngle", TW_TYPE_FLOAT, &m_shootAngle, "");
 		TwAddVarRW(m_pShooterBar, "ShootingPower", TW_TYPE_FLOAT, &m_shootPower, "");
+		TwAddVarRW(m_pShooterBar, "ArrowSize", TW_TYPE_DIR3F, &m_pArrow->m_pTransform->m_scale, "");
+		
 	}
 
 	//OutputDebugString("complete create model\n");

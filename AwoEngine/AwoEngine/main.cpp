@@ -44,7 +44,7 @@ void TW_CALL CopyCDStringToClient(char **destPtr, const char *src)
 
 INT WINAPI WinMain(HINSTANCE hInst, HINSTANCE hPrevInst, LPSTR szStr, INT iCmdShow)
 {
-	static LPCSTR appName = "AwoEngine";
+	static LPCSTR appName = "AwoEngine_ÉrÉäÉÑÅ[Éh";
 	WNDCLASSEX  wndclass;
 
 	wndclass.cbSize = sizeof(wndclass);

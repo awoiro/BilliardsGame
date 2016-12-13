@@ -66,6 +66,8 @@ public:
 	void ResizeWindow(LPARAM lParam);
 	void ResizeWindow(SIZE windowSize);
 
+	void CurrentBallStateMessage();
+
 	void MeshInitEvent();
 	void CreateModel();
 

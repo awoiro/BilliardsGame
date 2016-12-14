@@ -37,10 +37,12 @@ void Application::Init(HWND hWnd, SIZE windowSize)
 void Application::Update(HWND hwnd, SIZE windowSize)
 {
 	// input event
+#if false
 	if (m_pInput->GetKeyDown(DIK_R)) // reset
 	{
 		m_pGameManager->Reset();
 	}
+#endif
 
 	if (m_pInput->GetKeyDown(DIK_S)) // shoot
 	{

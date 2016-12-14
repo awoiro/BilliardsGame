@@ -228,6 +228,7 @@ HRESULT DeviceManager::InitD3D(HWND hWnd, SIZE windowSize)
 	InitShader();
 	return S_OK;
 }
+
 void DeviceManager::ClearRender()
 {
 	float ClearColor[4] = { 0,0,0.4,1 };
@@ -238,40 +239,6 @@ void DeviceManager::ClearRender()
 void DeviceManager::RenderSetUp(SIZE windowSize)
 {
 	ClearRender();
-
-	/*
-	//ビュー行列
-	//D3DXVECTOR3 Eye(0.0f, 0.0f, -3500.5f);
-	D3DXVECTOR3 Eye(0.0f, 500.0f, -500.0f);
-	D3DXVECTOR3 At(0.0f, 0.0f, 0.0f);
-	D3DXVECTOR3 Up(0.0f, 1.0f, 0.0f);
-	D3DXMatrixLookAtLH(&m_view, &Eye, &At, &Up);
-
-	//プロジェクション行列
-#if true
-	float aspectRatio = (float)m_depthStencilDesc.Width / m_depthStencilDesc.Height;
-	D3DXMatrixPerspectiveFovLH(&m_projection, D3DX_PI / 4, aspectRatio, 1.0f, 100000.0f);
-#else
-	D3DXMatrixPerspectiveFovLH(&m_projection, (float)D3DX_PI / 4, (float)width / (float)height, 0.1f, 1100.0f);
-#endif
-
-	// shaderにデータを渡す
-	D3D11_MAPPED_SUBRESOURCE pData;
-	if (SUCCEEDED(m_pDeviceContext->Map(m_pConstantBuffer0, 0, D3D11_MAP_WRITE_DISCARD, 0, &pData)))
-	{
-		SHADER_GLOBAL0 sg;
-		sg.lightDir = D3DXVECTOR4(g_lightDir.x, g_lightDir.y, g_lightDir.z, 0.0f);
-		sg.eye = D3DXVECTOR4(Eye.x, Eye.y, Eye.z, 0);
-		memcpy_s(pData.pData, pData.RowPitch, (void*)&sg, sizeof(SHADER_GLOBAL0));
-		m_pDeviceContext->Unmap(m_pConstantBuffer0, 0);
-	}
-
-	m_pDeviceContext->VSSetConstantBuffers(0, 1, &m_pConstantBuffer0);
-	m_pDeviceContext->PSSetConstantBuffers(0, 1, &m_pConstantBuffer0);
-	*/
-
-//	m_pDeviceContext->VSSetShader(m_pVertexShader, nullptr, 0);
-//	m_pDeviceContext->PSSetShader(m_pPixelShader, nullptr, 0);
 }
 
 void DeviceManager::UpdateScreen()
@@ -337,7 +304,6 @@ void DeviceManager::ResizeRenderWindow(LPARAM lParam)
 		}
 	}
 }
-
 
 void DeviceManager::ResizeRenderWindow(SIZE windowSize)
 {

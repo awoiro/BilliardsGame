@@ -20,7 +20,6 @@ struct ShaderGlobal01
 	D3DXVECTOR4 specular;
 };
 
-
 //頂点構造体
 struct VERTEX_DATA
 {
@@ -55,7 +54,6 @@ struct MaterialData
 // FBXのMeshデータ構造体
 struct MeshData
 {
-
 	MeshData()
 		: pVertexBuffer(nullptr)
 		, pMaterials(nullptr)

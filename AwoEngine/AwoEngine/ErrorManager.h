@@ -1,6 +1,7 @@
 #pragma once
 #include <Windows.h>
 #include <iostream>
+
 #define CHECK_ERROR(hr,msg) HresultErrorCheck(hr,msg,__LINE__,__FILE__)
 #define IS_CHECK_ERROR(isCheck,msg) SimpleErrorMessage(isCheck,msg,__LINE__,__FILE__);
 
@@ -81,6 +82,7 @@ inline bool HresultErrorCheck(HRESULT hr, LPSTR msg, int lineNum, char* pFileNam
 		return false;
 	}
 }
+
 inline void SimpleErrorMessage(bool isCheck, LPSTR msg, int lineNum, char* pFileName)
 {
 	if (isCheck == false)
@@ -92,13 +94,3 @@ inline void SimpleErrorMessage(bool isCheck, LPSTR msg, int lineNum, char* pFile
 	}
 }
 
-class ErrorManager
-{
-public:
-
-	ErrorManager()
-	{}
-
-	virtual ~ErrorManager()
-	{}
-};

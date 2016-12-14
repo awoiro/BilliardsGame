@@ -5,7 +5,6 @@
 #pragma comment(lib,"libfbxsdk-md.lib")
 #pragma comment(lib,"wininet.lib")
 
-
 HRESULT MeshImporter::InitFBXImporter()
 {
 	m_pFBXManager = FbxManager::Create();
@@ -533,7 +532,6 @@ ID3D11Buffer ** MeshImporter::GetIndexBuffer(FbxNode * pNode)
 	return ppIndexBuffer;
 }
 
-
 HRESULT MeshImporter::SetMaterialTexture(ID3D11Device * pDevice, CHAR * pDiffuseTextureName, MeshData* pMeshData/*MaterialData * pTargetMaterial*/)
 {
 	HRESULT hr = E_FAIL;
@@ -610,58 +608,3 @@ int* GetIndexData(MeshData* pMeshData)
 	}
 	return pIndex;
 }
-
-/*
-D3DXVECTOR3* GetVertexDataToCollider(MeshData* pMeshData)
-{
-	const int POLYGON_COUNT = pMeshData->m_polygonCount;
-	const int UV_COUNT = pMeshData->m_uvCount;
-	const int VERTEX_COUNT = pMeshData->m_vertexCount;
-	int vCount = UV_COUNT > VERTEX_COUNT ? UV_COUNT : VERTEX_COUNT;
-	pMeshData->vertexCountToCollider = vCount;
-
-	D3DXVECTOR3* pVertex = new D3DXVECTOR3[vCount];
-
-	// ポリゴンごとにデータ取得
-	for (int i = 0; i < POLYGON_COUNT; i++)
-	{
-		int index[3] = { 0,0,0 };
-
-		// インデックス
-		if (UV_COUNT > VERTEX_COUNT)
-		{
-			// UVベース
-			index[0] = pMesh->GetTextureUVIndex(i, 0);
-			index[1] = pMesh->GetTextureUVIndex(i, 1);
-			index[2] = pMesh->GetTextureUVIndex(i, 2);
-		}
-		else
-		{
-			// 座標ベース
-			int startIndex = pMesh->GetPolygonVertexIndex(i);
-			int* pIndex = pMesh->GetPolygonVertices();
-
-			index[0] = pIndex[startIndex];
-			index[1] = pIndex[startIndex + 1];
-			index[2] = pIndex[startIndex + 2];
-		}
-
-		// 頂点
-		FbxVector4* vertex = 0;
-		vertex = pMesh->GetControlPoints();
-		int vIndex = pMesh->GetPolygonVertex(i, 0);
-		pVertexData[index[0]].pos.x = vertex[vIndex].mData[0] * -1;
-		pVertexData[index[0]].pos.y = vertex[vIndex].mData[1];
-		pVertexData[index[0]].pos.z = vertex[vIndex].mData[2];
-
-		vIndex = pMesh->GetPolygonVertex(i, 1);
-		pVertexData[index[1]].pos.x = vertex[vIndex].mData[0] * -1;
-		pVertexData[index[1]].pos.y = vertex[vIndex].mData[1];
-		pVertexData[index[1]].pos.z = vertex[vIndex].mData[2];
-
-		vIndex = pMesh->GetPolygonVertex(i, 2);
-		pVertexData[index[2]].pos.x = vertex[vIndex].mData[0] * -1;
-		pVertexData[index[2]].pos.y = vertex[vIndex].mData[1];
-		pVertexData[index[2]].pos.z = vertex[vIndex].mData[2];
-}
-*/

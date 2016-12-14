@@ -7,16 +7,7 @@ class GameObject
 {
 public:
 	GameObject() {};
-	/*
-	GameObject(Transform* pTransform, MeshData* pRootMehs, Physics* pPhysics)
-	{
-		m_pTransform = pTransform;
-		m_pRootMesh = pRootMehs;
-		//m_pRigidBody = pPhysics->CreateDynamic(PxTransform(PxVec3(10, 10, -100)), PxSphereGeometry(10), PxVec3(0, 0, 0));
-		//m_pRigidBody = pPhysics->CreateDynamic(PxTransform(PxVec3(pTransform->m_position.x, pTransform->m_position.y, pTransform->m_position.z)), PxSphereGeometry(57.1), PxVec3(0, 0, 0));
 
-	}
-	*/
 	~GameObject()
 	{
 		delete m_pRootMesh;
@@ -28,7 +19,11 @@ public:
 
 	virtual void Update() {}
 
- 	virtual void Render(MeshImporter* pMeshManager);
+	virtual void Render(MeshImporter* pMeshManager)
+	{
+		D3DXMATRIX world = m_pTransform->GetWorld();
+		pMeshManager->RenderMesh(&world, m_pRootMesh);
+	}
 
 	Transform* m_pTransform = nullptr;
 	MeshData* m_pRootMesh = nullptr;
@@ -110,7 +105,6 @@ protected:
 	//PxRigidStatic* m_pRigidStatic = nullptr;
 };
 
-
 class Ball : public DynamicGameObject
 {
 public:
@@ -181,14 +175,3 @@ public:
 private:
 
 };
-
-class Arrow : public GameObject
-{
-public:
-	Arrow() {};
-	~Arrow() {};
-
-private:
-	
-};
-

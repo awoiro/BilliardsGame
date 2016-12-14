@@ -32,6 +32,13 @@ public:
 	{
 		if (m_pXACTEngine)
 		{
+#if false
+			m_pSoundBank->Destroy();
+			delete m_pSoundBank;
+
+			m_pWaveBank->Destroy();
+			delete m_pWaveBank;
+#endif
 			m_pXACTEngine->ShutDown();
 			m_pXACTEngine->Release();
 		}
@@ -45,7 +52,7 @@ public:
 		if (m_pMapWaveBank)
 		{
 			UnmapViewOfFile(m_pMapWaveBank);
-			//delete[] m_pWaveBank;
+			//delete[] m_pMapWaveBank;
 			m_pMapWaveBank = nullptr;
 		}
 
@@ -58,7 +65,9 @@ public:
 	HRESULT Init();
 	void PlayCue(const char cue[]);
 	void StopCue(const char cue[]);
+
 private:
+
 	IXACT3Engine* m_pXACTEngine;
 	IXACT3WaveBank* m_pWaveBank;
 	IXACT3SoundBank* m_pSoundBank;

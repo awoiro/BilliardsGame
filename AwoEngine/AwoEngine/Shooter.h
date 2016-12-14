@@ -31,7 +31,7 @@ public:
 
 	void CreateArrowModel(MeshImporter* pMeshManager)
 	{
-		m_pArrow = new Arrow();
+		m_pArrow = new GameObject();
 
 		Transform* pTransform = new Transform();
 		pTransform->m_position = m_pParentBall->m_pTransform->m_position;
@@ -68,11 +68,11 @@ public:
 
 		if (m_isFreeMove)
 		{
-
+			// todo : 自由移動処理
 		}
 		else if(m_isKitchenMove)
 		{
-
+			// todo : キッチン内移動処理
 		}
 	}
 
@@ -140,7 +140,7 @@ private:
 
 	// model
 	Ball* m_pParentBall;
-	Arrow* m_pArrow;
+	GameObject* m_pArrow;
 	TwBar* m_pBar;
 };
 

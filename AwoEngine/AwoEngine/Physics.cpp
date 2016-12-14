@@ -72,13 +72,6 @@ PxRigidDynamic * Physics::CreateDynamic(const PxTransform & t, const PxGeometry 
 	return dynamic;
 }
 
-/*
-PxTriangleMesh Physics::createTriangleMesh()
-{
-	return nullptr;
-}
-*/
-
 PxRigidStatic * Physics::CreateStatic(const PxTransform & t, const PxGeometry & geometry, const PxVec3 & velocity)
 {
 	//PxRigidStatic* pStatic = PxCreateStatic(*m_pPhysics, t, geometry, *m_pMaterial, 10.0f);

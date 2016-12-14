@@ -39,6 +39,7 @@ HRESULT Input::InitKeyboardDevice()
 
 	return S_OK;
 }
+
 HRESULT Input::InitMouseDeviec()
 {
 	HRESULT hr = E_FAIL;
@@ -64,8 +65,8 @@ HRESULT Input::InitMouseDeviec()
 	return S_OK;
 }
 
-#pragma region Keyboard
 
+#pragma region Keyboard
 bool Input::GetKey(int keyCode)
 {
 	bool isKeyDown = CheckKeyDown(keyCode);
@@ -164,8 +165,8 @@ void Input::UpdateKeyCode()
 	m_beforeKeyDownList = m_currentKeyDownList;
 	m_currentKeyDownList.clear();
 }
-
 #pragma endregion
+
 
 #pragma region Mouse
 bool Input::GetMouseButton(MOUSE_BUTTON mouseButton)
@@ -328,5 +329,4 @@ void Input::UpdateMouseCode()
 	m_beforeMouseKeyDownList = m_currentMouseKeyDownList;
 	m_currentMouseKeyDownList.clear();
 }
-
 #pragma endregion

@@ -14,7 +14,6 @@ struct ShaderGlobal_Camera
 	// farPlane
 };
 
-
 class Camera
 {
 public:
@@ -35,7 +34,6 @@ public:
 	}
 #endif	
 
-
 	void ShowCameraEditWindow()
 	{
 		m_pBar = TwNewBar("CameraSetting");
@@ -47,12 +45,8 @@ public:
 		TwAddVarRW(m_pBar, "UP", TW_TYPE_DIR3F, &m_up, "");
 		TwDefine(" CameraSetting/UP opened=true ");
 	}
-
-	void CameraSetting(DeviceManager* pDeviceManager)
+	void CameraSetting(const DeviceManager* pDeviceManager)
 	{
-		//m_view = GetView();
-		//m_Projection = GetProjection(pDeviceManager->m_depthStencilDesc);
-
 		// shader‚Éƒf[ƒ^‚ð“n‚·
 		D3D11_MAPPED_SUBRESOURCE pData;
 		if (SUCCEEDED(pDeviceManager->m_pDeviceContext->Map(pDeviceManager->m_pConstantBuffer0, 0, D3D11_MAP_WRITE_DISCARD, 0, &pData)))
@@ -68,23 +62,13 @@ public:
 		pDeviceManager->m_pDeviceContext->PSSetConstantBuffers(0, 1, &pDeviceManager->m_pConstantBuffer0);
 	}
 
-	D3DXVECTOR3 m_eye;
-	D3DXVECTOR3 m_lookAt;
-	D3DXVECTOR3 m_up;
-
-	TwBar* m_pBar;
-	
-	//D3DXMATRIX m_view;
-	//D3DXMATRIX m_Projection;
-
-
-	D3DXMATRIX GetView()
+	D3DXMATRIX GetView() const 
 	{ 
 		D3DXMATRIX view; 
 		D3DXMatrixLookAtLH(&view, &m_eye, &m_lookAt, &m_up);
 		return view; 
 	}
-	D3DXMATRIX GetProjection(D3D11_TEXTURE2D_DESC depthStencilDesc)
+	D3DXMATRIX GetProjection(const D3D11_TEXTURE2D_DESC depthStencilDesc) const 
 	{
 		D3DXMATRIX projection;
 #if true
@@ -95,5 +79,12 @@ public:
 #endif
 		return projection;
 	}
+
+private:
+	D3DXVECTOR3 m_eye;
+	D3DXVECTOR3 m_lookAt;
+	D3DXVECTOR3 m_up;
+
+	TwBar* m_pBar;
 };
 

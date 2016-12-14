@@ -14,8 +14,6 @@
 #pragma comment (lib,"PhysXVisualDebuggerSDKDEBUG.lib" )
 #pragma comment (lib,"PxTaskDEBUG.lib" )
 
-//#define SAFE_RELEASE(p) { if(p) { (p)->release(); (p)=nullptr; } }
-
 using namespace physx;
 
 class Physics
@@ -36,7 +34,6 @@ public:
 
 	PxRigidDynamic* CreateDynamic(const PxTransform &t, const PxGeometry &geometry, const PxVec3 &velocity);
 	PxRigidStatic* CreateStatic(const PxTransform &t, const PxGeometry &geometry, const PxVec3 &velocity);
-	//PxTriangleMesh createTriangleMesh(MeshData* pMeshData);
 
 	void UpdatePVDCamera();
 private:
@@ -59,39 +56,3 @@ private:
 
 	PxReal stackZ = 10.0f;
 };
-
-#pragma region Collider Class
-
-class Collider
-{
-public:
-	Collider() {};
-	~Collider() {};
-protected:
-	virtual HRESULT Create() = 0;
-private:
-};
-
-class BoxCollider : Collider
-{
-public:
-	BoxCollider() {};
-	~BoxCollider() {};
-protected:
-	virtual HRESULT Create() override {};
-private:
-};
-
-class SphereCollider : Collider
-{
-public:
-	SphereCollider() {};
-	~SphereCollider() {};
-protected:
-	virtual HRESULT Create() override {};
-private:
-};
-
-#pragma endregion
-
-//Physics* g_pPhysics = new Physics();

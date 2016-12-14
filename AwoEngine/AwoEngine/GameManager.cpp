@@ -1,7 +1,9 @@
 #include "GameManager.h"
 
 void GameManager::Reset()
-{}
+{
+	// todo : ゲームリセット処理
+}
 
 void GameManager::Update(DeviceManager* pDeviceManager, MeshImporter* pMeshManager, Physics* pPhysics, Audio* pAudio)
 {
@@ -32,6 +34,8 @@ void GameManager::Update(DeviceManager* pDeviceManager, MeshImporter* pMeshManag
 	}
 }
 
+
+#pragma region checkker
 bool GameManager::CheckBallStop() const
 {
 	if (m_ppBalls[0]->isRender == false) { return true; }
@@ -87,6 +91,8 @@ bool GameManager::CheckIsCreateModel() const
 {
 	return m_isCreatedModel;
 }
+#pragma endregion
+
 
 void GameManager::PlayerChange()
 {
@@ -390,10 +396,14 @@ void GameManager::BallPocket(int ballID, int pocketID, Audio* pAudio, Physics* p
 			if (m_turn == LOW_TURN)
 			{
 				MessageBoxA(nullptr, "LOW GROUP PLAYER WIN!!! ", "GAME OVER", MB_OK);
+				MessageBoxA(nullptr, "ゲームを終了します。", "EXIT GAME", MB_OK);
+				PostQuitMessage(0);
 			}
 			else
 			{
 				MessageBoxA(nullptr, "HIGH GROUP PLAYER WIN!!! ", "GAME OVER", MB_OK);
+				MessageBoxA(nullptr, "ゲームを終了します。", "EXIT GAME", MB_OK);
+				PostQuitMessage(0);
 			}
 		}
 		else

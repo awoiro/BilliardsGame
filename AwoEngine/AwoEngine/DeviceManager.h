@@ -28,6 +28,18 @@ class DeviceManager
 {
 public:
 	DeviceManager()
+		: m_pDevice(nullptr)
+		, m_pSwapChain(nullptr)
+		, m_pRTV(nullptr)
+		, m_pDSV(nullptr)
+		, m_pVertexLayout(nullptr)
+		, m_pDepthStencil(nullptr)
+		, m_pDeviceContext(nullptr)
+		, m_pVertexShader(nullptr)
+		, m_pPixelShader(nullptr)
+		, m_pConstantBuffer0(nullptr)
+		, m_pConstantBuffer1(nullptr)
+		, m_pSampleLinear(nullptr)
 	{};
 	~DeviceManager()
 	{
@@ -76,7 +88,4 @@ public:
 	ID3D11Buffer* m_pConstantBuffer1 = nullptr;
 
 	ID3D11SamplerState* m_pSampleLinear = nullptr;
-
-//	D3DXMATRIX m_view;
-//	D3DXMATRIX m_projection;
 };

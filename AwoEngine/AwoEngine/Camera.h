@@ -39,10 +39,13 @@ public:
 	void ShowCameraEditWindow()
 	{
 		m_pBar = TwNewBar("CameraSetting");
+		TwDefine("CameraSetting position='200 40' size='200 400'");
 		TwAddVarRW(m_pBar, "Eye", TW_TYPE_DIR3F, &m_eye, "");
+		TwDefine(" CameraSetting/Eye opened=true ");
 		TwAddVarRW(m_pBar, "LookAt", TW_TYPE_DIR3F, &m_lookAt, "");
+		TwDefine(" CameraSetting/LookAt opened=true ");
 		TwAddVarRW(m_pBar, "UP", TW_TYPE_DIR3F, &m_up, "");
-		
+		TwDefine(" CameraSetting/UP opened=true ");
 	}
 
 	void CameraSetting(DeviceManager* pDeviceManager)

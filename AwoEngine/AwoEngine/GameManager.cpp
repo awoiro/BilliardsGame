@@ -465,9 +465,9 @@ void GameManager::SetTouchCushion()
 		const float c_offset = 10;
 		D3DXVECTOR3 pos = m_ppBalls[i]->m_pTransform->m_position;
 		if (pos.x > TABLE_WIDTH / 2 - c_offset ||
-			pos.x < TABLE_WIDTH / 2 * -1 - c_offset ||
+			pos.x < TABLE_WIDTH / 2 * -1 + c_offset ||
 			pos.z > TABLE_HEIGHT / 2 - c_offset ||
-			pos.z < TABLE_HEIGHT / 2 * -1 - c_offset)
+			pos.z < TABLE_HEIGHT / 2 * -1 + c_offset)
 		{
 			m_touchCushion = true;
 		}

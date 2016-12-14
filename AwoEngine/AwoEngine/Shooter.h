@@ -50,13 +50,16 @@ public:
 	void CreateShooterWindow()
 	{
 		m_pBar = TwNewBar("ShooterSetting");
+		TwDefine("ShooterSetting position='410 40' size='200 350'");
 		TwAddVarRO(m_pBar, "CanShoot", TW_TYPE_BOOL8, &m_isShoot, "");
 		TwAddVarRO(m_pBar, "CanFreeMove", TW_TYPE_BOOL8, &m_isFreeMove, "");
 		TwAddVarRO(m_pBar, "CanKitchenMove", TW_TYPE_BOOL8, &m_isKitchenMove, "");
 		TwAddVarRO(m_pBar, "ArrowQuat", TW_TYPE_QUAT4F, &m_pArrow->m_pTransform->m_angle, "");
+		TwDefine(" ShooterSetting/ArrowQuat opened=true ");
 		TwAddVarRW(m_pBar, "ShootingAngle", TW_TYPE_FLOAT, &m_shootAngle, "");
 		TwAddVarRW(m_pBar, "ShootingPower", TW_TYPE_FLOAT, &m_shootPower, "");
 		TwAddVarRW(m_pBar, "ArrowSize", TW_TYPE_DIR3F, &m_pArrow->m_pTransform->m_scale, "");
+		TwDefine(" ShooterSetting/ArrowSize opened=true ");
 	}
 
 	void MoveShootingPosition()

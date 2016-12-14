@@ -50,7 +50,7 @@ public:
 	void CreateShooterWindow()
 	{
 		m_pBar = TwNewBar("ShooterSetting");
-		TwDefine("ShooterSetting position='410 40' size='200 350'");
+		TwDefine("ShooterSetting position='410 40' size='200 320'");
 		TwAddVarRO(m_pBar, "CanShoot", TW_TYPE_BOOL8, &m_isShoot, "");
 		TwAddVarRO(m_pBar, "CanFreeMove", TW_TYPE_BOOL8, &m_isFreeMove, "");
 		TwAddVarRO(m_pBar, "CanKitchenMove", TW_TYPE_BOOL8, &m_isKitchenMove, "");

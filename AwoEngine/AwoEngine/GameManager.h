@@ -61,10 +61,10 @@ public:
 	void Shoot(Audio* pAudio);
 
 	// pocket
-	void BallPocket(int ballID, int pocketID, Audio* pAudio);
+	void BallPocket(int ballID, int pocketID, Audio* pAudio, Physics* pPhysics);
 
 	// collisions
-	void Collider(Audio* pAudio);
+	void Collider(Audio* pAudio, Physics* pPhysics);
 
 	// render
 	void Render(MeshImporter* pMeshManager);
@@ -80,7 +80,7 @@ private:
 	// collisions
 	bool CollisionToGameObject(const GameObject* pObj1, const GameObject* pObj2);
 	void BallToBallCollision(Audio* pAudio);
-	void BallToHaleCollision(Audio* pAudio);
+	void BallToHaleCollision(Audio* pAudio, Physics* pPhysics);
 	void SetFirstTouchBall();
 	void SetTouchCushion();
 

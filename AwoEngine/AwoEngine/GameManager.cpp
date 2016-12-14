@@ -12,18 +12,29 @@ void GameManager::Update(DeviceManager* pDeviceManager, MeshImporter* pMeshManag
 		m_pShooter->UpdateArrowLocation();
 
 		// collider
-		Collider(pAudio);
+		Collider(pAudio,pPhysics);
 
 		// foul check and player change
 		if (CheckBallStop() && CheckIsShootAiming() == false)
 		{
 			CheckFoul() ? PenaltyPlayerChange() : PlayerChange();
+
+			// no 0 ball event
+			if (m_ppBalls[0]->isRender == false)
+			{
+				m_ppBalls[0]->m_pTransform->m_position = D3DXVECTOR3(0, 100, -100);
+				m_ppBalls[0]->isRender = true;
+				m_ppBalls[0]->EnableRigid(pPhysics);
+				m_pShooter->SetIsFreeMove(false);
+				m_pShooter->SetIsKitchenMove(true);
+			}
 		}
 	}
 }
 
 bool GameManager::CheckBallStop() const
 {
+	if (m_ppBalls[0]->isRender == false) { return true; }
 	return m_ppBalls[0]->m_pRigidBody->isSleeping();
 }
 
@@ -88,13 +99,6 @@ void GameManager::PlayerChange()
 	{
 		MessageBoxA(nullptr, "プレイヤーチェンジ : LOW GROUP", "チェンジ", MB_OK);
 		m_turn = LOW_TURN;
-	}
-
-	// no 0 ball event
-	if (m_ppBalls[0]->isRender == false)
-	{
-		m_ppBalls[0]->m_pTransform->m_position = D3DXVECTOR3(0, 100, -100);
-		m_pShooter->SetIsKitchenMove(true);
 	}
 
 	m_pShooter->SetIsShoot(true);
@@ -241,7 +245,7 @@ void GameManager::CreateModels(DeviceManager* pDeviceManager, MeshImporter* pMes
 		MeshData* pBallMesh15 = pMeshManager->CreateMeshData("ball_low.fbx");
 		pMeshManager->SetMaterialTexture(pDeviceManager->m_pDevice, "ball_15_d.bmp", pBallMesh15);
 
-		const int r = BALL_RADIUS * 2 + 1.8;
+		const int r = BALL_RADIUS * 2;
 		m_ballCount = 16;
 		D3DXVECTOR3 cPos = D3DXVECTOR3(0, 100, 70); // centerPos
 
@@ -310,10 +314,10 @@ void GameManager::CreateModels(DeviceManager* pDeviceManager, MeshImporter* pMes
 		m_ppHoles = new Hole*[m_holeCount];
 
 		m_ppHoles[0] = new Hole(D3DXVECTOR3(-w / 2, 50 + r, h / 2), r);// 左上
-		m_ppHoles[1] = new Hole(D3DXVECTOR3(-w / 2, 50 + r, 0), r);// 左中
+		m_ppHoles[1] = new Hole(D3DXVECTOR3(-w / 2 - 4, 50 + r, 0), r);// 左中
 		m_ppHoles[2] = new Hole(D3DXVECTOR3(-w / 2, 50 + r, -h / 2), r);// 左下
 		m_ppHoles[3] = new Hole(D3DXVECTOR3(w / 2, 50 + r, h / 2), r);// 右上
-		m_ppHoles[4] = new Hole(D3DXVECTOR3(w / 2, 50 + r, 0), r);// 右中
+		m_ppHoles[4] = new Hole(D3DXVECTOR3(w / 2 + 4, 50 + r, 0), r);// 右中
 		m_ppHoles[5] = new Hole(D3DXVECTOR3(w / 2, 50 + r, -h / 2), r);// 右下
 	}
 	
@@ -331,7 +335,6 @@ void GameManager::CreateModels(DeviceManager* pDeviceManager, MeshImporter* pMes
 }
 
 
-#pragma region collider and physics
 void GameManager::PhysicsMoveToBall()
 {
 	for (int i = 0; i < m_ballCount; i++)
@@ -346,7 +349,7 @@ void GameManager::Shoot(Audio* pAudio)
 	m_pShooter->Shoot(pAudio);
 }
 
-void GameManager::BallPocket(int ballID, int pocketID, Audio* pAudio)
+void GameManager::BallPocket(int ballID, int pocketID, Audio* pAudio, Physics* pPhysics)
 {
 	pAudio->PlayCue(SE_BALL_FALL);
 
@@ -354,6 +357,7 @@ void GameManager::BallPocket(int ballID, int pocketID, Audio* pAudio)
 	wsprintfA(msg, "%d BALL POCKET TO %d HALL", ballID, pocketID);
 	MessageBoxA(nullptr, msg, "BALL POCKET", MB_OK);
 	m_ppBalls[ballID]->isRender = false;
+	m_ppBalls[ballID]->DisableRigid();
 
 	if (ballID == 8)
 	{
@@ -372,15 +376,18 @@ void GameManager::BallPocket(int ballID, int pocketID, Audio* pAudio)
 		{
 			m_ppBalls[8]->m_pTransform->m_position = D3DXVECTOR3(0, 100, 70);
 			m_ppBalls[8]->isRender = true;
+			m_ppBalls[8]->EnableRigid(pPhysics);
 		}
 		Reset();
 	}
 }
 
-void GameManager::Collider(Audio* pAudio)
+
+#pragma region collider
+void GameManager::Collider(Audio* pAudio,Physics* pPhysics)
 {
 	BallToBallCollision(pAudio);
-	BallToHaleCollision(pAudio);
+	BallToHaleCollision(pAudio, pPhysics);
 	SetFirstTouchBall();
 	SetTouchCushion();
 }
@@ -425,7 +432,7 @@ void GameManager::BallToBallCollision(Audio* pAudio)
 	}
 }
 
-void GameManager::BallToHaleCollision(Audio* pAudio)
+void GameManager::BallToHaleCollision(Audio* pAudio, Physics* pPhysics)
 {
 	for (int i = 0; i < m_ballCount; i++)
 	{
@@ -435,7 +442,7 @@ void GameManager::BallToHaleCollision(Audio* pAudio)
 		{
 			if (CollisionToGameObject(m_ppBalls[i], m_ppHoles[k]))
 			{
-				BallPocket(i,k,pAudio);
+				BallPocket(i,k,pAudio,pPhysics);
 			}
 		}
 	}
@@ -474,6 +481,7 @@ void GameManager::SetTouchCushion()
 	}
 }
 #pragma endregion
+
 
 void GameManager::Render(MeshImporter* pMeshManager)
 {

@@ -55,6 +55,8 @@ public:
 			( PxVec3(m_pTransform->m_position.x, m_pTransform->m_position.y, m_pTransform->m_position.z))
 			, PxSphereGeometry(radius)
 			, PxVec3(0, 0, 0));
+
+		m_radius = radius;
 	}
 	//virtual void SetRigidDynamicBox() {};
 
@@ -68,6 +70,19 @@ public:
 		m_pTransform->m_angle.y = targetTransform.q.y;
 		m_pTransform->m_angle.z = targetTransform.q.z;
 		m_pTransform->m_angle.w = targetTransform.q.w;
+	}
+
+	virtual void DisableRigid()
+	{
+		m_pRigidBody->release();
+	}
+
+	virtual void EnableRigid(Physics* pPhysics)
+	{
+		m_pRigidBody = pPhysics->CreateDynamic(PxTransform
+		(PxVec3(m_pTransform->m_position.x, m_pTransform->m_position.y, m_pTransform->m_position.z))
+			, PxSphereGeometry(m_radius)
+			, PxVec3(0, 0, 0));
 	}
 
 	PxRigidDynamic* m_pRigidBody = nullptr;

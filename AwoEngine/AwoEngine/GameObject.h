@@ -51,8 +51,10 @@ public:
 
 	virtual void SetRigidDynamicSphere(Physics* pPhysics, int radius)
 	{
+		PxVec3 pos = PxVec3(m_pTransform->m_position.x, m_pTransform->m_position.y, m_pTransform->m_position.z);
+		PxQuat rot = PxQuat(m_pTransform->m_angle.x, m_pTransform->m_angle.y, m_pTransform->m_angle.z, m_pTransform->m_angle.w);
 		m_pRigidBody = pPhysics->CreateDynamic(PxTransform
-			( PxVec3(m_pTransform->m_position.x, m_pTransform->m_position.y, m_pTransform->m_position.z))
+			( pos,rot )
 			, PxSphereGeometry(radius)
 			, PxVec3(0, 0, 0));
 

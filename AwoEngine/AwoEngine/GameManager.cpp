@@ -250,22 +250,22 @@ void GameManager::CreateModels(DeviceManager* pDeviceManager, MeshImporter* pMes
 		D3DXVECTOR3 cPos = D3DXVECTOR3(0, 100, 70); // centerPos
 
 		m_ppBalls = new Ball*[m_ballCount];
-		m_ppBalls[0] = new Ball(pBallMesh0, D3DXVECTOR3(0, cPos.y, -100), D3DXQUATERNION(0, 0, 0, 1), pPhysics, r, 0);// white ball
-		m_ppBalls[1] = new Ball(pBallMesh1, D3DXVECTOR3(cPos.x, cPos.y, cPos.z - 4 * r), D3DXQUATERNION(0, 0, 0, 1), pPhysics, r, 1);
-		m_ppBalls[2] = new Ball(pBallMesh2, D3DXVECTOR3(cPos.x + r, cPos.y, cPos.z - 2 * r), D3DXQUATERNION(0, 0, 0, 1), pPhysics, r, 1);
-		m_ppBalls[3] = new Ball(pBallMesh3, D3DXVECTOR3(cPos.x - r, cPos.y, cPos.z - 2 * r), D3DXQUATERNION(0, 0, 0, 1), pPhysics, r, 1);
-		m_ppBalls[4] = new Ball(pBallMesh4, D3DXVECTOR3(cPos.x + 2 * r, cPos.y, cPos.z), D3DXQUATERNION(0, 0, 0, 1), pPhysics, r, 1);
-		m_ppBalls[5] = new Ball(pBallMesh5, D3DXVECTOR3(cPos.x - 2 * r, cPos.y, cPos.z), D3DXQUATERNION(0, 0, 0, 1), pPhysics, r, 1);
-		m_ppBalls[6] = new Ball(pBallMesh6, D3DXVECTOR3(cPos.x + 3 * r, cPos.y, cPos.z + 2 * r), D3DXQUATERNION(0, 0, 0, 1), pPhysics, r, 1);
-		m_ppBalls[7] = new Ball(pBallMesh7, D3DXVECTOR3(cPos.x + 4 * r, cPos.y, cPos.z + 4 * r), D3DXQUATERNION(0, 0, 0, 1), pPhysics, r, 1);// L ball
-		m_ppBalls[8] = new Ball(pBallMesh8, D3DXVECTOR3(cPos.x, cPos.y, cPos.z), D3DXQUATERNION(0, 0, 0, 1), pPhysics, r, 1);// 8 ball
-		m_ppBalls[9] = new Ball(pBallMesh9, D3DXVECTOR3(cPos.x - 4 * r, cPos.y, cPos.z + 4 * r), D3DXQUATERNION(0, 0, 0, 1), pPhysics, r, 1);// H ball
-		m_ppBalls[10] = new Ball(pBallMesh10, D3DXVECTOR3(cPos.x + r, cPos.y, cPos.z + 2 * r), D3DXQUATERNION(0, 0, 0, 1), pPhysics, r, 1);
-		m_ppBalls[11] = new Ball(pBallMesh11, D3DXVECTOR3(cPos.x - r, cPos.y, cPos.z + 2 * r), D3DXQUATERNION(0, 0, 0, 1), pPhysics, r, 1);
-		m_ppBalls[12] = new Ball(pBallMesh12, D3DXVECTOR3(cPos.x - 3 * r, cPos.y, cPos.z + 2 * r), D3DXQUATERNION(0, 0, 0, 1), pPhysics, r, 1);
-		m_ppBalls[13] = new Ball(pBallMesh13, D3DXVECTOR3(cPos.x + 2 * r, cPos.y, cPos.z + 4 * r), D3DXQUATERNION(0, 0, 0, 1), pPhysics, r, 1);
-		m_ppBalls[14] = new Ball(pBallMesh14, D3DXVECTOR3(cPos.x, cPos.y, cPos.z + 4 * r), D3DXQUATERNION(0, 0, 0, 1), pPhysics, r, 1);
-		m_ppBalls[15] = new Ball(pBallMesh15, D3DXVECTOR3(cPos.x - 2 * r, cPos.y, cPos.z + 4 * r), D3DXQUATERNION(0, 0, 0, 1), pPhysics, r, 1);
+		m_ppBalls[0] = new Ball(pBallMesh0, D3DXVECTOR3(0, cPos.y, -100), D3DXQUATERNION(0, 1, 0, 0), pPhysics, r, 0);// white ball
+		m_ppBalls[1] = new Ball(pBallMesh1, D3DXVECTOR3(cPos.x, cPos.y, cPos.z - 4 * r), D3DXQUATERNION(0, 1, 0, 0), pPhysics, r, 1);
+		m_ppBalls[2] = new Ball(pBallMesh2, D3DXVECTOR3(cPos.x + r, cPos.y, cPos.z - 2 * r), D3DXQUATERNION(0, 1, 0, 0), pPhysics, r, 1);
+		m_ppBalls[3] = new Ball(pBallMesh3, D3DXVECTOR3(cPos.x - r, cPos.y, cPos.z - 2 * r), D3DXQUATERNION(0, 1, 0, 0), pPhysics, r, 1);
+		m_ppBalls[4] = new Ball(pBallMesh4, D3DXVECTOR3(cPos.x + 2 * r, cPos.y, cPos.z), D3DXQUATERNION(0, 1, 0, 0), pPhysics, r, 1);
+		m_ppBalls[5] = new Ball(pBallMesh5, D3DXVECTOR3(cPos.x - 2 * r, cPos.y, cPos.z), D3DXQUATERNION(0, 1, 0, 0), pPhysics, r, 1);
+		m_ppBalls[6] = new Ball(pBallMesh6, D3DXVECTOR3(cPos.x + 3 * r, cPos.y, cPos.z + 2 * r), D3DXQUATERNION(0, 1, 0, 0), pPhysics, r, 1);
+		m_ppBalls[7] = new Ball(pBallMesh7, D3DXVECTOR3(cPos.x + 4 * r, cPos.y, cPos.z + 4 * r), D3DXQUATERNION(0, 1, 0, 0), pPhysics, r, 1);// L ball
+		m_ppBalls[8] = new Ball(pBallMesh8, D3DXVECTOR3(cPos.x, cPos.y, cPos.z), D3DXQUATERNION(0, 1, 0, 0), pPhysics, r, 1);// 8 ball
+		m_ppBalls[9] = new Ball(pBallMesh9, D3DXVECTOR3(cPos.x - 4 * r, cPos.y, cPos.z + 4 * r), D3DXQUATERNION(0, 1, 0, 0), pPhysics, r, 1);// H ball
+		m_ppBalls[10] = new Ball(pBallMesh10, D3DXVECTOR3(cPos.x + r, cPos.y, cPos.z + 2 * r), D3DXQUATERNION(0, 1, 0, 0), pPhysics, r, 1);
+		m_ppBalls[11] = new Ball(pBallMesh11, D3DXVECTOR3(cPos.x - r, cPos.y, cPos.z + 2 * r), D3DXQUATERNION(0, 1, 0, 0), pPhysics, r, 1);
+		m_ppBalls[12] = new Ball(pBallMesh12, D3DXVECTOR3(cPos.x - 3 * r, cPos.y, cPos.z + 2 * r), D3DXQUATERNION(0, 1, 0, 0), pPhysics, r, 1);
+		m_ppBalls[13] = new Ball(pBallMesh13, D3DXVECTOR3(cPos.x + 2 * r, cPos.y, cPos.z + 4 * r), D3DXQUATERNION(0, 1, 0, 0), pPhysics, r, 1);
+		m_ppBalls[14] = new Ball(pBallMesh14, D3DXVECTOR3(cPos.x, cPos.y, cPos.z + 4 * r), D3DXQUATERNION(0, 1, 0, 0), pPhysics, r, 1);
+		m_ppBalls[15] = new Ball(pBallMesh15, D3DXVECTOR3(cPos.x - 2 * r, cPos.y, cPos.z + 4 * r), D3DXQUATERNION(0, 1, 0, 0), pPhysics, r, 1);
 	
 
 		m_pShooter->SetParentBall(m_ppBalls[0]);
@@ -327,6 +327,27 @@ void GameManager::CreateModels(DeviceManager* pDeviceManager, MeshImporter* pMes
 		m_pShooter->CreateShooterWindow();
 	}
 
+	// create ball num
+	{
+		m_ppBallNums = new GameObject*[m_ballCount];
+		for (int i = 0; i < m_ballCount; i++)
+		{
+			m_ppBallNums[i] = new GameObject();
+
+			Transform* pTransform = new Transform();
+			pTransform->m_position = m_ppBalls[i]->m_pTransform->m_position + D3DXVECTOR3(0,10,0);
+			pTransform->m_angle = D3DXQUATERNION(0,1,0,0);
+			pTransform->m_scale = D3DXVECTOR3(10, 10, 10);
+
+			char dataName[20];
+			wsprintf(dataName, "text_%d.fbx", i);
+			MeshData* pMesh = pMeshManager->CreateMeshData(dataName);
+
+			m_ppBallNums[i]->SetTransform(pTransform);
+			m_ppBallNums[i]->SetMesh(pMesh);
+		}
+	}
+
 	m_isCreatedModel = true;
 	m_isPlayGame = true;
 	m_pShooter->SetIsShoot(true);
@@ -341,6 +362,8 @@ void GameManager::PhysicsMoveToBall()
 	{
 		if (m_ppBalls[i]->isRender == false) { continue; }
 		m_ppBalls[i]->UpdatePos();
+
+		m_ppBallNums[i]->m_pTransform->m_position = m_ppBalls[i]->m_pTransform->m_position + +D3DXVECTOR3(0, 10, 0);
 	}
 }
 
@@ -358,6 +381,7 @@ void GameManager::BallPocket(int ballID, int pocketID, Audio* pAudio, Physics* p
 	MessageBoxA(nullptr, msg, "BALL POCKET", MB_OK);
 	m_ppBalls[ballID]->isRender = false;
 	m_ppBalls[ballID]->DisableRigid();
+	m_ppBallNums[ballID]->isRender = false;
 
 	if (ballID == 8)
 	{
@@ -377,6 +401,7 @@ void GameManager::BallPocket(int ballID, int pocketID, Audio* pAudio, Physics* p
 			m_ppBalls[8]->m_pTransform->m_position = D3DXVECTOR3(0, 100, 70);
 			m_ppBalls[8]->isRender = true;
 			m_ppBalls[8]->EnableRigid(pPhysics);
+			m_ppBallNums[ballID]->isRender = true;
 		}
 		Reset();
 	}
@@ -500,6 +525,12 @@ void GameManager::Render(MeshImporter* pMeshManager)
 
 			// shooter render
 			m_pShooter->Render(pMeshManager);
+
+			// ball num render
+			for (int i = 0; i < m_ballCount; i++)
+			{
+				RenderGameObject(m_ppBallNums[i],pMeshManager);
+			}
 		}
 
 		// text render

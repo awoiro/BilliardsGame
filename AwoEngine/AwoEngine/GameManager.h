@@ -23,11 +23,13 @@ public:
 		, m_pTable(nullptr)
 		, m_ppHoles(nullptr)
 		, m_holeCount(0)
+		, m_ppBallNums(nullptr)
 	{
 		m_pShooter = new Shooter();
 	};
 	~GameManager()
 	{
+		delete[] m_ppBallNums;
 		delete[] m_ppHoles;
 		delete m_pTable;
 		delete[] m_ppBalls;
@@ -117,5 +119,8 @@ private:
 	// Table holes
 	Hole** m_ppHoles;
 	int m_holeCount;
+
+	// ball num models
+	GameObject** m_ppBallNums;
 };
 

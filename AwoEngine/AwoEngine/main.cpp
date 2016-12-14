@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <windows.h>
 #include "Application.h"
+#include "Audio.h"
 
 #pragma comment(lib,"winmm.lib")
 
@@ -18,29 +19,6 @@ Application* g_pApp;
 
 LRESULT CALLBACK WndProc(HWND, UINT, WPARAM, LPARAM);
 BOOL SetClientSize(HWND hWnd, int width, int height);
-
-void TW_CALL ImportFBXButtonClick(void* clientData) { g_pApp->MeshInitEvent(); }
-
-void TW_CALL CopyCDStringToClient(char **destPtr, const char *src)
-{
-	size_t srcLen = (src != nullptr) ? strlen(src) : 0;
-	size_t destLen = (*destPtr != nullptr) ? strlen(*destPtr) : 0;
-
-	if (*destPtr == nullptr)
-	{
-		*destPtr = (char *)malloc(srcLen + 1);
-	}
-	else if (srcLen > destLen)
-	{
-		*destPtr = (char *)realloc(*destPtr, srcLen + 1);
-	}
-
-	if (srcLen > 0)
-	{
-		strncpy(*destPtr, src, srcLen);
-	}
-	(*destPtr)[srcLen] = '\0';
-}
 
 INT WINAPI WinMain(HINSTANCE hInst, HINSTANCE hPrevInst, LPSTR szStr, INT iCmdShow)
 {
@@ -69,21 +47,15 @@ INT WINAPI WinMain(HINSTANCE hInst, HINSTANCE hPrevInst, LPSTR szStr, INT iCmdSh
 	SIZE windowSize;
 	windowSize.cx = WINDOW_WIDTH;
 	windowSize.cy = WINDOW_HEIGHT;
+
+	// app init
 	g_pApp = new Application;
 	g_pApp->Init(g_hWnd, windowSize);
-
+	
+	//
 	SetClientSize(g_hWnd, WINDOW_WIDTH, WINDOW_HEIGHT);
 
-#if false
-	TwBar* pBar = TwNewBar("FBXFileImport");
-
-	TwCopyCDStringToClientFunc(CopyCDStringToClient);
-	TwAddVarRW(pBar, "FBXFileName", TW_TYPE_CDSTRING, &g_pApp->pFBXFileName, "");
-
-	TwAddButton(pBar, "ImportFBX", ImportFBXButtonClick, nullptr, "");
-#endif
-
-	// メッセージループ
+	// message loop
 	MSG msg;
 	ZeroMemory(&msg, sizeof(msg));
 	while (msg.message != WM_QUIT)
@@ -95,11 +67,13 @@ INT WINAPI WinMain(HINSTANCE hInst, HINSTANCE hPrevInst, LPSTR szStr, INT iCmdSh
 		}
 		else
 		{
+			// update
 			g_pApp->Update(g_hWnd, windowSize);
 			g_pApp->RenderSetUp(g_hWnd, windowSize);
 			g_pApp->InputKeyUpdate();
 		}
 	}
+	// delete
 	delete g_pApp;
 	return (INT)msg.wParam;
 }

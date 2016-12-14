@@ -1,6 +1,9 @@
 #pragma once
 #include "DeviceManager.h"
 
+#define DIG_TO_RAD D3DX_PI /180.0f
+#define RAD_TO_DIG 180.0f / D3DX_PI
+
 class Transform
 {
 public:

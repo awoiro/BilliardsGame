@@ -3,10 +3,10 @@
 #include <xact3.h>
 #include "ErrorManager.h"
 
-// サウンドデータ
+// Sound Data
 const char WAVE_BANK[] = "../Sound/win/Wave Bank01.xwb";
 const char SOUND_BANK[] = "../Sound/win/Sound Bank01.xsb";
-// サウンドキュー
+// Sound Que
 const char BGM1[] = "bgm1";
 const char BGM2[] = "bgm2";
 const char BGM3[] = "bgm3";

@@ -34,6 +34,7 @@ public:
 	MeshData* m_pRootMesh = nullptr;
 
 	bool isRender = true;
+	int m_radius = 0;
 protected:
 
 };
@@ -112,7 +113,7 @@ public:
 	}
 	~Ball() {};
 
-	int m_radius;
+	//int m_radius;
 	int m_ballNumber = -1;
 
 private:
@@ -133,7 +134,7 @@ public:
 		m_radius = radius;
 	}
 	~Hole() {};
-	int m_radius;
+	//int m_radius;
 };
 
 class Table : public StaticGameObject

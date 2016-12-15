@@ -4,6 +4,7 @@
 #include "ErrorManager.h"
 #include "MeshData.h"
 
+#if _DEBUG
 #pragma comment (lib,"PhysX3CommonDEBUG_x86.lib" )
 #pragma comment (lib,"PhysX3DEBUG_x86.lib" )
 #pragma comment (lib,"PhysX3CookingDEBUG_x86.lib" )
@@ -13,6 +14,17 @@
 #pragma comment (lib,"PhysXProfileSDKDEBUG.lib" )
 #pragma comment (lib,"PhysXVisualDebuggerSDKDEBUG.lib" )
 #pragma comment (lib,"PxTaskDEBUG.lib" )
+#else
+#pragma comment (lib,"PhysX3Common_x86.lib" )
+#pragma comment (lib,"PhysX3_x86.lib" )
+#pragma comment (lib,"PhysX3Cooking_x86.lib" )
+#pragma comment (lib,"PhysX3CharacterKinematic_x86.lib" )
+#pragma comment (lib,"PhysX3Extensions.lib" )
+#pragma comment (lib,"PhysX3Vehicle.lib" )
+#pragma comment (lib,"PhysXProfileSDK.lib" )
+#pragma comment (lib,"PhysXVisualDebuggerSDK.lib" )
+#pragma comment (lib,"PxTask.lib" )
+#endif
 
 using namespace physx;
 

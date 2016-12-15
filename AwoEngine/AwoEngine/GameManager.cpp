@@ -138,7 +138,7 @@ void GameManager::ShowLoadText(const int x, const int y)
 void GameManager::ShowCommandText(const int x, const int y)
 {
 	TwRenderText(x, y, "COMMAND LIST");
-	TwRenderText(x+10, y+20, "|- Reset command : R");
+	TwRenderText(x+10, y+20, "|- Reset command : ");
 	TwRenderText(x+10, y+40, "|- Shoot command : S");
 	TwRenderText(x+10, y+60, "|- FullScreen toggle : Alt + Enter");
 }

@@ -2,6 +2,7 @@
 
 #include <AntTweakBar.h>
 #include "Shooter.h"
+#pragma comment(lib,"winmm.lib")
 
 #define TABLE_WIDTH 127
 #define TABLE_HEIGHT 254
@@ -71,6 +72,7 @@ public:
 	// render
 	void Render(MeshImporter* pMeshManager);
 
+	void ShowFPSText(const int x, const int y);// +20
 private:
 	// text message
 	void TwRenderText(const int x, const int y, const char* msg);

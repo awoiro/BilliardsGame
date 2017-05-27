@@ -36,21 +36,38 @@ void Application::Init(HWND hWnd, SIZE windowSize)
 
 void Application::Update(HWND hwnd, SIZE windowSize)
 {
-	// input event
-#if false
-	if (m_pInput->GetKeyDown(DIK_R)) // reset
+//	static int frame = 0;
+	static float time = timeGetTime();
+//	frame++;
+	if (timeGetTime() > time+ 1000.0f / 60.0f)
 	{
-		m_pGameManager->Reset();
-	}
-#endif
+//		frame = 0;
+		time = timeGetTime();
 
-	if (m_pInput->GetKeyDown(DIK_S)) // shoot
-	{
-		m_pGameManager->Shoot(m_pAudio);
-	}
+		m_pGameManager->ShowFPSText(50, 10);
 
-	// game manager
-	m_pGameManager->Update(m_pDeviceManager,m_pMeshManager,m_pPhysics, m_pAudio);
+		// input event
+	#if false
+		if (m_pInput->GetKeyDown(DIK_R)) // reset
+		{
+			m_pGameManager->Reset();
+		}
+	#endif
+
+		if (m_pInput->GetKeyDown(DIK_S)) // shoot
+		{
+			m_pGameManager->Shoot(m_pAudio);
+		}
+
+		// game manager
+		m_pGameManager->Update(m_pDeviceManager,m_pMeshManager,m_pPhysics, m_pAudio);
+
+		// PhysX
+		m_pPhysics->StepPhysics();
+
+		// PhysX move
+		m_pGameManager->PhysicsMoveToBall();
+	}
 }
 
 void Application::RenderSetUp(HWND hwnd, SIZE windowSize)
@@ -71,12 +88,13 @@ void Application::RenderSetUp(HWND hwnd, SIZE windowSize)
 	// tw window and text render
 	TwDraw();
 
+	/*
 	// PhysX
 	m_pPhysics->StepPhysics();
 
 	// PhysX move
 	m_pGameManager->PhysicsMoveToBall();
-
+	*/
 	// screen update
 	m_pDeviceManager->UpdateScreen();
 

@@ -210,6 +210,22 @@ void GameManager::ShowCurrentBallStateText(const int x, const int y)
 		}
 	}
 }
+
+void GameManager::ShowFPSText(const int x, const int y)
+{
+	static DWORD time = 0;
+	static int frame = 0;
+	frame++;
+	static char msg[30] = {"FPS : 0"};
+	//sprintf(msg, "FPS : %d,%d,%d", frame,timeGetTime(),time);
+	if (timeGetTime() - time > 1000)
+	{
+		sprintf(msg, "FPS : %d", frame);
+		time = timeGetTime();
+		frame = 0;
+	}
+	TwRenderText(x, y, msg);
+}
 #pragma endregion
 
 
@@ -544,9 +560,10 @@ void GameManager::Render(MeshImporter* pMeshManager)
 		}
 
 		// text render
-		ShowCommandText(10,20);
-		ShowTurnText(10,120);
-		ShowCurrentBallStateText(10,200);
+		ShowFPSText(10, 20);
+		ShowCommandText(10,40);
+		ShowTurnText(10,140);
+		ShowCurrentBallStateText(10,220);
 	}
 	else
 	{

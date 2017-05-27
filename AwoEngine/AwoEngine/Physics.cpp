@@ -2,7 +2,7 @@
 
 void Physics::StepPhysics()
 {
-	m_pScene->simulate(1.0f / 60.0f);
+	m_pScene->simulate(1.0f / 10.0f);
 	m_pScene->fetchResults(true);
 }
 
